@@ -32,6 +32,16 @@ Lista::Lista(){
     tail = nullptr;
 }
 
+//Distruttore
+Lista::~Lista(){
+    while (this->head != nullptr){
+        Nodi *tmp = head;
+        head = head ->getNext();
+        delete tmp;
+    }
+    
+}
+
 //Controllo se la lista è vuota:
 //Se il puntatore alla testa della lista è uguale 
 //a NULLPTR allora significa che è vuota

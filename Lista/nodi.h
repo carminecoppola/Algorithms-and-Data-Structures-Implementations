@@ -10,6 +10,7 @@ class Nodi{
         Nodi *nextnodo; //Puntatore al prossimo nodo
     public:
         Nodi(Impiegato *);
+        Nodi::~Nodi();
 
         void setInfo(Impiegato *);
         void setNext(Nodi *);
@@ -29,6 +30,11 @@ Nodi::Nodi(Impiegato *i){
     nextnodo = nullptr;
 }
 
+Nodi::~Nodi(){
+    delete nextnodo;
+    delete info;
+}
+
 void Nodi::setInfo(Impiegato *i){
 
     info = i;
@@ -38,5 +44,6 @@ void Nodi::setNext(Nodi *nodo){
 
     nextnodo = nodo;
 }
+
 
 #endif //NODI_H
