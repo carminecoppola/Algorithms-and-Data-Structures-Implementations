@@ -7,3 +7,12 @@ un indirizzo FROM, un indirizzo TO ed un valore intero QT.
     2) Dato un indirizzo A, stampare a video/salvare su file tutte le transazioni in 
        cui compare A ed il suo bilancio finale 
 */
+
+#include <iostream>
+
+using namespace std;
+
+int main (){
+
+   return 0;
+}
