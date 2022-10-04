@@ -15,7 +15,10 @@ using namespace std;
 
 int main (){
 
+
+   /*Prova Transazioni
    Transazioni *test = new Transazioni("Lorenzo","Carmine",100.590289);
-   
    test->printTransazione();
+   */
+  
 }

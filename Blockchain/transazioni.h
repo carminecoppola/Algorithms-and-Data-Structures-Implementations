@@ -60,7 +60,4 @@ void Transazioni::printTransazione(){
          << "Transaction Quantity: "<< getQt() << endl << endl;
 }
 
-
-
-
-#endif
+#endif //TRANSAZIONI_H
