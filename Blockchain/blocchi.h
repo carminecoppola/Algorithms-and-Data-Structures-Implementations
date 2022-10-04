@@ -13,6 +13,16 @@ class Blocchi{
     public:
         Blocchi(string ,Transazioni *);
         //~Blocchi();
+        void setId();
+        void setListaBlocchi();
+        string getId(){
+            return id;
+        }
+        Transazioni getListaBlocchi(){
+            return *listaBlocchi;
+        }
+        //void *listaBlocchi();
+
 };
 
 Blocchi::Blocchi(string i,Transazioni *lb){
