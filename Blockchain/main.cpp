@@ -9,10 +9,13 @@ un indirizzo FROM, un indirizzo TO ed un valore intero QT.
 */
 
 #include <iostream>
+#include "transazioni.h"
 
 using namespace std;
 
 int main (){
 
-   return 0;
+   Transazioni *test = new Transazioni("Lorenzo","Carmine",100.590289);
+   
+   test->printTransazione();
 }

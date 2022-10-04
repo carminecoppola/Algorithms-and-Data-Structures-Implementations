@@ -54,10 +54,10 @@ void Transazioni::setQt(float quant){
 }
 
 void Transazioni::printTransazione(){
-    cout << endl << "Transazione" << endl<< endl;
-    cout << endl << "From:" << getFrom()<< endl << endl 
-         << "To:"<< getTo() << endl << endl 
-         << "Qt:"<< getQt() << endl << endl;
+    cout << endl << "This is the frist transaction:" << endl;
+    cout << endl << "Transaction From: " << getFrom()<< endl 
+         << "Transaction To: "<< getTo() << endl
+         << "Transaction Quantity: "<< getQt() << endl << endl;
 }
 
 
