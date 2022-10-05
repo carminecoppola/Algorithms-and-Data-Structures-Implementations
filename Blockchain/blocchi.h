@@ -11,16 +11,33 @@ using namespace std;
 
 class Blocchi{
     private:
+        int id;
         linkedList<Transazioni> *lista;
     public:
-        Blocchi(linkedList<Transazioni> *);
+        Blocchi(int ,linkedList<Transazioni> *);
         //~Blocchi();
+        void setID(int );
+        void setLista(linkedList<Transazioni> *);
+        int getID(){
+            return id;
+        }
+        linkedList<Transazioni>* getLista(){
+            return lista;
+        }
+
 
 
 };
 
-Blocchi::Blocchi(linkedList<Transazioni> *l){
-    lista = l;
+Blocchi::Blocchi(int i, linkedList<Transazioni> *l){
+}
+
+void Blocchi::setID(int i){
+     id = i;
+}
+
+void Blocchi::setLista(linkedList<Transazioni> *lst){
+    lista = lst;
 }
 
 //Blocchi::~Blocchi(){}
