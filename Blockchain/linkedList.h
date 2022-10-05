@@ -14,13 +14,12 @@ class linkedList{
         linkedList();
         ~linkedList();
 
-        Nodo *getTesta(){
+        Nodo<T> *getTesta(){
             return testa;
         }
-        Nodo *getCoda(){
+        Nodo<T> *getCoda(){
             return coda;
         }
-        void printLista();  //Stampa della lista
         void insertList(T *); //Inserimento in Lista
 
         bool empty();       //Controllo se la lista è vuota
@@ -36,7 +35,7 @@ template <class T> linkedList <T>::linkedList(){
 template <class T> linkedList <T>::~linkedList(){
 
     while (this->testa != nullptr){
-            Nodo *tmp = testa;
+            Nodo<T> *tmp = testa;
             testa = testa ->getNext();
             delete tmp;
         }

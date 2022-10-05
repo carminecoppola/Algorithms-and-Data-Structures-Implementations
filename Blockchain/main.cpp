@@ -10,15 +10,22 @@ un indirizzo FROM, un indirizzo TO ed un valore intero QT.
 
 #include <iostream>
 #include "transazioni.h"
+#include "linkedList.h"
+#include "nodo.h"
+#include "blocchi.h"
 
 using namespace std;
 
 int main (){
 
-
-   /*Prova Transazioni
-   Transazioni *test = new Transazioni("Lorenzo","Carmine",100.590289);
-   test->printTransazione();
+   /*Blocchi *test = new Blocchi(11);   
+   test->getLista()->insertList(new Transazioni("ciao","amore",300));
+   test->printList("ciao");
    */
+
+  linkedList<Blocchi> blockchain; 
+
   
+
+  return 0;
 }
