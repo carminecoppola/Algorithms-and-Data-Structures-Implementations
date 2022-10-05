@@ -3,35 +3,26 @@
 #define BLOCCHI_H
 #include <iostream>
 #include <string>
+#include "linkedList.h"
 #include "transazioni.h"
 
+using namespace std;
+//template <class T>
 
 class Blocchi{
     private:
-        string id;
-        Transazioni *listaBlocchi;
+        linkedList<Transazioni> *lista;
     public:
-        Blocchi(string ,Transazioni *);
+        Blocchi(linkedList<Transazioni> *);
         //~Blocchi();
-        void setId();
-        void setListaBlocchi();
-        string getId(){
-            return id;
-        }
-        Transazioni getListaBlocchi(){
-            return *listaBlocchi;
-        }
-        //void *listaBlocchi();
+
 
 };
 
-Blocchi::Blocchi(string i,Transazioni *lb){
-    id = i;
-    listaBlocchi = lb;
+Blocchi::Blocchi(linkedList<Transazioni> *l){
+    lista = l;
 }
 
 //Blocchi::~Blocchi(){}
-
-
 
 #endif //BLOCCHI_H
