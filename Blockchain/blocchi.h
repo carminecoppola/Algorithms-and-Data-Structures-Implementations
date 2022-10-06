@@ -52,7 +52,7 @@ void Blocchi::insertList(int ntrans){
         string to;
         float qt;
 
-        Transazioni *test = new Transazioni(from,to,qt);
+        
         for (int i = 1; i <= ntrans; i++)
         {
             cout<<"----------------------------------------------------------"<<endl;
@@ -65,6 +65,7 @@ void Blocchi::insertList(int ntrans){
             cin>>qt;
             cout<<"----------------------------------------------------------"<<endl;
 
+            Transazioni *test = new Transazioni(from,to,qt);
             lista->insertList(test);
         }
         
@@ -78,19 +79,15 @@ int Blocchi::printList(string ind){
     while (stampa != nullptr){
         if (ind == stampa->getInfo()->getFrom()){
 
-            cout<<"From"<<stampa->getInfo()->getFrom()<<endl<<"To"<<stampa->getInfo()->getTo()<<endl
-            <<"QT"<<stampa->getInfo()->getQt()<<endl;
+            stampa->getInfo()->printTransazione();
             bilancio -= stampa->getInfo()->getQt(); //Toglie la quantità
         }
         else if(ind == stampa->getInfo()->getTo()){
 
-            cout<<"From"<<stampa->getInfo()->getFrom()<<endl<<"To"<<stampa->getInfo()->getTo()<<endl
-            <<"QT"<<stampa->getInfo()->getQt()<<endl;
+            stampa->getInfo()->printTransazione();
             bilancio += stampa->getInfo()->getQt();  //Aggiunge la quantità
         }
-        
         stampa = stampa->getNext();
-    
     }
     
     return bilancio;
