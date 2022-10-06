@@ -23,9 +23,34 @@ int main (){
    test->printList("ciao");
    */
 
-  linkedList<Blocchi> blockchain; 
+  linkedList<Blocchi> *blockchain = new linkedList<Blocchi>();
 
-  
+   Blocchi *trans1 = new Blocchi(1);
+   Blocchi *trans2 = new Blocchi(2);
+   trans1->insertList(2);
+   trans2->insertList(3);
+
+   string indirizzo;
+   int saldo = 0;
+
+   blockchain->insertList(trans1);
+   blockchain->insertList(trans2);
+
+   Nodo<Blocchi> *prova = blockchain->getTesta();
+   
+   cout<<"Inserisci il tuo indirizzo: "<<endl;
+   cin>>indirizzo;
+
+   while (prova != nullptr)
+   {
+      cout<<"Blocco: "<<prova->getInfo()->getID()<<endl;
+      prova->getInfo()->printList(indirizzo);
+      saldo += prova->getInfo()->printList(indirizzo);
+      prova = prova->getNext();
+      cout<<"Bilancio per questo blocco: "<<saldo<<endl;
+      
+   }
+
 
   return 0;
 }

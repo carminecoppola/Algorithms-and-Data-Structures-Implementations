@@ -25,9 +25,8 @@ class Blocchi{
             return lista;
         }
 
-        void insertList();
+        void insertList(int );
         int printList(string );
-        void somma();
 
 };
 
@@ -46,22 +45,29 @@ void Blocchi::setLista(linkedList<Transazioni> *lst){
     lista = lst;
 }
 
-void Blocchi::insertList(){
+void Blocchi::insertList(int ntrans){
 
+        
         string from;
         string to;
         float qt;
 
         Transazioni *test = new Transazioni(from,to,qt);
+        for (int i = 1; i <= ntrans; i++)
+        {
+            cout<<"----------------------------------------------------------"<<endl;
+            cout<<"Inserisci la transazione n. "<< i << "per il blocco n." << getID() << endl;
+            cout<<"Inserire il mittente:"<<endl;
+            cin>>from;
+            cout<<"Inserire il destinatario:"<<endl;
+            cin>>to;
+            cout<<"Inserire la quantità:"<<endl;
+            cin>>qt;
+            cout<<"----------------------------------------------------------"<<endl;
 
-        cout<<"Inserire il mittente:"<<endl;
-        cin>>from;
-        cout<<"Inserire il destinatario:"<<endl;
-        cin>>to;
-        cout<<"Inserire la quantità:"<<endl;
-        cin>>qt;
-
-        lista->insertList(test);
+            lista->insertList(test);
+        }
+        
 }
 
 int Blocchi::printList(string ind){
@@ -72,12 +78,14 @@ int Blocchi::printList(string ind){
     while (stampa != nullptr){
         if (ind == stampa->getInfo()->getFrom()){
 
-            stampa->getInfo()->printTransazione();
+            cout<<"From"<<stampa->getInfo()->getFrom()<<endl<<"To"<<stampa->getInfo()->getTo()<<endl
+            <<"QT"<<stampa->getInfo()->getQt()<<endl;
             bilancio -= stampa->getInfo()->getQt(); //Toglie la quantità
         }
         else if(ind == stampa->getInfo()->getTo()){
 
-            stampa->getInfo()->printTransazione();
+            cout<<"From"<<stampa->getInfo()->getFrom()<<endl<<"To"<<stampa->getInfo()->getTo()<<endl
+            <<"QT"<<stampa->getInfo()->getQt()<<endl;
             bilancio += stampa->getInfo()->getQt();  //Aggiunge la quantità
         }
         
