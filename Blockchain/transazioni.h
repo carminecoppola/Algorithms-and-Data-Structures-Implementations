@@ -39,6 +39,7 @@ Transazioni::Transazioni(string f,string t,float q){
     qt = q;
 }
 
+//Distruttore
 //Transazioni::~Transazioni(){}
 
 void Transazioni::setFrom(string fr){
@@ -55,9 +56,9 @@ void Transazioni::setQt(float quant){
 
 void Transazioni::printTransazione(){
     cout << endl << "This is the frist transaction:" << endl;
-    cout << endl << "Transaction From: " << getFrom()<< endl 
-         << "Transaction To: "<< getTo() << endl
-         << "Transaction Quantity: "<< getQt() << endl << endl;
+    cout << endl << "Transaction From: " << from<< endl 
+         << "Transaction To: "<< to << endl
+         << "Transaction Quantity: "<< qt << endl << endl;
 }
 
 #endif //TRANSAZIONI_H
