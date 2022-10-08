@@ -9,6 +9,7 @@ class Verificatore{
     private:
         std::ifstream myFile;
         std::vector<int> matrix;
+
         void getMatrix(){
             int value;
             for(auto i = 0;i<15;i++){
@@ -17,14 +18,17 @@ class Verificatore{
             }
         };
     public:
+        //Costruttore
         Verificatore(std::string nomeFile){
             myFile.open(nomeFile);
             this->getMatrix();
         };
+        //Distruttore
         ~Verificatore(){
             this->matrix.clear();
             myFile.close();
         };
+        //Controllo dei numeri presenti
         bool check(){
             std::vector<int>::iterator it;
             auto i = 1;
@@ -42,8 +46,4 @@ class Verificatore{
         }
 };
 
-
-
-//Verificatore::~Verificatore(){}
-
-#endif
+#endif //VERIFICATORE_H
