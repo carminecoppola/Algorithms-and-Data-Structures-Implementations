@@ -37,18 +37,10 @@ int ricerca_coppia(int arr[],int start ,int end){
         if (arr[start]< arr[end]){
             return start;
         }
+        else
+            return -1;
     }
-    else
-        return -1;
-        
-    else if (end<=start){
-        return -1;
-    }
-    
-    else if (<arr[mediano])
-    {
-        /* code */
-    }
+
     
     
 
