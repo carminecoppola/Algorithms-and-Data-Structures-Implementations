@@ -29,10 +29,11 @@ int ricerca_coppia(int arr[],int start ,int end){
     int mediano;
     int ind;
 
-    //1)Il caso base è quando siamo arrivati ad avere
-    //soltanto due elementi dell'array oppure quando
-    //la coppia da cercare è uguale al mediano <
-    //dell'elemento successivo al mediano (A[i]<A[i+1])
+    /*  
+        Il caso base si ha quando abbiamo solo due numeri 
+        e che rispettano la condizione A[i]<A[i+1]
+        Altrimenti ritornerà -1
+     */
 
     if ( end+1-start == 1){
         if (arr[start]< arr[end]){
@@ -42,6 +43,18 @@ int ricerca_coppia(int arr[],int start ,int end){
             return -1;
     }
 
+    /*
+        Nel caso in cui non ci troviamo nel caso base allora
+        dovremmo operare ricorsivamente.
+         1)Troviamo il mediano;
+         2)Il primo controllo da fare è se il mediano è < del 
+           suo successivo (mediano+1);
+         3)Qualora questa condizione non fosse verificata allora
+           bisogna esaminare la porzione di SX;
+         4)Se non è presente a SX per forza dovremmo trovarla nella
+           porzione di DX;
+         5)Ovviamente ritorniamo sempre l'indice della posizione minore;
+    */
     else{
         mediano=(start+end)/2;
 
@@ -54,8 +67,7 @@ int ricerca_coppia(int arr[],int start ,int end){
                     return ricerca_coppia(arr,mediano+1,end);
             }
             else
-                return ind;
-            
+                return ind;   
         }
     }
 }
