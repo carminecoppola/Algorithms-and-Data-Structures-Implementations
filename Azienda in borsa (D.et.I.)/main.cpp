@@ -12,7 +12,7 @@
 #include <vector>
 
 using namespace std;
-int ricerca_coppia(int[] ,int ,int ,int );
+int ricerca_coppia(int[],int ,int );
 
 int main(int argc, char const *argv[])
 {
@@ -24,20 +24,20 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-int ricerca_coppia(int arr[],int element,int start ,int end){
+int ricerca_coppia(int arr[],int start ,int end){
 
     int mediano=(start+end)/2;
 
     //1)Caso base in cui la coppia da cercare è uguale all'elemento  
     //mediano < dell'elemento successivo al mediano (A[i]<A[i+1])
-    if (arr[mediano] = element && arr[mediano]< arr[mediano+1])
+    if ( end-start == 1 && arr[mediano]< arr[mediano+1])
         cout << "Ritorno la coppia: "<<arr[mediano]<<arr[mediano+1]<<endl;
     
     else if (end<=start){
         return -1;
     }
     
-    else if (element<arr[mediano])
+    else if (<arr[mediano])
     {
         /* code */
     }
