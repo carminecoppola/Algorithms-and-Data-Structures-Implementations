@@ -5,7 +5,7 @@
         A[i]<A[i+1].
         Progettare ed implementare un algoritmo divide-et-impera che
         trovi un indice i che verifichi la condizione data
-                        |20|15|13|12|21|  --> la coppia da restituire è |12|21|
+                    |20|15|13|12|21|  --> la coppia da restituire è |12|21|
 */
 
 #include <iostream>
@@ -16,12 +16,11 @@ int ricerca_coppia(int[],int ,int );
 
 int main(int argc, char const *argv[])
 {
-    int a[]={10,7,6,22,17,14,11,9,4,3};
+    int a[]={20,15,13,12,21};
 
-    int ind = ricerca_coppia(a,0,9);
-    cout<<"L'indice è: "<< ind<<endl<<endl;
-    cout<<"La coppia è: "<< a[ind] << a[ind+1] <<endl;
-
+    int ind = ricerca_coppia(a,0,4);
+    cout<<"L'indice è: "<< ind<<endl;
+    cout<<"La coppia è: "<< a[ind] <<" "<< a[ind+1] <<endl<<endl;
 
     return 0;
 }
@@ -36,7 +35,7 @@ int ricerca_coppia(int arr[],int start ,int end){
     //la coppia da cercare è uguale al mediano <
     //dell'elemento successivo al mediano (A[i]<A[i+1])
 
-    if ( end-start == 1){
+    if ( end+1-start == 1){
         if (arr[start]< arr[end]){
             return start;
         }
