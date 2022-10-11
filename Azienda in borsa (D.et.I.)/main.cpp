@@ -28,11 +28,19 @@ int ricerca_coppia(int arr[],int start ,int end){
 
     int mediano=(start+end)/2;
 
-    //1)Caso base in cui la coppia da cercare è uguale all'elemento  
-    //mediano < dell'elemento successivo al mediano (A[i]<A[i+1])
-    if ( end-start == 1 && arr[mediano]< arr[mediano+1])
-        cout << "Ritorno la coppia: "<<arr[mediano]<<arr[mediano+1]<<endl;
-    
+    //1)Il caso base è quando siamo arrivati ad avere
+    //soltanto due elementi dell'array oppure quando
+    //la coppia da cercare è uguale al mediano <
+    //dell'elemento successivo al mediano (A[i]<A[i+1])
+
+    if ( end-start == 1){
+        if (arr[start]< arr[end]){
+            return start;
+        }
+    }
+    else
+        return -1;
+        
     else if (end<=start){
         return -1;
     }
