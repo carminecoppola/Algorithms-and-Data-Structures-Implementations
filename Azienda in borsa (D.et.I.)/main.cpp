@@ -26,7 +26,8 @@ int main(int argc, char const *argv[])
 
 int ricerca_coppia(int arr[],int start ,int end){
 
-    int mediano=(start+end)/2;
+    int mediano;
+    int ind;
 
     //1)Il caso base è quando siamo arrivati ad avere
     //soltanto due elementi dell'array oppure quando
@@ -40,7 +41,25 @@ int ricerca_coppia(int arr[],int start ,int end){
         else
             return -1;
     }
+    else{
+        mediano=(start+end)/2;
 
+        if (arr[mediano] < arr[mediano+1]){
+            return mediano;
+        }
+        else{
+            ind = ricerca_coppia(arr,start,mediano);
+            if (ind == -1){
+                return ricerca_coppia(arr,mediano+1,end);
+            }
+            else
+                return ind;
+            
+        }
+        
+        
+    
+    }
     
     
 
