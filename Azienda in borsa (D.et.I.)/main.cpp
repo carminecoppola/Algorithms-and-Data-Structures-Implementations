@@ -9,7 +9,6 @@
 */
 
 #include <iostream>
-#include <vector>
 
 using namespace std;
 int ricerca_coppia(int[],int ,int );
