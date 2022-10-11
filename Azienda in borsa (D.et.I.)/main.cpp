@@ -18,8 +18,12 @@ int main(int argc, char const *argv[])
 {
     int a[]={10,7,6,22,17,14,11,9,4,3};
 
-    cout<<"la coppia è: "<< ricerca_coppia(a,0,9)<<endl<<endl;
-    
+    cout<<"L'indice è: "<< ricerca_coppia(a,0,9)<<endl<<endl;
+    int ind;
+    ind=ricerca_coppia(a,0,9);
+    cout<<"La coppia è: "<< a[ind] << a[ind+1] <<endl;
+
+
     return 0;
 }
 
