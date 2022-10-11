@@ -17,10 +17,9 @@ int ricerca_coppia(int[],int ,int );
 int main(int argc, char const *argv[])
 {
     int a[]={10,7,6,22,17,14,11,9,4,3};
+
+    cout<<"la coppia è: "<< ricerca_coppia(a,0,9)<<endl<<endl;
     
-
-
-
     return 0;
 }
 
@@ -41,6 +40,7 @@ int ricerca_coppia(int arr[],int start ,int end){
         else
             return -1;
     }
+
     else{
         mediano=(start+end)/2;
 
@@ -49,19 +49,12 @@ int ricerca_coppia(int arr[],int start ,int end){
         }
         else{
             ind = ricerca_coppia(arr,start,mediano);
-            if (ind == -1){
-                return ricerca_coppia(arr,mediano+1,end);
+                if (ind == -1){
+                    return ricerca_coppia(arr,mediano+1,end);
             }
             else
                 return ind;
             
         }
-        
-        
-    
     }
-    
-    
-
-
 }
