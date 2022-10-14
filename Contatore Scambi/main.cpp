@@ -7,7 +7,7 @@
                     [1,3,7,9]
 */
 
-//Marge a due vie
+//Marge
 
 #include <iostream>
 
