@@ -12,42 +12,65 @@
 #include <iostream>
 
 using namespace std;
+typedef int Item;
+int contatore = 0;
 
-//Prende in input l'array con e l'indice di SX e DX
-void mergesort(int [], int ,int );
-//Prende in input i due sottoarray, l'array temporaneo, e i loro size
-void merge(int [],int [],int ,int [],int );
+
+void merge(Item a[],int left,int center, int right){
+
+    const int n=4;
+    static Item aux[n];
+
+    int i,j;
+
+    for (i = center+1; i > left; i--){
+        aux[i-1] = a[i-1];
+    }
+
+    for (j = center; j < right; j++){
+        aux[right+center-j] = a[j+1];
+    }    
+
+    for (int k = left; k <= right; k++){
+        if (aux[j] < aux [i]){
+            a[k] = aux [j--];
+            contatore += center+1-left;
+        }
+        else
+            a[k] = aux[i++];
+        
+    }
+}
+
+void mergesort(Item a[],int left,int right){
+
+    if (left < right){
+        
+        int center = (left+right)/2;
+        mergesort(a,left,center);
+        mergesort(a,center+1,right);
+        merge(a,left,center,right);
+    }
+    
+}
 
 int main(){
 
-    return 0;
-}
+    const int n = 4;
+    int a[n] = {9,7,3,1};
 
+    for (int i = 0; i < n; i++){
+        cout<<"["<< a[i] <<"]";
+    }
+    cout<<endl;
+    mergesort(a,0,n-1);
+    
+    for (int i = 0; i < n; i++){
 
-void merge(int c[],int a[],int N,int b[],int M){
-
-    //Finche il non abbiamo raggiunto il size dei due sotto array
-    //prendiamo tutti gli elementi di A e di B
-
-    for (int i = 0, j = 0, k = 0; k < N+M; k++){
-
-        //Se ho preso gia tutti gli elementi di A prendo tutti 
-        //i rimaneti di B che sono gia ordinati
-        if (i == N){
-            c[k] = b[j++];
-
-        }
-        
-        //Se ho preso gia tutti gli elementi di B prendo tutti 
-        //i rimaneti di A che sono gia ordinati
-        else if (j == M){
-            c[k] = a[i++];
-        }
-        
-        //c[k] = (a[i]< b[j])
-
-            
+        cout<<"["<< a[i] <<"]";
     }
     
-
+    cout<<endl;
+    cout<<"Il numero di scambi è: "<< contatore <<endl;
+    return 0;
 }
