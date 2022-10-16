@@ -3,19 +3,28 @@
 */
 #include <iostream>
 #include <vector>
+#include"Algoritmo.h"
 
 using namespace std;
 template <typename Item>
-void mergesort(vector<Item> array,...)
 
 int main(){
 
-    /*vector<int> a = {7,9,3,1};
-    vector<int>::iterator it;
+    vector<int> a = {7,9,3,1};
+    vector<int>::iterator i;
+   
 
-    for (it=a.begin(); it!=a.end();it++){
-        cout<<"["<< *it <<"]";
-    }*/
+    for (i = 0; i < a.end(); i++){
+        cout<<"["<<a.at(*i)<<"]";
+    }
+    cout<<endl;
+    
+    Algoritmo<int>::mergesort(a,a.begin(),a.end());
+
+    for (i = 0; i < a.end(); i++){
+        cout<<"["<<a.at(*i)<<"]";
+    }
+
 
     return 0;
 }

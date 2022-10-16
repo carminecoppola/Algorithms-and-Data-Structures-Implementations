@@ -23,21 +23,25 @@ void merge(Item a[],int left,int center, int right){
 
     int i,j;
 
+    //Se i è uguale al primo elemento dopo l'elememto centrale fino al primo elemento dell'array
     for (i = center+1; i > left; i--){
         aux[i-1] = a[i-1];
     }
 
+    //Se j è uguale all'elemento centrale fino a j minore dell'ultimo elemento di destra
     for (j = center; j < right; j++){
-        aux[right+center-j] = a[j+1];
+        aux[right+center-j] = a[j+1];    //right+center-j (dove j= center), quindi aux[right]
     }    
 
+    //Ordina l'array
     for (int k = left; k <= right; k++){
         if (aux[j] < aux [i]){
-            a[k] = aux [j--];
-            contatore += center+1-left;
+            a[k] = aux [j--];   //j deve decrementare se l'elemento puntato da i è più grande del suo
+            contatore += center+1-left;     //incrementiamo il contatore di scambi
         }
         else
-            a[k] = aux[i++];
+            a[k] = aux[i++];    //altrimenti incrementa i poichè l'elemento minore è il suo e quindi
+                               //punta all'elemetno successivo;
         
     }
 }
