@@ -7,20 +7,24 @@ using namespace std;
 
 int main(){
 
-    vector<int> aux={6,5,4,1,2,3};
+    vector<int> aux={4,5,6,1,2,3};
     typename vector<int>::iterator it;
     typename vector<int>::iterator jt;
     typename vector<int>::iterator kt;
+    typename vector<int>::iterator low;
+    typename vector<int>::iterator high; 
     
-    auto centro = (int)(aux.size()/2)-1;    //-1 perchè approssimiamo per difetto
-    auto mediano = aux.begin();
-    advance(mediano,aux.size()/2);  //Consente di spostare l'indice della posizione che si vuole
-    vector<int> a(aux.size());
+    low = aux.begin();
+    high = aux.end();
 
-    cout << "Indici di partenza"<<endl;
-    cout << "Cen: "<< centro << endl;           //Dovrebbe puntare all'elemento centrale (4)
-    cout << "Med: "<< *mediano <<endl<<endl;    
-    
+    int size = high-low;
+
+    auto centro = (int)(size/2)-1;    //-1 perchè approssimiamo per difetto
+    auto mediano = low;
+
+    advance(mediano,size/2);  //Consente di spostare l'indice della posizione che si vuole
+    vector<int> a(size);    
+
     //Mi stampo l'array iniziale
     for(auto& i : aux){
         cout << i << " ";
@@ -28,37 +32,51 @@ int main(){
     cout<<endl<<endl;
 
     //Parte di SX
-    for (it = mediano-1; it != aux.begin()-1; it++){
-        cout<<"It: "<<*it<<endl;
-        cout<<"Cent: "<<centro<<endl;
+    for (it = mediano-1; it != aux.begin()-1; it--){
+
         a.at(centro) = *it;
         centro--;
-        //cout<<"It: "<<*it<<endl;
-        //cout<<"Med: "<<*mediano<<endl;
-        //cout<<"Cent: "<<centro<<endl;
+        //Stampo array iniziale
+        cout<<"Array iniziale:"<<endl;
+        for(auto& i : aux){
+            cout << i << " ";
+        }
+        cout<<endl<<endl;
+        //Stampo array d'appoggio
+        cout<<"Stampo l'array d'appoggio: "<<endl;
+        for(auto& i : a){
+            cout << i << " ";
+        }
+        cout<<endl<<endl;
     }
     
-
-    cout<<"Indici dopo parte Sx"<<endl;
-    cout<<"Cen: "<< centro << endl;
-    cout<<"Mid: "<< *mediano <<endl<<endl;
     cout<<"Array nuovo:"<<endl;
     for(auto& i : a){
         cout << i << " ";
     }
     cout<<endl<<endl;
 
+    centro=size;
     //Parte di DX
     for (jt = mediano; jt != aux.end(); jt++)
-    {
+    {   
         a.at(centro-1) = *jt;
         centro--;
-    }
 
-    cout<<"Indici dopo parte Dx"<<endl;
-    cout<<"Cen: "<< centro << endl;
-    cout<<"Mid: "<< *mediano <<endl<<endl;
+        cout<<"Array iniziale:"<<endl;
+        for(auto& i : aux){
+            cout<< i <<" ";
+        }
+        cout<<endl;
+
+        cout<<"Array temporaneo:"<<endl;
+        for(auto& i : a){
+            cout<< i <<" ";
+        }
+        cout<<endl;
+    }
     
+    cout<<"Array Temporaneo prima del for:"<<endl;
     for(auto& i : a){
         cout<< i <<" ";
     }
@@ -69,8 +87,7 @@ int main(){
     jt = a.end()-1;
 
     //Riordino l'array finale
-    for (kt = a.begin(); kt < a.end(); kt++){
-
+    for (kt = aux.begin(); kt != aux.end(); kt++){
         if (*jt<*it){
             *kt = *jt;
             jt--;
@@ -79,6 +96,13 @@ int main(){
             *kt=*it;
             it++;
         }
+    
     }
     
+    cout<<"Array iniziale:"<<endl;
+        for(auto& j : aux){
+            cout<< j <<" ";
+        }
+        cout<<endl;
+
 }
