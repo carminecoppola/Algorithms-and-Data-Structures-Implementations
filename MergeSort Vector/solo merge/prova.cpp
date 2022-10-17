@@ -12,7 +12,7 @@ int main(){
     typename vector<int>::iterator jt;
     typename vector<int>::iterator kt;
     typename vector<int>::iterator low;
-    typename vector<int>::iterator high; 
+    typename vector<int>::iterator high;
     
     low = aux.begin();
     high = aux.end();

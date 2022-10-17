@@ -6,24 +6,25 @@
 #include"Algoritmo.h"
 
 using namespace std;
-template <typename Item>
 
 int main(){
 
     vector<int> a = {7,9,3,1};
-    vector<int>::iterator i;
+    //vector<int>::iterator i;
    
 
-    for (i = 0; i < a.end(); i++){
-        cout<<"["<<a.at(*i)<<"]";
-    }
-    cout<<endl;
+   for (auto &i:a)
+   {
+    cout<<i<<" ";
+   }
+   cout<<endl;
     
-    Algoritmo<int>::mergesort(a,a.begin(),a.end());
+    Algoritmo<int>::mergesort(a.begin(),a.end());
 
-    for (i = 0; i < a.end(); i++){
-        cout<<"["<<a.at(*i)<<"]";
-    }
+    for (auto &i:a)
+   {
+    cout<<i<<" ";
+   }
 
 
     return 0;
