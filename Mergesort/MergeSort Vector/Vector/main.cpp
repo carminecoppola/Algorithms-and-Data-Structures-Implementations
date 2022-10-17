@@ -10,21 +10,20 @@ using namespace std;
 int main(){
 
     vector<int> a = {7,9,3,1};
-    //vector<int>::iterator i;
    
-
-   for (auto &i:a)
-   {
-    cout<<i<<" ";
-   }
-   cout<<endl;
+   cout<<"Array iniziale:"<<endl;
+    for (auto &i:a){
+        cout<<i<<" ";
+    }
+    cout<<endl;
     
+    //Chiamata alla funzione mergesort
     Algoritmo<int>::mergesort(a.begin(),a.end());
 
-    for (auto &i:a)
-   {
-    cout<<i<<" ";
-   }
+    cout<<"Array ordinato dopo mergesort:"<<endl;
+    for (auto &i:a){
+        cout<<i<<" ";
+    }
 
 
     return 0;
