@@ -43,10 +43,9 @@ void quicksort::partition(int *a,int s, int f, int *puntatore){
                 swap(&a[k],&a[i]);
                 i++;
             }
-            k++;
         }
         
-        
+        k++;   
     }
     
     
