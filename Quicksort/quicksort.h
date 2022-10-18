@@ -5,14 +5,14 @@ using namespace std;
 
 class quicksort{
     private:
-        void static partition(int *,int ,int ,int* );
+        int static partition(int *,int ,int ,int* );
         void static swap(int * , int *);
     public:
        void static quick();
 
 };
 
-void quicksort::partition(int *a,int s, int f, int *puntatore){
+int quicksort::partition(int *a,int s, int f, int *puntatore){
 
      if (a[s]< a[f]){
         swap(&a[s], &a[f]);
@@ -43,12 +43,18 @@ void quicksort::partition(int *a,int s, int f, int *puntatore){
                 swap(&a[k],&a[i]);
                 i++;
             }
-        }
-        
+        }    
         k++;   
     }
+    i--;
+    j++;
+
+    swap(&a[i],&a[s]);
+    swap(&a[j],&a[f]);
     
-    
+    *puntatore = j;
+    return i;
+
 }
 
 void quicksort::swap(int *a, int *b){
