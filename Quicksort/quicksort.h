@@ -19,9 +19,9 @@ void quicksort::partition(){
 
 void quicksort::swap(int *a, int *b){
 
-    int *t = a;
-    a = b;
-    b = t;
+    int t = *a;
+    *a = *b;
+    *b = t;
 
 }
 
