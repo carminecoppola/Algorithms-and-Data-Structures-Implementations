@@ -69,11 +69,12 @@ void quicksort::quick(int *a, int l,int r){
 
     if (r <= l)
         return ;
+
     int j;
     int i = partition(a,l,r,&j);
-    quicksort(a,l,i-1);
-    quicksort(a,i+1,&j);
-    quicksort(a,j+1,r);
+    quick(a,l,i-1);
+    quick(a,i+1,j);
+    quick(a,j+1,r);
 }
 
 #endif
