@@ -14,14 +14,19 @@ class quicksort{
 
 void quicksort::partition(int *a,int s, int f, int *puntatore){
 
-    int p1,p2;
-    p1 = a[s];
-    p2 = a[f];
 
-    int i,j,k;
-    i = s + 1;
-    j = f - 1;
-    k = s + 1;
+    if (a[s]> a[f]){
+        
+        int p1,p2;
+        p1 = a[s];
+        p2 = a[f];
+
+        int i,j,k;
+        i = s + 1;
+        j = f - 1;
+        k = s + 1;
+    }
+    
 }
 
 void quicksort::swap(int *a, int *b){
