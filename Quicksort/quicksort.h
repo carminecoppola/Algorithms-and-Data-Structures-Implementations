@@ -32,7 +32,7 @@ void quicksort::partition(int *a,int s, int f, int *puntatore){
             swap(&a[k],&a[i]);
             i++;
         }
-        else if (a[k] > p2){
+        else if (a[k] >= p2){
             while (a[j] > p2 && k < j){
                 j--;
             }
@@ -40,9 +40,10 @@ void quicksort::partition(int *a,int s, int f, int *puntatore){
             j--;
 
             if (k < p1){
-                /* code */
+                swap(&a[k],&a[i]);
+                i++;
             }
-            
+            k++;
         }
         
         
