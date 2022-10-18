@@ -12,9 +12,26 @@
 */
 
 #include <iostream>
+#include"quicksort.h"
 using namespace std;
 
 int main (){
+
+    int a[7] = {1,4,5,23,78,3,7};
+
+    cout<<"Array iniziale:"<<endl;
+    for (int i = 0; i < 6; i++){
+        cout<<i<<" ";
+    }
+
+    quicksort::quick(a,0,6);
+
+    cout<<"Array finale:"<<endl;
+    for (int i = 0; i < 6; i++){
+        cout<<i<<" ";
+    }
+    
+
 
     return 0;
 }
