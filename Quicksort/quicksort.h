@@ -18,10 +18,10 @@ void quicksort::partition(int *a,int s, int f, int *puntatore){
     p1 = a[s];
     p2 = a[f];
 
-    int i,j;
-    i=
-
-
+    int i,j,k;
+    i = s + 1;
+    j = f - 1;
+    k = s + 1;
 }
 
 void quicksort::swap(int *a, int *b){
