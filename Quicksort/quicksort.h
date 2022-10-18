@@ -8,7 +8,7 @@ class quicksort{
         int static partition(int *,int ,int ,int* );
         void static swap(int * , int *);
     public:
-       void static quick();
+       void static quick(int *a, int l,int r);
 
 };
 
@@ -65,9 +65,15 @@ void quicksort::swap(int *a, int *b){
 
 }
 
-void quicksort::quick(){
+void quicksort::quick(int *a, int l,int r){
 
-
+    if (r <= l)
+        return ;
+    int j;
+    int i = partition(a,l,r,&j);
+    quicksort(a,l,i-1);
+    quicksort(a,i+1,&j);
+    quicksort(a,j+1,r);
 }
 
 #endif
