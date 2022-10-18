@@ -5,14 +5,15 @@ using namespace std;
 
 class quicksort{
     private:
-        void static partition();
+        void static partition(int *[],int , int* );
         void static swap(int * , int *);
     public:
        void static quick();
 
 };
 
-void quicksort::partition(){
+void quicksort::partition(int *a[],int i, int* f){
+
 
 
 }
