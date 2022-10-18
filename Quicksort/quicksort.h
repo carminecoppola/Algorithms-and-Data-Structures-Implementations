@@ -12,8 +12,14 @@ class quicksort{
 
 };
 
-void quicksort::partition(int *a,int i, int f, int *puntatore){
+void quicksort::partition(int *a,int s, int f, int *puntatore){
 
+    int p1,p2;
+    p1 = a[s];
+    p2 = a[f];
+
+    int i,j;
+    i=
 
 
 }
