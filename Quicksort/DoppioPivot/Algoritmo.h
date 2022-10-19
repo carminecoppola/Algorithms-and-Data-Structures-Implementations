@@ -1,9 +1,9 @@
-#ifndef QUICKSORT_H
-#define QUICKSORT_H
+#ifndef ALGORITMO_H
+#define ALGORITMO_H
 
 using namespace std;
 
-class quicksort{
+class Algoritmo{
     private:
         int static partition(int *,int ,int ,int* );
         void static swap(int * , int *);
@@ -12,7 +12,7 @@ class quicksort{
 
 };
 
-int quicksort::partition(int *a,int s, int f, int *puntatore){
+int Algoritmo::partition(int *a,int s, int f, int *puntatore){
 
      if (a[s]< a[f]){
         swap(&a[s], &a[f]);
@@ -57,7 +57,7 @@ int quicksort::partition(int *a,int s, int f, int *puntatore){
 
 }
 
-void quicksort::swap(int *a, int *b){
+void Algoritmo::swap(int *a, int *b){
 
     int t = *a;
     *a = *b;
@@ -65,7 +65,7 @@ void quicksort::swap(int *a, int *b){
 
 }
 
-void quicksort::quick(int *a, int l,int r){
+void Algoritmo::quick(int *a, int l,int r){
 
     if (r <= l)
         return ;

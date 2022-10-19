@@ -12,7 +12,7 @@
 */
 
 #include <iostream>
-#include"quicksort.h"
+#include"Algoritmo.h"
 using namespace std;
 
 int main (){
@@ -24,7 +24,7 @@ int main (){
         cout<<i<<" ";
     }
 
-    quicksort::quick(a,0,6);
+    Algoritmo::quick(a,0,6);
 
     cout<<"Array finale:"<<endl;
     for (int i = 0; i < 6; i++){
