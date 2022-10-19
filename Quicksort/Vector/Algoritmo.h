@@ -11,54 +11,50 @@ template <class Item>
 
 class Algoritmo{
     private:
-        static int partition(vector<int>::iterator,vector<int>::iterator);
+        static typename vector<Item>::iterator partition(typename vector<Item>::iterator,typename vector<Item>::iterator);
         static void swap(Item &,Item  &);
     public:
-        static void quicksort(vector<int>::iterator ,vector<int>::iterator );
+        static void quicksort(typename vector<Item>::iterator ,typename vector<Item>::iterator );
 };
 
 
-template <class Item> int Algoritmo <Item>::partition(vector<int>::iterator l,vector<int>::iterator r){
+template <class Item> typename vector<Item>::iterator Algoritmo <Item>::partition(typename vector<Item>::iterator l,typename vector<Item>::iterator r){
 
-    typename vector<int>::iterator it;   
-    typename vector<int>::iterator jt;  //Scorre l'array
+    typename vector<Item>::iterator it;   
+    typename vector<Item>::iterator jt;  //Scorre l'array
        
 
     it = l-1;    //Imposto l'indice inizialmente a SX fuori dall'array 
-    jt = r-1;
-    auto pivot = *(r-1);   //Imposto la posizione del pivot che si trova all'estremo destro
+    jt = r;
+    Item pivot = *(r);   //Imposto la posizione del pivot che si trova all'estremo destro
 
     for (;;)    //Finchè è vero
     {
-        while (*(++it) < pivot)
+        while (*(++it) < pivot);
             while (pivot < *(--jt))
                 if (jt == l)
                    break;   
-        if (it >= jt)
-            break;
-            
-
+            if (it >= jt)
+                break;
             swap(*it,*jt); 
         
     }//Fine del FOR
     swap(*it,*r);
+
     return it;
 }
 
 template <class Item> void Algoritmo <Item>::swap(Item &a,Item  &b){
 
-    auto t = a;
+    Item t = a;
     a = b;
-    b = a;
+    b = t;
 
 }
 
-template <class Item> void Algoritmo <Item>::quicksort(vector<int>::iterator l,vector<int>::iterator r){
+template <class Item> void Algoritmo <Item>::quicksort(typename vector<Item>::iterator l,typename vector<Item>::iterator r){
 
-    l = begin();
-    r = end();
-
-    if (r <= 1)
+    if (r <= l)
         return;
     auto i = partition(l,r);
     quicksort(l,i-1);  //Porzione prima pivot
