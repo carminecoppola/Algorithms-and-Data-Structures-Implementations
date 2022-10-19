@@ -8,7 +8,7 @@ class Algoritmo{
         int static partition(int *,int ,int ,int* );
         void static swap(int * , int *);
     public:
-       void static quick(int *a, int l,int r);
+        void static quick(int *a, int l,int r);
 
 };
 

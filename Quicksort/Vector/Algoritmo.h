@@ -12,7 +12,7 @@ template <class Item>
 class Algoritmo{
     private:
         static void partition(vector<Item> ,vector<int>::iterator,vector<int>::iterator);
-        static void swap(vector<int>::iterator ,vector<int>::iterator );
+        static void swap(Item &,Item  &);
     public:
         static void quicksort(vector<Item> ,vector<int>::iterator ,vector<int>::iterator );
 };
@@ -29,15 +29,18 @@ template <class Item> void Algoritmo <Item>::partition(vector<Item> a,vector<int
 
     for (;;)    //Finchè è vero
     {
-        while (*(++i) < pivot){
+        while (*(++it) < pivot){
 
-            while (pivot > *(--j)){
-                if (j == l){
-                    /* code */
+            while (pivot > *(--jt)){
+                if (jt == l){
+                   break;
                 }
-                
+            if (it >= jt){
+                    break;
             }
-            
+            swap();  
+            }
+        swap
         }
         
     }
@@ -45,13 +48,11 @@ template <class Item> void Algoritmo <Item>::partition(vector<Item> a,vector<int
 
 }
 
-template <class Item> void Algoritmo <Item>::swap(vector<int>::iterator a,vector<int>::iterator b){
+template <class Item> void Algoritmo <Item>::swap(Item &a,Item  &b){
 
-    typename vector<int>::iterator t;
-
-    t = a;
-    a = b;
-    b = a;
+    auto t = *a;
+    *a = *b;
+    *b = *a;
 
 }
 
