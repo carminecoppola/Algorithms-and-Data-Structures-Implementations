@@ -12,8 +12,15 @@ int main(){
 
     vector <int> a = {2,7,11,30,4,32,12,8,15};
 
+    cout<<"L'array iniziale è:"<<endl;
+    for (auto i:a){
+        cout<<i<<" ";
+    }
+    cout<<endl;
     
     Algoritmo <int>::quicksort(a.begin(),a.end()-1);
+
+    cout<<"L'array ordinato è:"<<endl;
     for (auto i:a){
         cout<<i<<" ";
     }
