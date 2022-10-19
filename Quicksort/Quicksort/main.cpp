@@ -66,11 +66,21 @@ void quicksort(int a[ ], int l, int r)
 int main()
 {
     int arr [] = {2,8,7,1,3,5,6,4};
-    quicksort(arr,0,7);
 
+    cout<<"\nL'array iniziale è:"<<endl;
     for(int i = 0; i < 8; i++)
     {
         cout << arr[i]<< " ";
     }
+    cout<<endl;
+
+    quicksort(arr,0,7);
+
+    cout<<"\nL'array ordinato è:"<<endl;
+    for(int i = 0; i < 8; i++)
+    {
+        cout << arr[i]<< " ";
+    }
+    cout<<endl;
     return 0;
 }
