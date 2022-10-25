@@ -55,7 +55,7 @@ class maxHeap{
         void printAsciiTree();
 };
 
-template<class Item> void maxHeap<Item>::maxHeapify(int size){
+template<class Item> void maxHeap<Item>::maxHeapify(int i){
     int max = i;
     int l = left[i];
     int r = right[i];
@@ -81,12 +81,12 @@ template<class Item> void maxHeap<Item>::buildMaxHeap(vector<Item> al){
 
 template <class Item> void maxHeap<Item>::insert(Item elemento){
     albero.push_back(elemento); //tramite pushback inserisco l'elemento nell'albero
-    size++; //Visto che è stato aggiunto un elemento aggiorno il size
-    buildMaxHeap(elemento); //Richiamo la funzione che crea l'albero passandogli come parametro l'elemento stesso
+    setSize(getSize()+1);//Visto che è stato aggiunto un elemento aggiorno il size
+    buildMaxHeap(); //Richiamo la funzione che crea l'albero passandogli come parametro l'elemento stesso
 }
 
 template <class Item> void maxHeap<Item>::printArray(){
-    cout<<"\nStampa dell'albero"<<endl;
+    cout<<"\nStampa dell'albero: \n"<<endl;
     for (int i = 0; i < getSize(); i++){
         cout<<" "<< getAlbero().at(i)<<endl;
     }
