@@ -57,8 +57,8 @@ class maxHeap{
 
 template<class Item> void maxHeap<Item>::maxHeapify(int i){
     int max = i;
-    int l = left[i];
-    int r = right[i];
+    int l = left(max);
+    int r = right(max);
 
     if(getAlbero().at(max) < getAlbero().at(l) && l < getSize()){
             max = l;
