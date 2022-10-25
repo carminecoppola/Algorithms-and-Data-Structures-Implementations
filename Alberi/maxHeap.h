@@ -23,8 +23,8 @@ class maxHeap{
             return dx;
         };
 
-        void maxHeapify(int size);
-        void buildMaxHeap(vector<Item> al);
+        void maxHeapify(int size); 
+        void buildMaxHeap(vector<Item> al); //Costruzione del nostro albero
 
         //Costruttore
         maxHeap(vector<Item>alb){
@@ -74,8 +74,9 @@ template<class Item> void maxHeap<Item>::maxHeapify(int size){
 }
 
 template<class Item> void maxHeap<Item>::buildMaxHeap(vector<Item> al){
-    getAlbero().at(al) = getSize().at(al);
-    for (int i = 0; i < getSize().at(al/2); i++){
+    
+    setSize(getAlbero().size); //setto il size dell'albero
+    for (int i = getSize()/2; i >= 0 ;i--){
         maxHeapify(i);
     }
     
