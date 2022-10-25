@@ -14,12 +14,9 @@ using namespace std;
 
 int main(){
 
-    vector <int> albero[5] = new maxHeap();
+    vector<int> tree(5);
+    maxHeap <int> albero = maxHeap<int>(tree);
 
-    albero->insert(10);
-    albero->insert(20);
-    albero->insert(3);
-    albero->insert(15);
-    albero->insert(7);
+ 
     return 0;
 }
