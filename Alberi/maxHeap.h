@@ -51,7 +51,7 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
-        void buildMaxHeap(vector<Item> al); //Costruzione del nostro albero
+        void buildMaxHeap(); //Costruzione del nostro albero
         void insert(Item elemento);
         void printArray();
         void printAsciiTree();
@@ -74,8 +74,8 @@ template<class Item> void maxHeap<Item>::maxHeapify(int i){
     }
 }
 
-template<class Item> void maxHeap<Item>::buildMaxHeap(vector<Item> al){   
-    setSize((int)getAlbero().size); //setto il size dell'albero
+template<class Item> void maxHeap<Item>::buildMaxHeap(){   
+    setSize((int)getAlbero().size()); //setto il size dell'albero
     for (int i = getSize()/2; i >= 0 ;i--){
         maxHeapify(i);
     } 
