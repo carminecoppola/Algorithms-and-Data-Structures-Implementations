@@ -67,7 +67,7 @@ template<class Item> void maxHeap<Item>::maxHeapify(int i){
         max = r;
     }
     if (max != i){
-        swap(getAlbero().at(i),getAlbero().at(max));
+        swap(albero.at(i),albero.at(max));
         maxHeapify(max);
     }
 }
