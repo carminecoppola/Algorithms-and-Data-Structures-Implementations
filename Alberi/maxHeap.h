@@ -10,15 +10,15 @@ class maxHeap{
     private:
         vector<Item> albero;
         int size;
-        int padre(int i){
-            int parent = (i+1)/2;
-            return parent;
+        int parent(int i){
+            int padre = (i+1)/2;
+            return padre;
         };
-        int sinistro(int i){
+        int left(int i){
             int sx = (i*2)+1;
             return sx;
         };
-        int destro(int i){
+        int right(int i){
             int dx = (i*2)+2;
             return dx;
         };
@@ -31,19 +31,18 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
-
+        //Metodo di getter per l'Albero
         vector<Item> getAlbero(){
             return albero;
         };
-
+        //Metodo di setting per il Size
         void setSize(int s){
             size = s;
         };
-
+        //Metodo di getter per il Size
         int getSize(){
             return size;
         };
-
 
     public:
         void insert();
@@ -51,6 +50,8 @@ class maxHeap{
         void printAsciiTree();
 };
 
+template<class Item> void maxHeap::maxHeapify(){
 
+}
 
 #endif MAXHEAP_H
