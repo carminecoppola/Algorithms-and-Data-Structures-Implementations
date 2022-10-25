@@ -60,10 +60,10 @@ template<class Item> void maxHeap<Item>::maxHeapify(int i){
     int l = left(max);
     int r = right(max);
 
-    if(getAlbero().at(max) < getAlbero().at(l) && l < getSize()){
+    if(l < getSize() && getAlbero().at(max) < getAlbero().at(l)){
             max = l;
         }
-    if (getAlbero().at(max) < getAlbero().at(r) && r < getSize()){
+    if (r < getSize() && getAlbero().at(max) < getAlbero().at(r)){
         max = r;
     }
     if (max != i){
