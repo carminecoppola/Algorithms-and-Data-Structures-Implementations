@@ -17,6 +17,13 @@ int main(){
     vector<int> tree(5);
     maxHeap <int> albero = maxHeap<int>(tree);
 
- 
+    albero.insert(10);
+    albero.insert(30);
+    albero.insert(50);
+    albero.insert(60);
+    albero.insert(20);
+
+    albero.printArray();
+
     return 0;
 }
