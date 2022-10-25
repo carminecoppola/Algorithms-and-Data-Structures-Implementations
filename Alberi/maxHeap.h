@@ -23,7 +23,7 @@ class maxHeap{
             return dx;
         };
 
-        void maxHeapify();
+        void maxHeapify(int size);
         void buildMaxHeap();
 
         //Costruttore
@@ -45,13 +45,31 @@ class maxHeap{
         };
 
     public:
+        void swap(Item& a ,Item& b){
+            Item t = a;
+            a = b;
+            b = t;
+        };
         void insert();
         void printArray();
         void printAsciiTree();
 };
 
-template<class Item> void maxHeap::maxHeapify(){
+template<class Item> void maxHeap<Item>::maxHeapify(int size){
+    int max = i;
+    int l = left[i];
+    int r = right[i];
 
+    if(getAlbero().at(max) < getAlbero().at(l) && l < getSize()){
+            max = l;
+        }
+    if (getAlbero().at(max) < getAlbero().at(r) && r < getSize()){
+        max = r;
+    }
+    if (max != i){
+        //Scambia
+    }
+    
 }
 
 #endif MAXHEAP_H
