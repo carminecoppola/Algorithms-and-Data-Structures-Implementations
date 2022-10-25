@@ -38,7 +38,7 @@ class maxHeap{
         int getSize(){
             return size;
         };
-        
+
         void swap(Item& a ,Item& b){
             Item t = a;
             a = b;
@@ -74,7 +74,7 @@ template<class Item> void maxHeap<Item>::maxHeapify(int i){
 }
 
 template<class Item> void maxHeap<Item>::buildMaxHeap(vector<Item> al){   
-    setSize(getAlbero().size); //setto il size dell'albero
+    setSize((int)getAlbero().size); //setto il size dell'albero
     for (int i = getSize()/2; i >= 0 ;i--){
         maxHeapify(i);
     } 
@@ -95,4 +95,4 @@ template <class Item> void maxHeap<Item>::printArray(){
     cout<<endl;
     
 }
-#endif MAXHEAP_H
+#endif 
