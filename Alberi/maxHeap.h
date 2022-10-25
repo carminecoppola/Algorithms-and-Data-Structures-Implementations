@@ -1,7 +1,7 @@
 #ifndef MAXHEAP_H
 #define MAXHEAP_H
 
-#include "vector"
+#include <vector>
 using namespace std;
 
 template <class Item>
@@ -32,15 +32,16 @@ class maxHeap{
             size = 0;
         };
 
-        void getAlbero(vector<Item> al){
-            return al;
+        vector<Item> getAlbero(){
+            return albero;
         };
 
         void setSize(int s){
             size = s;
         };
-        int getSize(int s){
-            return s;
+
+        int getSize(){
+            return size;
         };
 
 
