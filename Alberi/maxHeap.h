@@ -26,11 +26,6 @@ class maxHeap{
         void maxHeapify(int size); 
         void buildMaxHeap(vector<Item> al); //Costruzione del nostro albero
 
-        //Costruttore
-        maxHeap(vector<Item>alb){
-            albero = alb;
-            size = 0;
-        };
         //Metodo di getter per l'Albero
         vector<Item> getAlbero(){
             return albero;
@@ -43,12 +38,18 @@ class maxHeap{
         int getSize(){
             return size;
         };
-
-    public:
+        
         void swap(Item& a ,Item& b){
             Item t = a;
             a = b;
             b = t;
+        };
+
+    public:
+        //Costruttore
+        maxHeap(vector<Item>alb){
+            albero = alb;
+            size = 0;
         };
         void insert(Item elemento);
         void printArray();
