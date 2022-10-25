@@ -8,6 +8,8 @@ template <class Item>
 
 class maxHeap{
     private:
+        vector<Item> albero;
+        int size;
         int padre(int i){
             int parent = (i+1)/2;
             return parent;
@@ -23,6 +25,25 @@ class maxHeap{
 
         void maxHeapify();
         void buildMaxHeap();
+
+        //Costruttore
+        maxHeap(vector<Item>alb){
+            albero = alb;
+            size = 0;
+        };
+
+        void getAlbero(vector<Item> al){
+            return al;
+        };
+
+        void setSize(int s){
+            size = s;
+        };
+        int getSize(int s){
+            return s;
+        };
+
+
     public:
         void insert();
         void printArray();
