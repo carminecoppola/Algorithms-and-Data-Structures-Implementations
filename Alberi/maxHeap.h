@@ -1,6 +1,7 @@
 #ifndef MAXHEAP_H
 #define MAXHEAP_H
 
+#include<iostream>
 #include <vector>
 using namespace std;
 
@@ -24,7 +25,6 @@ class maxHeap{
         };
 
         void maxHeapify(int size); 
-        void buildMaxHeap(vector<Item> al); //Costruzione del nostro albero
 
         //Metodo di getter per l'Albero
         vector<Item> getAlbero(){
@@ -51,6 +51,7 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
+        void buildMaxHeap(vector<Item> al); //Costruzione del nostro albero
         void insert(Item elemento);
         void printArray();
         void printAsciiTree();
