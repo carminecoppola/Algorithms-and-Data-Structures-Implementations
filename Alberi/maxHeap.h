@@ -80,16 +80,18 @@ template<class Item> void maxHeap<Item>::buildMaxHeap(vector<Item> al){
 }
 
 template <class Item> void maxHeap<Item>::insert(Item elemento){
-    albero.push_back(elemento); //tramite pushback inserisco l'elemento nell'albero
-    setSize(getSize()+1);//Visto che è stato aggiunto un elemento aggiorno il size
-    buildMaxHeap(); //Richiamo la funzione che crea l'albero passandogli come parametro l'elemento stesso
+    albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
+    setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
+    buildMaxHeap();                //Richiamo la funzione che crea l'albero passandogli come 
+                                  //parametro l'elemento stesso
 }
 
 template <class Item> void maxHeap<Item>::printArray(){
     cout<<"\nStampa dell'albero: \n"<<endl;
     for (int i = 0; i < getSize(); i++){
-        cout<<" "<< getAlbero().at(i)<<endl;
+        cout<< getAlbero().at(i)<<" ";
     }
+    cout<<endl;
     
 }
 #endif MAXHEAP_H
