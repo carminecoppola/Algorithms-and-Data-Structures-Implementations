@@ -1,23 +1,31 @@
 #ifndef MINHEAP_H
 #define MINHEAP_H
 
+#include<iostream>
+#include <vector>
+using namespace std;
+
 template<class Item>
 
 class minHeap{
     private:
         vector<Item> albero;
         int size;
+
         int parent(int i){
             int padre = (i+1)/2;
             return padre;
         };
+
         int left(int i){
             int sx = (i*2)+1;
             return sx;
         };
+
         int right(int i){
             int dx = (i*2)+2;
-        }
+            return dx;
+        };
 
         void minHeapify(int size);
 
@@ -30,7 +38,7 @@ class minHeap{
             size = s;
         };
         //Metodo di getter per il size
-        vector<Item> getSize(){
+        int getSize(){
             return size;
         };
 
@@ -94,6 +102,5 @@ template <class Item> void minHeap<Item>::printArray(){
     cout<<endl;
     
 }
-
 
 #endif
