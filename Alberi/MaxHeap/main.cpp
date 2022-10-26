@@ -14,7 +14,7 @@ using namespace std;
 
 int main(){
 
-    vector<int> tree(5);
+    vector<int> tree;
     maxHeap <int> albero = maxHeap<int>(tree);
 
     albero.insert(10);
