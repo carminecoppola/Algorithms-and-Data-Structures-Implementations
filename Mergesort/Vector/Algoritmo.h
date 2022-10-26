@@ -1,7 +1,7 @@
 #ifndef ALGORITMO_H
 #define ALGOTITMO_H
 
-#include "vector"
+#include <vector>
 using namespace std;
 
 template <class Item>
