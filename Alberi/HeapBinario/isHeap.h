@@ -22,9 +22,11 @@ class isHeap{
             int dx = (i*2)+2;
             return dx;
         };
-    public:
         bool isMax(vector<Item> alb ,int size,int radice);
         bool isMin(vector<Item> alb ,int size,int radice);
+
+    public:
+        void is(vector<Item> alb ,int size,int radice);
 };
 
 template<class Item> bool isHeap<Item>::isMax(vector<Item> alb ,int size,int radice){
@@ -35,10 +37,10 @@ template<class Item> bool isHeap<Item>::isMax(vector<Item> alb ,int size,int rad
     if (radice >= size/2){
         return true;
     }
-    if (alb.at(radice) < alb.at(l) && l < size){
+    if (l < size && alb.at(radice) < alb.at(l)){
         return false;
     }
-    if (alb.at(radice) < alb.at(r) && r < size){
+    if (r < size && alb.at(radice) < alb.at(r)){
         return false;
     }
     
@@ -49,7 +51,34 @@ template<class Item> bool isHeap<Item>::isMax(vector<Item> alb ,int size,int rad
 
 template<class Item> bool isHeap<Item>::isMin(vector<Item> alb ,int size,int radice){
 
+    int l = left(radice);
+    int r = right(radice);
 
+    if (radice >= size/2){
+        return true;
+    }
+    if (l < size && alb.at(radice) > alb.at(l)){
+        return false;
+    }
+    if (r < size && alb.at(radice) > alb.at(r)){
+        return false;
+    }
+    return isMin(alb,size,l) && isMin(alb,size,r);
+}
+
+template<class Item> void isHeap<Item>::is(vector<Item> alb ,int size,int radice){
+
+    
+    if (isMax(alb,size,radice) && !isMin(alb,size,radice)){
+        cout<<endl<<"**L'albero è un MaxHeap..."<<endl<<endl;
+    }
+    else if (!isMax(alb,size,radice) && isMin(alb,size,radice))
+    {
+        cout<<endl<<"**L'albero è un MinHeap..."<<endl<<endl;
+    }
+    else{
+        cout<<endl<<"**L'albero non è nessun Heap..."<<endl<<endl;
+    }
 }
 
 
