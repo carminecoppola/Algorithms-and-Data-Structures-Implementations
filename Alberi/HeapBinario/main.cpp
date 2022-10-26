@@ -16,7 +16,7 @@ int main(){
     //vector<int> tree{21,20,50,60,30}; //Non è un min ne un max
     isHeap<int> albero;
 
-    albero.is(tree,5,0);
+    albero.print(tree,tree.size(),0);
 
     //vector<int>treem{21,20,50,60,30};
     //isHeap<int>alb;

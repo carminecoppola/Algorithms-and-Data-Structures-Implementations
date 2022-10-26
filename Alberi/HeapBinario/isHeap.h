@@ -26,7 +26,7 @@ class isHeap{
         bool isMin(vector<Item> alb ,int size,int radice);
 
     public:
-        void is(vector<Item> alb ,int size,int radice);
+        void print(vector<Item> alb ,int size,int radice);
 };
 
 template<class Item> bool isHeap<Item>::isMax(vector<Item> alb ,int size,int radice){
@@ -66,7 +66,7 @@ template<class Item> bool isHeap<Item>::isMin(vector<Item> alb ,int size,int rad
     return isMin(alb,size,l) && isMin(alb,size,r);
 }
 
-template<class Item> void isHeap<Item>::is(vector<Item> alb ,int size,int radice){
+template<class Item> void isHeap<Item>::print(vector<Item> alb ,int size,int radice){
 
     
     if (isMax(alb,size,radice) && !isMin(alb,size,radice)){
