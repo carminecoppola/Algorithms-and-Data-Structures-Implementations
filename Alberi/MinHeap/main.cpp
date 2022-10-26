@@ -23,5 +23,10 @@ int main(){
 
     albero.printArray();
 
+    int somma = albero.somma(40,0);
+
+    cout<<"\n**Questa è la somma dei valori dei nodi minori di X: "<<somma<<endl;
+    cout<<endl<<endl;
+
     return 0;
 }

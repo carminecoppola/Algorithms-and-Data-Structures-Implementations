@@ -49,6 +49,7 @@ class minHeap{
             b = t;
         };
 
+        void buildMinHeap(); //Costruzione del nostro albero
 
     public:
         minHeap(vector<Item> al){
@@ -56,7 +57,7 @@ class minHeap{
             size = 0;
         };
 
-        void buildMinHeap(); //Costruzione del nostro albero
+        int somma(int elemento,int radice);
         void insert(Item elemento);
         void printArray();
         void printAsciiTree();
@@ -90,8 +91,7 @@ template<class Item> void minHeap<Item>::buildMinHeap(){
 template <class Item> void minHeap<Item>::insert(Item elemento){
     albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
     setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
-    buildMinHeap();                //Richiamo la funzione che crea l'albero passandogli come 
-                                  //parametro l'elemento stesso
+    buildMinHeap();                //Richiamo la funzione che crea l'albero
 }
 
 template <class Item> void minHeap<Item>::printArray(){
@@ -101,6 +101,21 @@ template <class Item> void minHeap<Item>::printArray(){
     }
     cout<<endl;
     
+}
+
+template <class Item> int minHeap<Item>::somma(int elemento, int radice){
+
+    if (radice >= getSize()){       //Caso Base
+        return 0;
+    }
+    if (getAlbero().at(radice) >= elemento){    //Caso base
+        return 0;
+    }
+    
+    int risultato = getAlbero().at(radice)+somma(elemento,left(radice))+somma(elemento,right(radice));
+
+    return risultato;
+
 }
 
 #endif
