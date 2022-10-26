@@ -105,14 +105,16 @@ template <class Item> void minHeap<Item>::printArray(){
 
 template <class Item> int minHeap<Item>::somma(int elemento, int radice){
 
-    if (radice >= getSize()){       //Caso Base
+    if (radice >= getSize()){       //Caso Base -> se la radice è maggiore della dimensione dell'albero
         return 0;
     }
-    if (getAlbero().at(radice) >= elemento){    //Caso base
+    if (getAlbero().at(radice) >= elemento){    //Secondo Caso base -> se l'elemento è minore della radice non avra elementi da sommare
         return 0;
     }
     
-    int risultato = getAlbero().at(radice)+somma(elemento,left(radice))+somma(elemento,right(radice));
+    //Sommo gli elementi scorrendo l'albero prima da sinista e poi da destra
+    int risultato = getAlbero().at(radice)+somma(elemento,left(radice))
+                    +somma(elemento,right(radice));
 
     return risultato;
 
