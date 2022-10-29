@@ -1,5 +1,5 @@
-#ifndef MAXHEAP_H
-#define MAXHEAP_H
+#ifndef KHEAP_H
+#define KHEAP_H
 
 #include<iostream>
 #include <vector>
@@ -7,22 +7,11 @@ using namespace std;
 
 template <class Item>
 
-class maxHeap{
+class kheap{
     private:
         vector<Item> albero;
         int size;
-        int parent(int i){
-            int padre = (i+1)/2;
-            return padre;
-        };
-        int left(int i){
-            int sx = (i*2)+1;
-            return sx;
-        };
-        int right(int i){
-            int dx = (i*2)+2;
-            return dx;
-        };
+        int k;
 
         void maxHeapify(int size); 
 
@@ -47,9 +36,11 @@ class maxHeap{
 
     public:
         //Costruttore
-        maxHeap(vector<Item>alb){
+        kheap(vector<Item>alb, int el){
             albero = alb;
+            k = el;
             size = 0;
+
         };
         void buildMaxHeap(); //Costruzione del nostro albero
         void insert(Item elemento);
@@ -57,38 +48,38 @@ class maxHeap{
         void printAsciiTree();
 };
 
-template<class Item> void maxHeap<Item>::maxHeapify(int i){
+template<class Item> void kheap<Item>::maxHeapify(int i){
     int max = i;
-    int l = left(max);
-    int r = right(max);
+    int primo = (i*k+1);
+    int ultimo = (i*k+k);
 
-    if(l < getSize() && getAlbero().at(max) < getAlbero().at(l)){
-            max = l;
-        }
-    if (r < getSize() && getAlbero().at(max) < getAlbero().at(r)){
-        max = r;
+    for (int j = primo; j < ultimo; j++){
+        if (j < getSize() && getAlbero().at(j) > getAlbero().at(max)){
+            max = j;
+        } 
     }
+    
     if (max != i){
         swap(albero.at(i),albero.at(max));
         maxHeapify(max);
     }
 }
 
-template<class Item> void maxHeap<Item>::buildMaxHeap(){   
+template<class Item> void kheap<Item>::buildMaxHeap(){   
     setSize((int)getAlbero().size()); //setto il size dell'albero
-    for (int i = getSize()/2; i >= 0 ;i--){
+    for (int i = getSize()/k; i >= 0 ;i--){
         maxHeapify(i);
     } 
 }
 
-template <class Item> void maxHeap<Item>::insert(Item elemento){
+template <class Item> void kheap<Item>::insert(Item elemento){
     albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
     setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
     buildMaxHeap();                //Richiamo la funzione che crea l'albero passandogli come 
                                   //parametro l'elemento stesso
 }
 
-template <class Item> void maxHeap<Item>::printArray(){
+template <class Item> void kheap<Item>::printArray(){
     cout<<"\nStampa dell'albero: \n"<<endl;
     for (int i = 0; i < getSize(); i++){
         cout<< getAlbero().at(i)<<" ";
