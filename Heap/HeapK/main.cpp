@@ -10,14 +10,14 @@ using namespace std;
 
 int main(){
 
-    vector<int> tree;
-    kheap <int> albero = kheap<int>(tree,3);
-    
     srand(time(NULL));
 
-    for (int i = 0; i < 13; i++)
+    vector<int> tree;
+    kheap <int> albero = kheap<int>(tree,3);
+
+    for (int i = 0; i < 10; i++)
     {
-        int casuale = rand()%20;
+        int casuale = rand()%100;
         albero.insert(casuale);
     }
 
