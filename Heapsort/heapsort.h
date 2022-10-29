@@ -38,10 +38,13 @@ class heapsort{
             return size;
         };
 
+        //Metodo per scambiare
         void swap(Item& a ,Item& b);
 
     public:
-        heapsort(vector<Item> alb);
+        heapsort(vector<Item> alb); //Costruttore
+
+        void heapSort();    //Metodo Heap
         void buildMaxHeap(); //Costruzione del nostro albero
         void printArray();
 
@@ -57,6 +60,16 @@ template <class Item> void heapsort<Item>::swap(Item& a ,Item& b){
     a = b;
     b = t;
 };
+
+template<class Item> void heapsort<Item>::heapSort(){
+    buildMaxHeap();
+    for (int i = getSize()-1; i > 0; i--){
+        swap(albero.at(0),albero.at(i));    
+        setSize(getSize()-1);       //Decremento il size
+        maxHeapify(0); //Passo il primo elemento dell'albero quindi la radice
+    }
+    
+}
 
 template<class Item> void heapsort<Item>::maxHeapify(int i){
     int max = i;
@@ -84,8 +97,8 @@ template<class Item> void heapsort<Item>::buildMaxHeap(){
 
 template <class Item> void heapsort<Item>::printArray(){
     cout<<"\nStampa dell'albero: \n"<<endl;
-    for (int i = 0; i < getSize(); i++){
-        cout<< getAlbero().at(i)<<" ";
+    for (int i = 0; i < albero.size(); i++){
+        cout<< albero.at(i)<<" ";   //Prendiamo gli elementi passati dal vettore poichè non abbiamo più insert
     }
     cout<<endl;
     
