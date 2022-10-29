@@ -42,6 +42,8 @@ class heapsort{
 
     public:
         heapsort(vector<Item> alb);
+        void buildMaxHeap(); //Costruzione del nostro albero
+        void printArray();
 
 };
 
@@ -56,5 +58,37 @@ template <class Item> void heapsort<Item>::swap(Item& a ,Item& b){
     b = t;
 };
 
+template<class Item> void heapsort<Item>::maxHeapify(int i){
+    int max = i;
+    int l = left(max);
+    int r = right(max);
+
+    if(l < getSize() && getAlbero().at(max) < getAlbero().at(l)){
+            max = l;
+        }
+    if (r < getSize() && getAlbero().at(max) < getAlbero().at(r)){
+        max = r;
+    }
+    if (max != i){
+        swap(albero.at(i),albero.at(max));
+        maxHeapify(max);
+    }
+}
+
+template<class Item> void heapsort<Item>::buildMaxHeap(){   
+    setSize((int)getAlbero().size()); //setto il size dell'albero
+    for (int i = getSize()/2; i >= 0 ;i--){
+        maxHeapify(i);
+    } 
+}
+
+template <class Item> void heapsort<Item>::printArray(){
+    cout<<"\nStampa dell'albero: \n"<<endl;
+    for (int i = 0; i < getSize(); i++){
+        cout<< getAlbero().at(i)<<" ";
+    }
+    cout<<endl;
+    
+}
 
 #endif //HEAPSORT_H
