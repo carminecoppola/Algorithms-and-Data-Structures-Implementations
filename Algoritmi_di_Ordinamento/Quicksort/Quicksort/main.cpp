@@ -2,33 +2,13 @@
 
 using namespace std;
 
-
-//Variante che parte dall'inizio
-/*
-int partition( int A[], int p,int r)
-{
-    int x = A[r];
-    int i = p-1;
-    for (int j = p; j < r-1; j++)
-      {
-          if (A[j] <= x)
-            {
-                i = i+1;
-                swap(A[i],A[j]);
-            }
-      }
-    swap(A[i+1],A[r]);
-    return i+1;
-}*/
-
+//Metodo per lo scambio
 void swap( int &A, int &B)
 { 
-    int t=A;
+    int t = A;
     A=B;
     B=t;
 } 
-
-
 
 int partition (int a[ ], int l, int r)
 {
@@ -49,7 +29,6 @@ int partition (int a[ ], int l, int r)
     return i;
 
 }
-
 
 void quicksort(int a[ ], int l, int r)
 {
@@ -84,3 +63,22 @@ int main()
     cout<<endl;
     return 0;
 }
+
+
+//Variante che parte dall'inizio
+/*
+int partition( int A[], int p,int r)
+{
+    int x = A[r];
+    int i = p-1;
+    for (int j = p; j < r-1; j++)
+      {
+          if (A[j] <= x)
+            {
+                i = i+1;
+                swap(A[i],A[j]);
+            }
+      }
+    swap(A[i+1],A[r]);
+    return i+1;
+}*/

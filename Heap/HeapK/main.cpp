@@ -17,7 +17,8 @@ int main(){
 
     for (int i = 0; i < 13; i++)
     {
-        albero.insert(rand()%20);
+        int casuale = rand()%20;
+        albero.insert(casuale);
     }
 
     cout<<endl<<"L'albero ha k uguale a 3:";
