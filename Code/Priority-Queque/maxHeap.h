@@ -9,10 +9,6 @@ template <class Item>
 class maxHeap{
     private:
         int size;
-        int parent(int i){
-            int padre = (i-1)/2;
-            return padre;
-        };
         int left(int i){
             int sx = (i*2)+1;
             return sx;
@@ -25,6 +21,10 @@ class maxHeap{
     protected:
         vector<Item> albero;
 
+        int parent(int i){
+            int padre = (i-1)/2;
+            return padre;
+        };
         void swap(Item& a ,Item& b){
             Item t = a;
             a = b;

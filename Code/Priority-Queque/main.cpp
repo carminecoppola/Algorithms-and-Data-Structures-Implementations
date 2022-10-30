@@ -25,8 +25,11 @@ int main(){
     albero.insertMH(107);
 
     albero.printArray();
-    
+
     cout<<"Elemento estratto:"<< albero.extractMax()<<endl;
+
+    albero.IncreasePriority(103,120);
+    albero.printArray();
 
     return 0;
 }

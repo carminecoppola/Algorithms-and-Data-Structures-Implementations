@@ -17,7 +17,7 @@ class priority_queue : public maxHeap<Item>{
         Item extractMax();  //Rimuove e restituisce l'elemento nell'albero con priorità maggiore
         void extractMin();
         void insertMH(Item x);  //Restituisce l'elemento nella coda
-        void IncreasePriority(int x,int k);    //Aumenta il valore della priorita di x al nuovo valore
+        void IncreasePriority(Item key,int i);    //Aumenta il valore della priorita di x al nuovo valore
         void DecreasePriority();
 };
 
@@ -48,6 +48,19 @@ template<class Item> Item priority_queue <Item>::extractMax(){
     
 }
 
+template<class Item> void priority_queue<Item>::IncreasePriority(Item key, int i){
 
+    if (key < this->getAlbero().at(i)){
+        cout<<"Invalid Data"<<endl;
+    }
+    key = this->albero.at(i);
+    
+    while(i > 0 && this->getAlbero().at(this->parent(i)) < this->getAlbero().at(i))
+    {
+        swap(this->albero.at(this->parent(i)),this->albero.at(i));
+        i = this->parent(i);
+    }
+
+}
 
 #endif //QUEQUE_H
