@@ -7,7 +7,7 @@
 using namespace std;
 
 template<class Item>
-class priority_queue : public maxHeap{
+class priority_queue : public maxHeap<Item>{
     private:
 
         void maximum(); //Restituisce il massimo
@@ -27,6 +27,8 @@ template<class Item> priority_queue <Item>::priority_queue(vector<Item> albero):
 
 template<class Item> void priority_queue <Item>::insertMH(Item x){
     this->insert(x);
+
 }
+
 
 #endif //QUEQUE_H
