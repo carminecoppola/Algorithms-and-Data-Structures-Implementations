@@ -76,7 +76,7 @@ template<class Item> void kheap<Item>::maxKHeapify(int i){
 
 template <class Item> void kheap<Item>::insert(Item elemento){
     
-    setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
+    setSize(getSize()+1);             //Visto che è stato aggiunto un elemento aggiorno il size
     albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
     buildMaxKHeap();                //Richiamo la funzione che crea l'albero passandogli come 
                                   //parametro l'elemento stesso
