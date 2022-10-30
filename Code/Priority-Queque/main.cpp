@@ -28,7 +28,7 @@ int main(){
 
     cout<<endl<<"L'elemento maggiore estratto è:"<< albero.extractMax()<<endl<<endl;
 
-    albero.IncreasePriority(103,120);
+    albero.IncreasePriority(3,120);
     albero.printArray();
 
     return 0;
