@@ -7,8 +7,23 @@
 */
 
 #include <iostream>
+#include "maxHeap.h"
+#include "priority_queue.h"
 
 int main(){
+
+    vector<int> tree;
+    priority_queue <int> albero = priority_queue<int>(tree);
+
+    albero.insertMH(106);
+    albero.insertMH(104);
+    albero.insertMH(105);
+    albero.insertMH(103);
+    albero.insertMH(110);
+    albero.insertMH(108);
+    albero.insertMH(107);
+
+    albero.printArray();
 
     return 0;
 }
