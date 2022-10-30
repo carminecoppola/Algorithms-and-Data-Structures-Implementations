@@ -26,7 +26,7 @@ int main(){
 
     albero.printArray();
 
-    cout<<"Elemento estratto:"<< albero.extractMax()<<endl;
+    cout<<endl<<"L'elemento maggiore estratto è:"<< albero.extractMax()<<endl<<endl;
 
     albero.IncreasePriority(103,120);
     albero.printArray();

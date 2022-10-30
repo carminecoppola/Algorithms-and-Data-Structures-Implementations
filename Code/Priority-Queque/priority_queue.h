@@ -48,12 +48,16 @@ template<class Item> Item priority_queue <Item>::extractMax(){
     
 }
 
-template<class Item> void priority_queue<Item>::IncreasePriority(Item key, int i){
+template<class Item> void priority_queue<Item>::IncreasePriority(Item key, int num){
 
-    if (key < this->getAlbero().at(i)){
+    if (key < this->getAlbero().at(num)){
         cout<<"Invalid Data"<<endl;
+        exit;
     }
-    key = this->albero.at(i);
+
+    key = this->albero.at(num);
+    
+    int i = this->getSize()-1;
     
     while(i > 0 && this->getAlbero().at(this->parent(i)) < this->getAlbero().at(i))
     {
