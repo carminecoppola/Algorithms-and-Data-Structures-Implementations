@@ -84,8 +84,7 @@ template<class Item> void maxHeap<Item>::buildMaxHeap(){
 template <class Item> void maxHeap<Item>::insert(Item elemento){
     albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
     setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
-    buildMaxHeap();                //Richiamo la funzione che crea l'albero passandogli come 
-                                  //parametro l'elemento stesso
+    buildMaxHeap();                //Richiamo la funzione che crea l'albero
 }
 
 template <class Item> void maxHeap<Item>::printArray(){
