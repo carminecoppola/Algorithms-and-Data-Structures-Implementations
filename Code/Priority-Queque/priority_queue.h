@@ -34,18 +34,20 @@ template<class Item> Item priority_queue <Item>::maximum(){
 }
 
 template<class Item> Item priority_queue <Item>::extractMax(){
-    
+
     if (this->getSize() == 0){
         return -1;
     }
     int max = maximum();
 
-    swap(albero.at(0),albero.at(getSize-1));
-    setSize(getSize()-1);
-    maxHeapify(0);
+    swap(this->albero.at(0),this->albero.at(this->getSize()-1));
+    this->setSize(this->getSize()-1);
+    this->maxHeapify(0);
 
     return max;
     
 }
+
+
 
 #endif //QUEQUE_H
