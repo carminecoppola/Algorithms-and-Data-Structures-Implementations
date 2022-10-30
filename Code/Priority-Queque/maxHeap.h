@@ -8,7 +8,6 @@ using namespace std;
 template <class Item>
 class maxHeap{
     private:
-        vector<Item> albero;
         int size;
         int parent(int i){
             int padre = (i-1)/2;
@@ -23,7 +22,14 @@ class maxHeap{
             return dx;
         };
 
-        void maxHeapify(int size); 
+    protected:
+        vector<Item> albero;
+
+        void swap(Item& a ,Item& b){
+            Item t = a;
+            a = b;
+            b = t;
+        };
 
         //Metodo di getter per l'Albero
         vector<Item> getAlbero(){
@@ -38,11 +44,9 @@ class maxHeap{
             return size;
         };
 
-        void swap(Item& a ,Item& b){
-            Item t = a;
-            a = b;
-            b = t;
-        };
+        void maxHeapify(int size); 
+        void insert(Item elemento);
+        void buildMaxHeap(); //Costruzione del nostro albero
 
     public:
         //Costruttore
@@ -50,8 +54,6 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
-        void insert(Item elemento);
-        void buildMaxHeap(); //Costruzione del nostro albero
         void printArray();
 };
 

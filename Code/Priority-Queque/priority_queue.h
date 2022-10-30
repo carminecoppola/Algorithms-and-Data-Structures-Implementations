@@ -10,13 +10,12 @@ template<class Item>
 class priority_queue : public maxHeap<Item>{
     private:
 
-        void maximum(); //Restituisce il massimo
-        void minimum();
-        void extractMax();  //Rimuove e restituisce l'elemento nell'albero con priorità maggiore
-        void extractMin();
-
     public:
         priority_queue(vector<Item>);
+        Item maximum(); //Restituisce il massimo
+        void minimum();
+        Item extractMax();  //Rimuove e restituisce l'elemento nell'albero con priorità maggiore
+        void extractMin();
         void insertMH(Item x);  //Restituisce l'elemento nella coda
         void IncreasePriority(int x,int k);    //Aumenta il valore della priorita di x al nuovo valore
         void DecreasePriority();
@@ -30,5 +29,23 @@ template<class Item> void priority_queue <Item>::insertMH(Item x){
 
 }
 
+template<class Item> Item priority_queue <Item>::maximum(){
+    return this->getAlbero().at(0);
+}
+
+template<class Item> Item priority_queue <Item>::extractMax(){
+    
+    if (this->getSize() == 0){
+        return -1;
+    }
+    int max = maximum();
+
+    swap(albero.at(0),albero.at(getSize-1));
+    setSize(getSize()-1);
+    maxHeapify(0);
+
+    return max;
+    
+}
 
 #endif //QUEQUE_H
