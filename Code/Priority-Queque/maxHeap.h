@@ -50,6 +50,7 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
+        void insert(Item elemento);
         void buildMaxHeap(); //Costruzione del nostro albero
         void printArray();
 };
@@ -77,6 +78,20 @@ template<class Item> void maxHeap<Item>::buildMaxHeap(){
         maxHeapify(i);
     } 
 }
+
+template <class Item> void maxHeap<Item>::insert(Item elemento){
+    albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
+    setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
+
+    int i = getSize()-1;
+
+    while (i > 0 && getAlbero().at(parent(i)) < elemento)
+    {
+        swap(albero.at(i),albero.at(parent(i)));    //Scambio l'elemento a(i) con la radice
+        i = parent(i);      //Assegno i due indici quindi non serve lo swap
+    }
+}
+
 
 template <class Item> void maxHeap<Item>::printArray(){
     cout<<"\nStampa dell'albero: \n"<<endl;
