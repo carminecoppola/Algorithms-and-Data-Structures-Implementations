@@ -17,7 +17,7 @@ class priority_queue : public maxHeap{
 
     public:
         priority_queue(vector<Item>);
-        void insertMH(int x);  //Restituisce l'elemento nella coda
+        void insertMH(Item x);  //Restituisce l'elemento nella coda
         void IncreasePriority(int x,int k);    //Aumenta il valore della priorita di x al nuovo valore
         void DecreasePriority();
 };
@@ -25,8 +25,8 @@ class priority_queue : public maxHeap{
 //Costruttore
 template<class Item> priority_queue <Item>::priority_queue(vector<Item> albero):maxHeap<Item>(albero){}
 
-template<class Item> void priority_queue <Item>::insertMH(int x){
-    this.insert
+template<class Item> void priority_queue <Item>::insertMH(Item x){
+    this->insert(x);
 }
 
 #endif //QUEQUE_H
