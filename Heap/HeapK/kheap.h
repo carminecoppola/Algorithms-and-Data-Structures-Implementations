@@ -62,7 +62,7 @@ template<class Item> void kheap<Item>::maxKHeapify(int i){
     //int ultimo = k * i + 1;
     int ultimo = (i*k+k);
 
-    for (int j = primo; j < ultimo; j++){
+    for (int j = primo; j <= ultimo; j++){
         if (j < getSize() && getAlbero().at(j) > getAlbero().at(max)){
             max = j;
         } 
