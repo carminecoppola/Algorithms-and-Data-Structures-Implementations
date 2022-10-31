@@ -27,7 +27,6 @@ template<class Item> priority_queue <Item>::priority_queue(vector<Item> albero):
 /*  Metodo di inserimento che richiama l'insert() modificato 
     nella classe "maxHeap" a cui passiamo l'elemento da inserire
 */
-
 template<class Item> void priority_queue <Item>::insertMH(Item x){
     this->insert(x);
 

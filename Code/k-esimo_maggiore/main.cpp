@@ -9,8 +9,21 @@
 */
 
 #include <iostream>
+#include <vector>
+#include"kMax.h"
+
+using namespace std;
 
 int main(){
+
+    vector<int> tree {10,3,21};
+    kMax <int> albero = kMax<int>(tree);
+
+    albero.buildMinHeap();
+    albero.printArray();
+
+    cout<<endl<<"Il secondo minimo è: "<<albero.secondoMin()<<endl;
+    
 
 
     return 0;
