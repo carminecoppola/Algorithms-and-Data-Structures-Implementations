@@ -12,7 +12,7 @@ class kMax : public minHeap <Item>{
     private:
         /* data */
     public:
-        kMax(vector<Item> albero);
+        kMax(vector<Item> albero, int k);
         //Item maximum();
         Item minimum();
         //Item extractMax();
@@ -22,7 +22,9 @@ class kMax : public minHeap <Item>{
 };
 
 //Costruttore
-template <class Item> kMax<Item>::kMax(vector<Item> albero):minHeap<Item>(albero){}
+template <class Item> kMax<Item>::kMax(vector<Item> albero,int k):minHeap<Item>(albero,k){
+
+}
 
 
 
@@ -45,7 +47,7 @@ template<class Item> Item kMax<Item>::extractMin(){
    
 }
 
-template<class Item> Item kMax<Item>::secondoMin(){
+/*template<class Item> Item kMax<Item>::secondoMin(){
     
     int max1,max2;
 
@@ -81,7 +83,7 @@ template<class Item> Item kMax<Item>::secondoMin(){
 
     return max2;
     
-}
+}*/
 
 
 template<class Item> void kMax <Item>::decreasePriority(int i, Item key){

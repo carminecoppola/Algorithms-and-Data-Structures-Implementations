@@ -49,9 +49,9 @@ class minHeap{
 
     public:
         //Costruttore
-        minHeap(vector<Item>alb){
+        minHeap(vector<Item>alb, int k){
             albero = alb;
-            size = 0;
+            size = k;
         };
         void buildMinHeap(); //Costruzione del nostro albero
         void printArray();
@@ -89,8 +89,9 @@ template <class Item> void minHeap<Item>::insert(Item elemento){
 
     while (i > 0 && getAlbero().at(parent(i)) > elemento)
     {
+
         swap(albero.at(i),albero.at(parent(i)));    //Scambio l'elemento a(i) con la radice
-        i = parent(i);      //Assegno i due indici quindi non serve lo swap
+        i = parent(i);                             //Assegno i due indici quindi non serve lo swap
     }
 }
 

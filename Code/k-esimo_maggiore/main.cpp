@@ -17,12 +17,14 @@ using namespace std;
 int main(){
 
     vector<int> tree {10,3,21};
-    kMax <int> albero = kMax<int>(tree);
+    kMax <int> albero = kMax<int>(tree,3);
 
     albero.buildMinHeap();
     albero.printArray();
 
-    cout<<endl<<"Il secondo minimo è: "<<albero.secondoMin()<<endl;
+    cout<<endl<<"Il minimo è: "<<albero.minimum()<<endl;
+
+    //cout<<endl<<"Il secondo minimo è: "<<albero.secondoMin()<<endl;
     
 
 
