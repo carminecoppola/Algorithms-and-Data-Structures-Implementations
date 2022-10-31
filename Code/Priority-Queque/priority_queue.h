@@ -24,14 +24,36 @@ class priority_queue : public maxHeap<Item>{
 //Costruttore
 template<class Item> priority_queue <Item>::priority_queue(vector<Item> albero):maxHeap<Item>(albero){}
 
+/*  Metodo di inserimento che richiama l'insert() modificato 
+    nella classe "maxHeap" a cui passiamo l'elemento da inserire
+*/
+
 template<class Item> void priority_queue <Item>::insertMH(Item x){
     this->insert(x);
 
 }
 
+/*  Metodo di getter che ci permette di ritornare l'indice 
+    dell'elemento massimo della coda.
+*/
+
 template<class Item> Item priority_queue <Item>::maximum(){
     return this->getAlbero().at(0);
 }
+
+/*  Questo metodo serve ad estrarre l'elemento più grande
+    della radice. Il primo controllo viene fatto sul Size
+    richiamando il metodo getSize() presente nella sezione 
+    protected della superclasse "maxHeap".
+    Impostiamo il massimo = alla funzione di getter maximum()
+    che ci ritorna il primo elemento della coda, quindi la 
+    radice (prima posizione).
+    Dopodichè effettiamo lo scambio tra la la radice e 
+    l'elemento...
+    Settiamo il nuovo size e richiamaiamo il maxHeapify(),
+    infine ritorniamo il massimo.
+
+*/
 
 template<class Item> Item priority_queue <Item>::extractMax(){
 
@@ -47,6 +69,15 @@ template<class Item> Item priority_queue <Item>::extractMax(){
     return max;
     
 }
+
+/*  Questo metodo ci servirà per incrementare la priorità di un 
+    elemento all'interno della coda, quindi lo spingiamo verso
+    l'alto. Abbiamo un ciclo while che verificherà che la radice
+    sarà minore dell' i-esimo elemento.
+    Qualora lo fosse ripristinerà la proprietà del max-Heap quindi
+    scambierà i due elementi. Infine riassenerà l'indice i alla
+    radice. 
+*/
 
 template<class Item> void priority_queue<Item>::IncreasePriority(int i, Item key){
 
