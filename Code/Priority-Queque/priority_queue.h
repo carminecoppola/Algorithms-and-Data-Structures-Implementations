@@ -12,7 +12,7 @@ class priority_queue : public maxHeap<Item>{
 
     public:
         priority_queue(vector<Item>);
-        Item maximum(); //Restituisce il massimo
+        Item maximum();     //Restituisce il massimo
         void minimum();
         Item extractMax();  //Rimuove e restituisce l'elemento nell'albero con priorità maggiore
         void extractMin();
@@ -33,8 +33,8 @@ template<class Item> void priority_queue <Item>::insertMH(Item x){
 
 }
 
-/*  Metodo di getter che ci permette di ritornare l'indice 
-    dell'elemento massimo della coda.
+/*  Metodo di getter che ci permette di ritornare l'elemento
+    massimo della coda.
 */
 
 template<class Item> Item priority_queue <Item>::maximum(){
