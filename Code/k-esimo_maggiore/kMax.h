@@ -14,6 +14,7 @@ class kMax : public minHeap <Item>{
     public:
         kMax(vector<Item> albero, int k);
         //Item maximum();
+        void insertMH(Item x);
         Item minimum();
         //Item extractMax();
         Item extractMin();
@@ -26,7 +27,10 @@ template <class Item> kMax<Item>::kMax(vector<Item> albero,int k):minHeap<Item>(
 
 }
 
+template<class Item> void kMax <Item>::insertMH(Item x){
+    this->insert(x);
 
+}
 
 template<class Item> Item kMax <Item>::minimum(){
     return this->getAlbero().at(0);
