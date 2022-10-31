@@ -49,8 +49,6 @@ class minHeap{
             b = t;
         };
 
-        void buildMinHeap(); //Costruzione del nostro albero
-
     public:
         minHeap(vector<Item> al){
             albero = al;
@@ -59,6 +57,7 @@ class minHeap{
 
         int somma(int elemento,int radice);
         void insert(Item elemento);
+        void buildMinHeap(); //Costruzione del nostro albero
         void printArray();
         void printAsciiTree();
 

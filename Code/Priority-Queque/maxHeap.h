@@ -46,7 +46,6 @@ class maxHeap{
 
         void maxHeapify(int size); 
         void insert(Item elemento);
-        void buildMaxHeap(); //Costruzione del nostro albero
 
     public:
         //Costruttore
@@ -54,6 +53,7 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
+        void buildMaxHeap(); //Costruzione del nostro albero
         void printArray();
 };
 
