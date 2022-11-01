@@ -82,16 +82,15 @@ template<class Item> void minHeap<Item>::buildMinHeap(){
 }
 
 template <class Item> void minHeap<Item>::insert(Item elemento){
-    albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
-    setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
 
-    int i = getSize()-1;
-
-    while (i > 0 && getAlbero().at(parent(i)) > elemento)
-    {
-
-        swap(albero.at(i),albero.at(parent(i)));    //Scambio l'elemento a(i) con la radice
-        i = parent(i);                             //Assegno i due indici quindi non serve lo swap
+    //Controllo che l'elemento da inserie sia maggiore della radice
+    if (elemento > getAlbero().at(0) ){
+        cout<<"L'elemento "<<elemento<<" è > "<<getAlbero().at(0)<<endl;
+        albero.at(0) = elemento;
+        buildMinHeap();
+    }
+    else{
+        cout<<"L'elemento "<<elemento<<" è piu piccolo quindi viene scartato"<<endl;
     }
 }
 

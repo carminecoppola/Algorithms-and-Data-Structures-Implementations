@@ -21,12 +21,27 @@ int main(){
 
     albero.buildMinHeap();
     albero.printArray();
+    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl<<endl;
 
-    cout<<endl<<"Il minimo è: "<<albero.minimum()<<endl;
+    albero.insertMH(1);
+    albero.printArray();
+    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
 
-    //cout<<endl<<"Il secondo minimo è: "<<albero.secondoMin()<<endl;
+    albero.insertMH(8);
+    albero.printArray();
+    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
+
+    albero.insertMH(45);
+    albero.printArray();
+    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
+
+    albero.insertMH(12);
+    albero.printArray();
+    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
+
+    albero.insertMH(78);
+    albero.printArray();
+    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
     
-
-
     return 0;
 }
