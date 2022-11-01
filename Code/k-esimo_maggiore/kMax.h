@@ -16,7 +16,6 @@ class kMax : public minHeap <Item>{
         void insertMH(Item x);
         Item minimum();
         Item extractMin();
-        Item secondoMin();
         void decreasePriority(int, Item);
 };
 
@@ -25,15 +24,26 @@ template <class Item> kMax<Item>::kMax(vector<Item> albero,int k):minHeap<Item>(
 
 }
 
+//Questo metodo richiama il metodo insert() modificato nella classe "minHeap"
 template<class Item> void kMax <Item>::insertMH(Item x){
     this->insert(x);
 
 }
 
+/*Questo metodo ci ritorna l' elemento minimo della coda, 
+essendo un "minHeap" lo troveremo nella posizione 0*/
+
 template<class Item> Item kMax <Item>::minimum(){
     return this->getAlbero().at(0);
 }
 
+/*Questo metodo serve per l'estrazione del numero minore presente nella coda
+  Per prima coda facciamo un controllo sul size, dopodiche richiamiamo il metodo
+  minimum() su una variabile min.
+  Effettiamo lo swap() tra la radice e l'elemento inserito, poi settiamo il size e
+  richiamaiamo il minHeapify() per ripristinare le proprietà del minHeapify(), 
+  infine ritorniamo il minimo;
+*/
 template<class Item> Item kMax<Item>::extractMin(){
 
     if (this->getSize() == 0){
@@ -49,6 +59,14 @@ template<class Item> Item kMax<Item>::extractMin(){
    
 }
 
+/*  Questo metodo ci servirà per decrementare la priorità di un 
+    elemento all'interno della coda, quindi lo spingiamo verso
+    il basso. Abbiamo un ciclo while che verificherà che la radice
+    sarà maggiore dell' i-esimo elemento.
+    Qualora lo fosse ripristinerà la proprietà del max-Heap quindi
+    scambierà i due elementi. Infine riassenerà l'indice i alla
+    radice. 
+*/
 template<class Item> void kMax <Item>::decreasePriority(int i, Item key){
 
     if (key < this->getAlbero().at(i)){

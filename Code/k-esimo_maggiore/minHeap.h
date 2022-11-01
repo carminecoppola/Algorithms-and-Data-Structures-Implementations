@@ -48,7 +48,8 @@ class minHeap{
         void insert(Item elemento);
 
     public:
-        //Costruttore
+        /*Costruttore modificato poichè ci interesserà una coda
+          di k elementi.*/
         minHeap(vector<Item>alb, int k){
             albero = alb;
             size = k;
@@ -81,6 +82,12 @@ template<class Item> void minHeap<Item>::buildMinHeap(){
     } 
 }
 
+/*Abbiamo modificato il metodo di insert() poichè ci servira
+  verificare che l'elemento inserito sia maggiore della radice
+  cosi che qualora lo fosse venga inserito nella coda e la radice
+  venga tolta. Dopodichè ripristiniamo le proprieta del minHeapify()
+  ma lo faremo tramite il buildMinHeap().
+*/
 template <class Item> void minHeap<Item>::insert(Item elemento){
 
     //Controllo che l'elemento da inserie sia maggiore della radice
