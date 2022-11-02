@@ -6,6 +6,8 @@
 
 #include<iostream>
 #include<map>
+#include"priorityQueue.h"
+#include"maxHeap.h"
 
 int main(){
 
