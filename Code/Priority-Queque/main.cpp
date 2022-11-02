@@ -8,12 +8,12 @@
 
 #include <iostream>
 #include "maxHeap.h"
-#include "priority_queue.h"
+#include "maxPriorityQueue.h"
 
 int main(){
 
     vector<int> tree;
-    priority_queue <int> albero = priority_queue<int>(tree);
+    maxPriorityQueue <int> albero = maxPriorityQueue<int>(tree);
 
     albero.insertMH(106);
     albero.insertMH(105);
