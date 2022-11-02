@@ -8,11 +8,11 @@
 using namespace std;
 
 template <class Item>
-class MinPriorityQueue : public minHeap <Item>{
+class minPriorityQueue : public minHeap <Item>{
     private:
         /* data */
     public:
-        MinPriorityQueue();
+        minPriorityQueue();
         void insertMH(Item x);
         Item minimum();
         Item extractMin();
@@ -20,12 +20,12 @@ class MinPriorityQueue : public minHeap <Item>{
 };
 
 //Costruttore
-template <class Item> MinPriorityQueue<Item>::MinPriorityQueue():minHeap<Item>(){
+template <class Item> minPriorityQueue<Item>::minPriorityQueue():minHeap<Item>(){
 
 }
 
 //Questo metodo richiama il metodo insert() modificato nella classe "minHeap"
-template<class Item> void MinPriorityQueue <Item>::insertMH(Item x){
+template<class Item> void minPriorityQueue <Item>::insertMH(Item x){
     this->insert(x);
 
 }
@@ -33,7 +33,7 @@ template<class Item> void MinPriorityQueue <Item>::insertMH(Item x){
 /*Questo metodo ci ritorna l' elemento minimo della coda, 
 essendo un "minHeap" lo troveremo nella posizione 0*/
 
-template<class Item> Item MinPriorityQueue <Item>::minimum(){
+template<class Item> Item minPriorityQueue <Item>::minimum(){
     return this->getAlbero().at(0);
 }
 
@@ -44,7 +44,7 @@ template<class Item> Item MinPriorityQueue <Item>::minimum(){
   richiamaiamo il minHeapify() per ripristinare le proprietà del minHeapify(), 
   infine ritorniamo il minimo;
 */
-template<class Item> Item MinPriorityQueue<Item>::extractMin(){
+template<class Item> Item minPriorityQueue<Item>::extractMin(){
 
     if (this->getSize() == 0){
         return -1;
@@ -68,7 +68,7 @@ template<class Item> Item MinPriorityQueue<Item>::extractMin(){
     scambierà i due elementi. Infine riassenerà l'indice i alla
     radice. 
 */
-template<class Item> void MinPriorityQueue <Item>::decreasePriority(int i, Item key){
+template<class Item> void minPriorityQueue <Item>::decreasePriority(int i, Item key){
 
     if (key < this->getAlbero().at(i)){
         cout<<"Invalid Data"<<endl;

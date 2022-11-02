@@ -10,14 +10,14 @@
 
 #include <iostream>
 #include <vector>
-#include"MinPriorityQueue.h"
+#include"minPriorityQueue.h"
 
 using namespace std;
 
 int main(){
 
     vector<int> tree {10,2,21,1,45,8,12,78};
-    MinPriorityQueue <int> albero = MinPriorityQueue<int>();
+    minPriorityQueue <int> albero = minPriorityQueue<int>();
 
     int k = 3;
     
