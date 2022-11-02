@@ -15,8 +15,10 @@ class priorityQueue : public maxHeap<Item>{
         Item maximum();     //Restituisce il massimo
         Item minimum();
         Item extractMax();  //Rimuove e restituisce l'elemento nell'albero con priorità maggiore
+        Item extractMin();
         void insertMH(Item x);  //Restituisce l'elemento nella coda
-        void IncreasePriority(int num, Item key);    //Aumenta il valore della priorita di x al nuovo valore
+        void increasePriority(int num, Item key);    //Aumenta il valore della priorita di x al nuovo valore
+        void decreasePriority(int num,Item key);
 };
 
 //Costruttore
@@ -35,6 +37,13 @@ template<class Item> void priorityQueue <Item>::insertMH(Item x){
 */
 
 template<class Item> Item priorityQueue <Item>::maximum(){
+    return this->getAlbero().at(0);
+}
+
+/*Questo metodo ci ritorna l' elemento minimo della coda, 
+essendo un "minHeap" lo troveremo nella posizione 0*/
+
+template<class Item> Item priorityQueue<Item>::minimum(){
     return this->getAlbero().at(0);
 }
 
@@ -67,6 +76,30 @@ template<class Item> Item priorityQueue <Item>::extractMax(){
     
 }
 
+/*Questo metodo serve per l'estrazione del numero minore presente nella coda
+  Per prima coda facciamo un controllo sul size, dopodiche richiamiamo il metodo
+  minimum() su una variabile min.
+  Effettiamo lo swap() tra la radice e l'elemento inserito, poi settiamo il size e
+  richiamaiamo il minHeapify() per ripristinare le proprietà del minHeapify(), 
+  infine ritorniamo il minimo;
+*/
+
+template<class Item> Item priorityQueue<Item>::extractMin(){
+
+    if (this->getSize() == 0){
+        return -1;
+    }
+
+    int min = minimum();
+
+    this->albero.erase(this->albero.begin());
+    this->setSize(this->getSize()-1);
+    this->minHeapify(0);
+
+    return min;
+   
+}
+
 /*  Questo metodo ci servirà per incrementare la priorità di un 
     elemento all'interno della coda, quindi lo spingiamo verso
     l'alto. Abbiamo un ciclo while che verificherà che la radice
@@ -76,7 +109,7 @@ template<class Item> Item priorityQueue <Item>::extractMax(){
     radice. 
 */
 
-template<class Item> void priorityQueue<Item>::IncreasePriority(int i, Item key){
+template<class Item> void priorityQueue<Item>::increasePriority(int i, Item key){
 
     if (key < this->getAlbero().at(i)){
         cout<<"Invalid Data"<<endl;
@@ -92,4 +125,30 @@ template<class Item> void priorityQueue<Item>::IncreasePriority(int i, Item key)
 
 }
 
-#endif //QUEQUE_H
+/*  Questo metodo ci servirà per decrementare la priorità di un 
+    elemento all'interno della coda, quindi lo spingiamo verso
+    il basso. Abbiamo un ciclo while che verificherà che la radice
+    sarà maggiore dell' i-esimo elemento.
+    Qualora lo fosse ripristinerà la proprietà del max-Heap quindi
+    scambierà i due elementi. Infine riassenerà l'indice i alla
+    radice. 
+*/
+
+template<class Item> void priorityQueue <Item>::decreasePriority(int num, Item key){
+
+    if (key < this->getAlbero().at(num)){
+        cout<<"Invalid Data"<<endl;
+        exit;
+    }
+
+    this->albero.at(num) = key;
+        
+    while(num > 0 && this->getAlbero().at(this->parent(num)) > this->getAlbero().at(num))
+    {
+        swap(this->albero.at(this->parent(num)),this->albero.at(num));
+        num = this->parent(num);
+    }
+
+}
+
+#endif
