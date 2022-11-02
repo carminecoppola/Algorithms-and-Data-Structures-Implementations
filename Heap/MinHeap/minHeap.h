@@ -90,7 +90,15 @@ template<class Item> void minHeap<Item>::buildMinHeap(){
 template <class Item> void minHeap<Item>::insert(Item elemento){
     albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
     setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
-    buildMinHeap();                //Richiamo la funzione che crea l'albero
+    //buildMinHeap();                //Richiamo la funzione che crea l'albero
+
+    int i = getSize()-1;
+    while (i>0 && getAlbero().at(parent(i))>elemento)
+    {
+        swap(albero.at(i),albero.at(parent(i)));
+        i = parent(i);
+    }
+    
 }
 
 template <class Item> void minHeap<Item>::printArray(){

@@ -19,7 +19,6 @@ class minHeap{
         };
 
     protected:
-        vector<Item> albero;
 
         int parent(int i){
             int padre = (i-1)/2;
@@ -30,11 +29,7 @@ class minHeap{
             a = b;
             b = t;
         };
-
-        //Metodo di getter per l'Albero
-        vector<Item> getAlbero(){
-            return albero;
-        };
+        
         //Metodo di setting per il Size
         void setSize(int s){
             size = s;
@@ -48,12 +43,23 @@ class minHeap{
         void insert(Item elemento);
 
     public:
+
         /*Costruttore modificato poichè ci interesserà una coda
           di k elementi.*/
-        minHeap(vector<Item>alb, int k){
+        minHeap(vector<Item>alb){
             albero = alb;
-            size = k;
+            size = 0;
         };
+        minHeap(){
+            size = 0;
+        };
+
+        vector<Item> albero;
+        //Metodo di getter per l'Albero
+        vector<Item> getAlbero(){
+            return albero;
+        };
+
         void buildMinHeap(); //Costruzione del nostro albero
         void printArray();
 };
@@ -82,23 +88,18 @@ template<class Item> void minHeap<Item>::buildMinHeap(){
     } 
 }
 
-/*Abbiamo modificato il metodo di insert() poichè ci servira
-  verificare che l'elemento inserito sia maggiore della radice
-  cosi che qualora lo fosse venga inserito nella coda e la radice
-  venga tolta. Dopodichè ripristiniamo le proprieta del minHeapify()
-  ma lo faremo tramite il buildMinHeap().
-*/
 template <class Item> void minHeap<Item>::insert(Item elemento){
 
-    //Controllo che l'elemento da inserie sia maggiore della radice
-    if (elemento > getAlbero().at(0) ){
-        cout<<"L'elemento "<<elemento<<" è > "<<getAlbero().at(0)<<endl;
-        albero.at(0) = elemento;
-        buildMinHeap();
+    albero.push_back(elemento);      //tramite pushback inserisco l'elemento nell'albero
+    setSize(getSize()+1);           //Visto che è stato aggiunto un elemento aggiorno il size
+
+    int i = getSize()-1;
+
+    while (i>0 && getAlbero().at(parent(i))>elemento){
+        swap(albero.at(i),albero.at(parent(i)));
+        i = parent(i);
     }
-    else{
-        cout<<"L'elemento "<<elemento<<" è piu piccolo quindi viene scartato"<<endl;
-    }
+
 }
 
 

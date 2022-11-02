@@ -16,32 +16,35 @@ using namespace std;
 
 int main(){
 
-    vector<int> tree {10,3,21};
-    kMax <int> albero = kMax<int>(tree,3);
+    vector<int> tree {10,2,21,1,45,8,12,78};
+    kMax <int> albero = kMax<int>();
 
-    albero.buildMinHeap();
-    albero.printArray();
-    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl<<endl;
+    int k = 3;
+    
+   for (int i = 0; i < k; i++)
+   {
+        albero.insertMH(tree.at(i));
+   }
 
-    albero.insertMH(1);
-    albero.printArray();
-    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
+    for (int j = k; j < tree.size(); j++)
+    {
+        if (tree.at(j) > albero.getAlbero().at(0))
+        {
+            cout<<endl<<"Inserito poiche "<<tree.at(j)<<" > "<<albero.getAlbero().at(0)<<endl;
+            albero.insertMH(tree.at(j));
+            albero.extractMin();
+        }
+        else{
+            cout<<endl<<"L'elemento NON viene inserito poichè "<<tree.at(j)<<" < "<<albero.getAlbero().at(0)<<endl;
+        }
 
-    albero.insertMH(8);
-    albero.printArray();
-    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
 
-    albero.insertMH(45);
-    albero.printArray();
-    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
+    }
 
-    albero.insertMH(12);
     albero.printArray();
-    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
 
-    albero.insertMH(78);
-    albero.printArray();
-    cout<<endl<<"Il k-esimo numero è: "<<albero.minimum()<<endl;
+    cout<<"L'elemento k-esimo più grande è: "<<albero.minimum()<<endl;
     
     return 0;
 }
+

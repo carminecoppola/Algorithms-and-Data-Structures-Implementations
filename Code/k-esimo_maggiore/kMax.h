@@ -12,7 +12,7 @@ class kMax : public minHeap <Item>{
     private:
         /* data */
     public:
-        kMax(vector<Item> albero, int k);
+        kMax();
         void insertMH(Item x);
         Item minimum();
         Item extractMin();
@@ -20,7 +20,7 @@ class kMax : public minHeap <Item>{
 };
 
 //Costruttore
-template <class Item> kMax<Item>::kMax(vector<Item> albero,int k):minHeap<Item>(albero,k){
+template <class Item> kMax<Item>::kMax():minHeap<Item>(){
 
 }
 
@@ -49,9 +49,10 @@ template<class Item> Item kMax<Item>::extractMin(){
     if (this->getSize() == 0){
         return -1;
     }
+
     int min = minimum();
 
-    swap(this->albero.at(0),this->albero.at(this->getSize()-1));
+    this->albero.erase(this->albero.begin());
     this->setSize(this->getSize()-1);
     this->minHeapify(0);
 
