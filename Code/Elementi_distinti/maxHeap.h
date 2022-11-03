@@ -9,12 +9,8 @@ template <class Item>
 
 class maxHeap{
     private:
-        vector<Item> albero;
         int size;
-        int parent(int i){
-            int padre = (i+1)/2;
-            return padre;
-        };
+
         int left(int i){
             int sx = (i*2)+1;
             return sx;
@@ -24,12 +20,8 @@ class maxHeap{
             return dx;
         };
 
-        void maxHeapify(int size); 
+        void maxHeapify(int size);
 
-        //Metodo di getter per l'Albero
-        vector<Item> getAlbero(){
-            return albero;
-        };
         //Metodo di setting per il Size
         void setSize(int s){
             size = s;
@@ -51,6 +43,22 @@ class maxHeap{
             albero = alb;
             size = 0;
         };
+        maxHeap(){
+            size = 0;
+        };
+
+        vector<Item> albero;
+
+        int parent(int i){
+            int padre = (i+1)/2;
+            return padre;
+        };
+
+        //Metodo di getter per l'Albero
+        vector<Item> getAlbero(){
+            return albero;
+        };
+
         void buildMaxHeap(); //Costruzione del nostro albero
         void insert(Item elemento);
         void printArray();

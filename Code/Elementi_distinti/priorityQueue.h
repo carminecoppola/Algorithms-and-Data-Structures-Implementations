@@ -11,7 +11,7 @@ class priorityQueue : public maxHeap<Item>{
     private:
 
     public:
-        priorityQueue(vector<Item>);
+        priorityQueue();
         Item maximum();     //Restituisce il massimo
         Item minimum();
         Item extractMax();  //Rimuove e restituisce l'elemento nell'albero con priorità maggiore
@@ -22,7 +22,7 @@ class priorityQueue : public maxHeap<Item>{
 };
 
 //Costruttore
-template<class Item> priorityQueue <Item>::priorityQueue(vector<Item> albero):maxHeap<Item>(albero){}
+template<class Item> priorityQueue <Item>::priorityQueue():maxHeap<Item>(){}
 
 
 
@@ -138,18 +138,13 @@ template<class Item> void priorityQueue<Item>::increasePriority(int i, Item key)
 
 template<class Item> void priorityQueue <Item>::decreasePriority(int num, Item key){
 
-    if (key < this->getAlbero().at(num)){
+    if (key > this->getAlbero().at(num)){
         cout<<"Invalid Data"<<endl;
         exit;
     }
 
     this->albero.at(num) = key;
-        
-    while(num > 0 && this->getAlbero().at(this->parent(num)) > this->getAlbero().at(num))
-    {
-        swap(this->albero.at(this->parent(num)),this->albero.at(num));
-        num = this->parent(num);
-    }
+    this->buildMaxHeap();
 
 }
 
