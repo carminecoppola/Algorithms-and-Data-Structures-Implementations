@@ -8,19 +8,30 @@ using namespace std;
 
 int main(){
 
-    vector<int> array{2,5,3,0,2,3,0,3};
+    vector<int> numeri{2,5,3,0,2,3,0,3};
+    cout<<endl<<"Array Iniziale:"<<endl;
+    for (auto i : numeri){
+       cout<< i <<" ";
+    }
+    cout<<endl;
 
-    
+
+    countingsort::counting(&numeri);
+    cout<<endl<<"Array dopo CountingSort Base:"<<endl;
+    for (auto i : numeri){
+        cout<< i <<" ";
+    }
+    cout<<endl;
     
     
 
 
 
     //Cormen
-    vector<int> B(array.size());
-    countingsort::countingCormen(&array,&B);
+    vector<int> B(numeri.size());
+    countingsort::countingCormen(&numeri,&B);
 
-    cout<<"Counting Sort Cormen:"<<endl;
+    cout<<endl<<"Array dopo CountingSort Cormen:"<<endl;
     for (auto i : B){
         cout<< i <<" ";
     }
