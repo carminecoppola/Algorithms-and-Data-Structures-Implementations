@@ -9,43 +9,54 @@ class countingsort{
     private:
             /*data*/
     public:
-        void counting(vector<int> *A, int lenghtA);
+        static void counting(vector<int> *);
+        static void countingCormen(vector<int> *, vector<int> *);
 };
 
-void countingsort::counting(vector<int> *A, int lenghtA){
+void countingsort::counting(vector<int> *A){
+    
+}
 
+
+void countingsort::countingCormen(vector<int> *A, vector<int> *B){
+
+    int lenghtA = A->size();
     int max= A->at(0);
     int min= A->at(0);
 
-    for (int i = 2; i < lenghtA; i++){
-        if (A->at(0) > max){
+    for (int i = 1; i < lenghtA; i++){
+
+        if (A->at(i) > max){
             max = A->at(i);
+        }
+        else if (A->at(i) < min){
+            min = A->at(i);
         }
     }
 
     //Costruzione dell'array C* di dimensione max-min+1
     int lenghtC = max-min+1;
-    vector<int> *C = new vector<int>[lenghtC]; //Visto dalle slide da verificare
+    int *C = new int[lenghtC]; //Visto dalle slide da verificare
 
-    for (int j = 1; j < lenghtC; j++){
-        C->at(0) = 0; //Inizializzazione degli elementi di C
+    for (int j = 0; j < lenghtC-1; j++){
+        C[j] = 0; //Inizializzazione degli elementi di C
     }
     
-    for (int k = 1; k < lenghtA; k++){
-        C->at(A->at(k-min))++;
+    for (int k = 0; k < lenghtA-1; k++){
+        C[A->at(k)]++;
     }
-    
-    int k = 0; //Indice per l'array A
 
-    for (int i = 0; i < lenghtC; i++){
-        while (C->at(i) > 0)
-        {
-            A->at(k++) = i + min;
-            C->at(i)--;
-        }
-        delete[ ] C;
+    for (int i = 1; i < lenghtC; i++){
+        C[i] += C[i-1];
     }
     
+
+    for (int i = lenghtA-1; i >= 0; i--){
+        B->at(C[A->at(i)]-1) = A->at(i);
+        C[A->at(i)]--;
+    }
+    
+    delete[]C;
     
 }
 
