@@ -1,4 +1,8 @@
-/*Implementare counting sort*/
+/*In questo esercizio implementiamo quello visto durante la lezione, ovvero:
+    • CountingSort Base (presente sulle slide);
+    • CountingSort Cormen (versione del libro di riferimento);
+    • CountingSort Inverso (ordinamento al contrario);
+*/
 
 #include<iostream>
 #include<vector>

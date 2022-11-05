@@ -17,6 +17,7 @@ class countingsort{
 void countingsort::counting(vector<int> *A){
 
     int lenghtA = A->size();
+    //Impostiamo il massimo e il minimo dell'array
     int max= A->at(0);
     int min= A->at(0);
 
@@ -63,6 +64,7 @@ void countingsort::counting(vector<int> *A){
 void countingsort::countingCormen(vector<int> *A, vector<int> *B){
 
     int lenghtA = A->size();
+    //Impostiamo il massimo e il minimo dell'array
     int max= A->at(0);
     int min= A->at(0);
 
@@ -104,8 +106,8 @@ void countingsort::countingCormen(vector<int> *A, vector<int> *B){
 
 void countingsort::countingInverso(vector<int> *A){
 
-
     int lenghtA = A->size();
+    //Impostiamo il massimo e il minimo dell'array
     int max= A->at(0);
     int min= A->at(0);
 
@@ -132,7 +134,9 @@ void countingsort::countingInverso(vector<int> *A){
     }
 
     /*Qui ordinaimo in base alla frequenza (contenuta nel vettore C) degli elementi di A
-      ma lo facciamo partendo dalla fine dell'array C visto che bisogna farlo decrescente;*/
+      ma lo facciamo partendo dalla fine dell'array C (lenghtC-1), finche non è >= 0 e 
+      decrementiamo l'indice, tutto ciò perchè bisogna ordinare in maniera decrescente;
+    */
 
     int k = 0; 
     //indice per l'array A
