@@ -4,26 +4,30 @@
 #include<iostream>
 #include<vector>
 #include<string>
+
 using namespace std;
 
-template <class Item>
 class radixSort{
     private:
 
-        static Item getMax(vector<Item> *A);
-        static Item counting(vector<Item> *A, int i);
+        static void counting(string *A,int size, int k);
 
     public:
 
-        radixSort(/* args */);
-        static Item radixsort(vector<Item> *A);
-        static void print(vector<Item> );
+        static void radixsort(string *A,int size);
+        static void print(string A,int size);
 };
 
-template<class Item> radixSort <Item>::radixSort(/* args */){
+void radixSort::counting(string *A,int size,int k){
 
 }
 
+void radixSort::radixsort(string *A,int size){
 
+}
+
+void radixSort::print(string A,int size){
+
+}
 
 #endif

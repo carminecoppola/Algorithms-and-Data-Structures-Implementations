@@ -9,7 +9,7 @@ using namespace std;
 class Radixsort{
     private:
         static int getMax(vector<int> *A);
-        static void counting(vector<int> *A, int i);
+        static void counting(vector<int> *A, int k);
     public:
         static void radixsort(vector<int> *A);
         static void print(vector<int> );
