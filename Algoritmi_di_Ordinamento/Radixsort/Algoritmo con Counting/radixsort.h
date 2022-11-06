@@ -8,8 +8,8 @@ using namespace std;
 
 class Radixsort{
     private:
-        static void counting(vector<int> *A, int i);
         static int getMax(vector<int> *A);
+        static void counting(vector<int> *A, int i);
     public:
         static void radixsort(vector<int> *A);
         static void print(vector<int> );
