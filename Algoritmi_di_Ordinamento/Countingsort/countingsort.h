@@ -45,7 +45,7 @@ void countingsort::counting(vector<int> *A){
 
     //Qui ordinaimo in base alla frequenza (contenuta nel vettore C) degli elementi di A;
 
-    int k = 0; 
+    int k = 0;
     //indice per l'array A
     for (int i = 0; i < lenghtC; i++){
         while (C[i] > 0){
