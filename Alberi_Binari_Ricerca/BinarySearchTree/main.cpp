@@ -18,20 +18,25 @@ using namespace std;
 
 int main(){
 
-    binarySearchTree<int>* tree = new binarySearchTree<int>;
+    binarySearchTree<int> tree;
 
-    tree->insertTree(10);
-    tree->insertTree(20);
-    tree->insertTree(2);
-    tree->insertTree(4);
-    tree->insertTree(60);
-    tree->insertTree(222);
-    tree->insertTree(40);
-    tree->insertTree(62);
+    tree.insertTree(12);
+    tree.insertTree(9);
+    tree.insertTree(5);
+    tree.insertTree(2);
+    tree.insertTree(13);
+    tree.insertTree(17);
+    tree.insertTree(18);
+    tree.insertTree(19);
+    tree.insertTree(15);
 
+    cout<<endl<<"Abero Simmetrico: "<<endl;
+    tree.preOrderVisit(tree.getRoot());
+    
+    cout<<endl<<endl<<"Radice: "<<tree.getRoot()->getInfo()<<endl<<endl;
 
-    cout<<"Albero dopo inserimento:"<<endl;
-    tree->preOrderVisit(tree->getRoot());
+    cout<<endl<<"Abero inOrder: "<<endl;
+    tree.inOrderVisit(tree.getRoot());
     
     return 0;
 }
