@@ -15,9 +15,9 @@ class Nodo{
         Nodo(Item );    //Costruttore
 
         void setInfo(Item );
-        void setParent(Item * );
-        void setLeft(Item * );
-        void setRight(Item * );
+        void setParent(Nodo * );
+        void setLeft(Nodo * );
+        void setRight(Nodo * );
 
         Item getInfo(){
             return info;
@@ -44,15 +44,15 @@ template<class Item> void Nodo<Item>::setInfo(Item i){
     info = i;
 }
 
-template<class Item> void Nodo<Item>::setParent(Item *padre){
+template<class Item> void Nodo<Item>::setParent(Nodo *padre){
     parent = padre;
 }
 
-template<class Item> void Nodo<Item>::setLeft(Item *sx){
+template<class Item> void Nodo<Item>::setLeft(Nodo *sx){
     left = sx;
 }
 
-template<class Item> void Nodo<Item>::setRight(Item *dx){
+template<class Item> void Nodo<Item>::setRight(Nodo *dx){
     right = dx;
 }
 
