@@ -13,7 +13,7 @@ class Nodo{
         Nodo *right;
     public:
         Nodo(Item );    //Costruttore
-
+        ~Nodo();
         void setInfo(Item );
         void setParent(Nodo * );
         void setLeft(Nodo * );
@@ -38,6 +38,13 @@ template<class Item> Nodo <Item>::Nodo(Item value){
     left = nullptr;
     right = nullptr;
     info = value;
+}
+
+template<class Item> Nodo <Item>::~Nodo(){
+    delete info;
+    delete parent;
+    delete left;
+    delete right;
 }
 
 template<class Item> void Nodo<Item>::setInfo(Item i){

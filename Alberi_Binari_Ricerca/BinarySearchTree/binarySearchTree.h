@@ -13,6 +13,11 @@ class binarySearchTree{
        Nodo<Item> *root;
     public:
         binarySearchTree();
+
+        Nodo *getRoot(){
+            return root;
+        };
+
         int minimumTree();
         int maximumTree();
         int predecessorTree();
@@ -21,9 +26,8 @@ class binarySearchTree{
         void deleteTree();
 };
 
-template<class Item> binarySearchTree::binarySearchTree(){
+template<class Item> binarySearchTree<Item>::binarySearchTree(){
     root = nullptr;
-
 }
 
 #endif
