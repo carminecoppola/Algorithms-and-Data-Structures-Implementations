@@ -161,6 +161,9 @@ template<class Item> Nodo<Item> *binarySearchTree<Item>::successorTree(Nodo<Item
 
 template<class Item> Nodo<Item> *binarySearchTree<Item>::findSucc(Nodo<Item> *x){
 
+    if (x == nullptr)
+        return nullptr;
+    
     Nodo<Item> *y = x->getParent();
 
     if (y == nullptr)
@@ -184,6 +187,9 @@ template<class Item> Nodo<Item> *binarySearchTree<Item>::predecessorTree(Nodo<It
 
 template<class Item> Nodo<Item> *binarySearchTree<Item>::findPre(Nodo<Item> *x){
 
+    if (x != nullptr)
+        return nullptr;
+        
     Nodo<Item> *y = x->getParent();
 
     if (y == nullptr)
