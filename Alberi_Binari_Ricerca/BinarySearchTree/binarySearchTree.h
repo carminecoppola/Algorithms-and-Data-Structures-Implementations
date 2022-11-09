@@ -29,8 +29,10 @@ class binarySearchTree{
         Nodo<Item> *minimumTree(Nodo<Item> *);
         Nodo<Item> *maximumTree(Nodo<Item> *);
 
-        int predecessorTree();
-        int successorTree();
+        Nodo<Item> *predecessorTree(Nodo<Item> * );
+        Nodo<Item> *pre(Nodo<Item> * );
+        Nodo<Item> *successorTree(Nodo<Item> * );
+        Nodo<Item> *findSucc(Nodo<Item> * );
 
         void insertTreeIter(Item value);
         void insertTreeRicors(Item , Nodo<Item>* ,Nodo<Item> * );
@@ -145,6 +147,30 @@ template<class Item> Nodo<Item> *binarySearchTree<Item>::maximumTree(Nodo<Item> 
     else
         return maximumTree(radice->getRight());
 }
+
+//Successore
+template<class Item> Nodo<Item> *binarySearchTree<Item>::successorTree(Nodo<Item> *x){
+
+    if (x->getRight() != nullptr)
+        return minimumTree(x->getRight());
+    else
+        return findSucc(x);
+    
+
+}
+
+template<class Item> Nodo<Item> *binarySearchTree<Item>::findSucc(Nodo<Item> *x){
+
+    Nodo<Item> *y = x->getParent();
+
+    if (y == nullptr)
+        return nullptr;
+    if (y->getLeft() == x)
+        return y;
+    else
+        return findSucc(y);    
+}
+
 //Visite
 template<class Item> void binarySearchTree<Item>::preOrderVisit(Nodo<Item> *current){
 

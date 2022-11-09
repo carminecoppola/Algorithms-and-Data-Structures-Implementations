@@ -40,6 +40,9 @@ int main(){
 
     cout<<endl<<"Il minimo è: "<<tree.minimumTree(tree.getRoot())->getInfo()<<endl;
     cout<<endl<<"Il massimo è: "<<tree.maximumTree(tree.getRoot())->getInfo()<<endl;
+
+    auto *x = tree.treeSearch(14,tree.getRoot());
+    cout<<endl<<"Il successore del nodo "<< x->getInfo()<<" è: "<< tree.successorTree(x)->getInfo() <<endl;
     
     return 0;
 }
