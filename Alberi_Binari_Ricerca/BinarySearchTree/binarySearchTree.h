@@ -131,14 +131,14 @@ template<class Item> void binarySearchTree<Item>::insert(Item nodoNew, Nodo<Item
 template<class Item> void binarySearchTree<Item>::deleteTree(Nodo<Item> *x){
 
     if (x == nullptr)
-        x == nullptr;
+        x = nullptr;
     if(x->getLeft() == nullptr){
         transplant(x, x->getRight());
-        deleteTree(x);
+        //deleteTree(x);
     }
     else if( x->getRight() == nullptr){
         transplant(x, x->getLeft());
-        deleteTree(x);
+        //deleteTree(x);
     }
     else{
         Nodo<Item> *y = successorTree(x);
@@ -146,12 +146,12 @@ template<class Item> void binarySearchTree<Item>::deleteTree(Nodo<Item> *x){
             transplant(y, x->getRight());
             y->setRight(x->getRight());
             (y->getRight())->setParent(y);
-            deleteTree(x);
+            //deleteTree(x);
         }
         transplant(x, y);
         y->setLeft(x->getLeft());
         (y->getLeft())->setParent(y);
-        deleteTree(x);
+        //deleteTree(x);
     }
     
 }
