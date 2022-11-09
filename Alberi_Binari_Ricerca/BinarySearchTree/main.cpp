@@ -49,10 +49,13 @@ int main(){
     
     cout<<endl<<"Il nodo da cancellare è: "<< x->getInfo()<<endl;
     tree.deleteTree(x);
+
     cout<<endl<<"Abero Pre-Order: "<<endl;
     tree.preOrderVisit(tree.getRoot());
+
     cout<<endl<<"Abero In-Order: "<<endl;
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
+    
     return 0;
 }
