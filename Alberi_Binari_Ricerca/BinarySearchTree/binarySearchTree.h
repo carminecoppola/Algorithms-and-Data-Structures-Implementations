@@ -143,7 +143,7 @@ template<class Item> void binarySearchTree<Item>::deleteTree(Nodo<Item> *x){
     else{
         Nodo<Item> *y = successorTree(x);
         if (y->getParent() != x){
-            transplant(y, x->getRight());
+            transplant(y, y->getRight());
             y->setRight(x->getRight());
             (y->getRight())->setParent(y);
             //deleteTree(x);
@@ -165,9 +165,7 @@ template<class Item> void binarySearchTree<Item>::transplant(Nodo<Item> * x,Nodo
         (x->getParent())->setRight(y);
 
     if ( y != nullptr)
-    {
         y->setParent(x->getParent());
-    }
     
 }
 
