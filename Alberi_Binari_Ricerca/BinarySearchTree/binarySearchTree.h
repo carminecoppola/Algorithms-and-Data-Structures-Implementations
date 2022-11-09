@@ -19,9 +19,15 @@ class binarySearchTree{
             return root;
         };
 
+        bool isEmpty(){
+            if (root == NULL)
+                return true;
+            return false;
+        }
+
         Nodo<Item> *treeSearch(Item, Nodo<Item> * );
-        int minimumTree();
-        int maximumTree();
+        Nodo<Item> *minimumTree(Nodo<Item> *);
+        Nodo<Item> *maximumTree(Nodo<Item> *);
 
         int predecessorTree();
         int successorTree();
@@ -119,6 +125,26 @@ template<class Item> void binarySearchTree<Item>::insert(Item nodoNew, Nodo<Item
     
 }
 
+//Min && Max
+template<class Item> Nodo<Item> *binarySearchTree<Item>::minimumTree(Nodo<Item> *radice){
+
+    if (isEmpty())
+        return nullptr;
+    else if(radice->getLeft() == nullptr)
+        return radice;
+    else
+        return minimumTree(radice->getLeft());
+    
+}
+
+template<class Item> Nodo<Item> *binarySearchTree<Item>::maximumTree(Nodo<Item> *radice){
+    if (isEmpty())
+        return nullptr;
+    else if(radice->getRight() == nullptr)
+        return radice;
+    else
+        return maximumTree(radice->getRight());
+}
 //Visite
 template<class Item> void binarySearchTree<Item>::preOrderVisit(Nodo<Item> *current){
 

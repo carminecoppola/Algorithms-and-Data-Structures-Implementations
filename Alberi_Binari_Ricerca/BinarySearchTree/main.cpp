@@ -38,6 +38,8 @@ int main(){
 
     cout<<endl<<"Elemento trovato: "<<tree.treeSearch(12,tree.getRoot())->getInfo()<<endl;
 
+    cout<<endl<<"Il minimo è: "<<tree.minimumTree(tree.getRoot())->getInfo()<<endl;
+    cout<<endl<<"Il massimo è: "<<tree.maximumTree(tree.getRoot())->getInfo()<<endl;
     
     return 0;
 }
