@@ -130,7 +130,7 @@ template<class Item> void binarySearchTree<Item>::insert(Item nodoNew, Nodo<Item
 
 template<class Item> void binarySearchTree<Item>::deleteTree(Nodo<Item> *x){
 
-    if (x->getLeft() == nullptr && x->getRight() == nullptr)
+    if (x == nullptr)
         x == nullptr;
     if(x->getLeft() == nullptr){
         transplant(x, x->getRight());
