@@ -47,6 +47,12 @@ int main(){
     auto *y = tree.treeSearch(14,tree.getRoot());
     cout<<endl<<"Il predecessore del nodo "<< y->getInfo()<<" è: "<< tree.predecessorTree(y)->getInfo() <<endl;
     
-
+    auto *z = tree.treeSearch(14,tree.getRoot());
+    cout<<endl<<"Il nodo da cancellare è: "<< z->getInfo()<<endl;
+    tree.deleteTree(z);
+    cout<<endl<<"Abero preOrder: "<<endl;
+    tree.preOrderVisit(tree.getRoot());
+    cout<<endl<<"Abero inOrder: "<<endl;
+    tree.inOrderVisit(tree.getRoot());
     return 0;
 }

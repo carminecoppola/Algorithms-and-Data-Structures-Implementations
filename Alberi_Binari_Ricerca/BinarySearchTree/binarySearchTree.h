@@ -37,7 +37,8 @@ class binarySearchTree{
         void insertTreeIter(Item value);
         void insertTreeRicors(Item , Nodo<Item>* ,Nodo<Item> * );
         void insert(Item, Nodo<Item> * , Nodo<Item> * );
-        void deleteTree();
+        void deleteTree(Nodo<Item> * );
+        void transplant(Nodo<Item> * ,Nodo<Item> * );
 
         void preOrderVisit(Nodo<Item> *current);
         void inOrderVisit(Nodo<Item> *current);
@@ -123,6 +124,49 @@ template<class Item> void binarySearchTree<Item>::insert(Item nodoNew, Nodo<Item
     }
     else{
         prev->setLeft(curr);
+    }
+    
+}
+
+template<class Item> void binarySearchTree<Item>::deleteTree(Nodo<Item> *x){
+
+    if (x->getLeft() == nullptr && x->getRight() == nullptr)
+        x == nullptr;
+    if(x->getLeft() == nullptr){
+        transplant(x, x->getRight());
+        deleteTree(x);
+    }
+    else if( x->getRight() == nullptr){
+        transplant(x, x->getLeft());
+        deleteTree(x);
+    }
+    else{
+        Nodo<Item> *y = successorTree(x);
+        if (y->getParent() != x){
+            transplant(y, x->getRight());
+            y->setRight(x->getRight());
+            (y->getRight())->setParent(y);
+            deleteTree(x);
+        }
+        transplant(x, y);
+        y->setLeft(x->getLeft());
+        (y->getLeft())->setParent(y);
+        deleteTree(x);
+    }
+    
+}
+
+template<class Item> void binarySearchTree<Item>::transplant(Nodo<Item> * x,Nodo<Item> * y){
+    if (x->getParent() == nullptr)
+        root = y;
+    else if (x == (x->getParent())->getLeft())
+        (x->getParent())->setLeft(y);
+    else 
+        (x->getParent())->setRight(y);
+
+    if ( y != nullptr)
+    {
+        y->setParent(x->getParent());
     }
     
 }
