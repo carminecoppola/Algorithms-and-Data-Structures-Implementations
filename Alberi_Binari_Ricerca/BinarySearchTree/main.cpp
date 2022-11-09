@@ -28,12 +28,12 @@ int main(){
     tree.insertTreeRicors(14,nullptr,tree.getRoot());
     tree.insertTreeRicors(17,nullptr,tree.getRoot());
 
-    cout<<endl<<"Abero preOrder: "<<endl;
+    cout<<endl<<"Abero Pre-Order: "<<endl;
     tree.preOrderVisit(tree.getRoot());
     
     cout<<endl<<endl<<"Radice: "<<tree.getRoot()->getInfo()<<endl;
 
-    cout<<endl<<"Abero inOrder: "<<endl;
+    cout<<endl<<"Abero In-Order: "<<endl;
     tree.inOrderVisit(tree.getRoot());
 
     cout<<endl<<"Elemento trovato: "<<tree.treeSearch(12,tree.getRoot())->getInfo()<<endl;
@@ -44,15 +44,15 @@ int main(){
     auto *x = tree.treeSearch(14,tree.getRoot());
     cout<<endl<<"Il successore del nodo "<< x->getInfo()<<" è: "<< tree.successorTree(x)->getInfo() <<endl;
     
-    auto *y = tree.treeSearch(14,tree.getRoot());
-    cout<<endl<<"Il predecessore del nodo "<< y->getInfo()<<" è: "<< tree.predecessorTree(y)->getInfo() <<endl;
     
-    auto *z = tree.treeSearch(14,tree.getRoot());
-    cout<<endl<<"Il nodo da cancellare è: "<< z->getInfo()<<endl;
-    tree.deleteTree(z);
-    cout<<endl<<"Abero preOrder: "<<endl;
+    cout<<endl<<"Il predecessore del nodo "<< x->getInfo()<<" è: "<< tree.predecessorTree(x)->getInfo() <<endl;
+    
+    cout<<endl<<"Il nodo da cancellare è: "<< x->getInfo()<<endl;
+    tree.deleteTree(x);
+    cout<<endl<<"Abero Pre-Order: "<<endl;
     tree.preOrderVisit(tree.getRoot());
-    cout<<endl<<"Abero inOrder: "<<endl;
+    cout<<endl<<"Abero In-Order: "<<endl;
     tree.inOrderVisit(tree.getRoot());
+    cout<<endl;
     return 0;
 }

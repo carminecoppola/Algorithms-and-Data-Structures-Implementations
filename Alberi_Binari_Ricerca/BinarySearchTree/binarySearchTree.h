@@ -229,7 +229,7 @@ template<class Item> Nodo<Item> *binarySearchTree<Item>::predecessorTree(Nodo<It
 
 template<class Item> Nodo<Item> *binarySearchTree<Item>::findPre(Nodo<Item> *x){
 
-    if (x != nullptr)
+    if (x == nullptr)
         return nullptr;
         
     Nodo<Item> *y = x->getParent();
