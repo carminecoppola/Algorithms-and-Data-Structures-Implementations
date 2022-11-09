@@ -30,7 +30,7 @@ class binarySearchTree{
         Nodo<Item> *maximumTree(Nodo<Item> *);
 
         Nodo<Item> *predecessorTree(Nodo<Item> * );
-        Nodo<Item> *pre(Nodo<Item> * );
+        Nodo<Item> *findPre(Nodo<Item> * );
         Nodo<Item> *successorTree(Nodo<Item> * );
         Nodo<Item> *findSucc(Nodo<Item> * );
 
@@ -169,6 +169,29 @@ template<class Item> Nodo<Item> *binarySearchTree<Item>::findSucc(Nodo<Item> *x)
         return y;
     else
         return findSucc(y);    
+}
+
+//Predecessore
+template<class Item> Nodo<Item> *binarySearchTree<Item>::predecessorTree(Nodo<Item> *x){
+
+    if (x->getLeft() != nullptr)
+        return maximumTree(x->getLeft());
+    else
+        return findPre(x);
+    
+
+}
+
+template<class Item> Nodo<Item> *binarySearchTree<Item>::findPre(Nodo<Item> *x){
+
+    Nodo<Item> *y = x->getParent();
+
+    if (y == nullptr)
+        return nullptr;
+    if (y->getRight() == x)
+        return y;
+    else
+        return findPre(y);    
 }
 
 //Visite

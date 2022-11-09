@@ -44,5 +44,9 @@ int main(){
     auto *x = tree.treeSearch(14,tree.getRoot());
     cout<<endl<<"Il successore del nodo "<< x->getInfo()<<" è: "<< tree.successorTree(x)->getInfo() <<endl;
     
+    auto *y = tree.treeSearch(14,tree.getRoot());
+    cout<<endl<<"Il predecessore del nodo "<< y->getInfo()<<" è: "<< tree.predecessorTree(y)->getInfo() <<endl;
+    
+
     return 0;
 }
