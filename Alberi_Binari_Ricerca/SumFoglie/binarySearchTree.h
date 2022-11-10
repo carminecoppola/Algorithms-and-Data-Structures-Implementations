@@ -34,7 +34,7 @@ class binarySearchTree{
         Nodo<Item> *successorTree(Nodo<Item> * );
         Nodo<Item> *findSucc(Nodo<Item> * );
 
-        void insertTreeIter(Item value);
+        void insert(Item value);
         void insertTreeRicors(Item , Nodo<Item>* ,Nodo<Item> * );
         void insert(Item, Nodo<Item> * , Nodo<Item> * );
         void deleteTree(Nodo<Item> * );
@@ -63,34 +63,9 @@ template<class Item> Nodo<Item> *binarySearchTree<Item>::treeSearch(Item key, No
     
 }
 //Insert
-template<class Item> void binarySearchTree<Item>::insertTreeIter(Item value){
+template<class Item> void binarySearchTree<Item>::insert(Item value){
 
-    Nodo<Item> *nodeToInsert = new Nodo<Item>(value);
-    Nodo<Item> *parent = nullptr;
-    Nodo<Item> *current = root;
-
-    while (current != nullptr)
-    {
-        parent = current;
-        if (nodeToInsert->getInfo() < current->getInfo()){
-            current = current->getLeft();
-        }
-        else{
-            current = current->getRight();
-        }
-        
-    }
-
-    //Nodo inseguitore
-    nodeToInsert->setParent(parent);
-
-    if (parent == nullptr)
-        root = nodeToInsert;
-    else if(nodeToInsert->getInfo() < parent->getInfo())
-        parent->setLeft(nodeToInsert);
-    else
-        parent->setRight(nodeToInsert);
-
+    insertTreeRicors(value,nullptr,root);
 }
 
 template<class Item> void binarySearchTree<Item>::insertTreeRicors(Item nodoNew, Nodo<Item> *prev,Nodo<Item> *curr){
