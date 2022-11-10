@@ -10,11 +10,11 @@ using namespace std;
 template <class Item>
 Item sumBetween(Nodo<Item> *tree , int max, int min){
 
-    if (tree->getInfo() > max || tree->getInfo() < min)
+    if (min <= tree->getInfo() && tree->getInfo() <= max)
         return tree->getInfo();
     
-    else (tree->getInfo() > min && tree->getInfo() < max)
-        return sumBetween(tree->getLeft(),max,min) + sumBetween(tree->getRight(),max,min);
+    else
+        return tree->getInfo() + sumBetween(tree->getLeft(),max,min) + sumBetween(tree->getRight(),max,min);
 
 };
 
