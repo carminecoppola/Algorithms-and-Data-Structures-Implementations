@@ -8,12 +8,12 @@
 using namespace std;
 
 template <class Item>
-Item sumBetween(binarySearchTree<int> tree , Nodo<Item> *x, int k){
+Item sumBetween(Nodo<Item> *tree , int max, int min){
 
-    if (k == 0)
-        return x->getInfo();
-    else{
-        return x->getInfo() + sumMinimum(tree,tree.successorTree(x),k-1);
+    if (tree == nullptr)
+        return tree->getInfo();
+    else if (min < tree->getInfo() && tree->getInfo() < max){
+        return sumBetween(tree->getLeft(),max,min) + sumBetween(tree->getRight(),max,min);
     }
 };
 
@@ -38,12 +38,7 @@ int main(){
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
 
-    // int k = 0;
-    // cout << endl << "• Inserire il numero di k nodi da sommare: " << endl;
-    // cin >> k;
-    // auto *min = tree.minimumTree(tree.getRoot());
+    int m = 13, n = 4;
 
-    // //cout << endl << "La somma delle foglie è: "<<  sumMinimum(tree,min,k-1) << endl;
-
-
+    cout << endl << " Il valore della somma dei numeri compresi tra " << n << " e " << m << " è: " << sumBetween(tree.getRoot(),m,n) << endl; 
 };

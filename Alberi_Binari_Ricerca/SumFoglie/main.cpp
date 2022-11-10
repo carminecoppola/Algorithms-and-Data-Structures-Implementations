@@ -13,9 +13,7 @@ Item sommaFoglie(Nodo<Item> *x){
     if (x->getLeft() == nullptr || x->getRight() == nullptr)
         return x->getInfo();
     else
-        return sommaFoglie(x->getLeft())+sommaFoglie(x->getRight());
-    
-    
+        return sommaFoglie(x->getLeft())+sommaFoglie(x->getRight());  
 };
 
 int main(){
