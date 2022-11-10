@@ -10,7 +10,7 @@ using namespace std;
 template <class Item>
 Item sumBetween(Nodo<Item> *tree , int max, int min){
 
-    if (tree == nullptr)
+    if (tree->getInfo() > max || tree->getInfo() < min)
         return tree->getInfo();
     
     else (tree->getInfo() > min && tree->getInfo() < max)
@@ -39,7 +39,7 @@ int main(){
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
 
-    int m = 13, n = 4;
-
-    cout << endl << " Il valore della somma dei numeri compresi tra " << n << " e " << m << " è: " << sumBetween(tree.getRoot(),m,n) << endl; 
+    int m = 14, n = 11;
+    int somma = sumBetween(tree.getRoot(),m,n); 
+    cout << endl << " Il valore della somma dei numeri compresi tra " << n << " e " << m << " è: " << somma << endl; 
 };
