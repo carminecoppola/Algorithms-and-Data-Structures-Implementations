@@ -8,12 +8,12 @@
 using namespace std;
 
 template <class Item>
-Item sumMinimum(Nodo<Item> *x, int k){
+Item sumMinimum(binarySearchTree<int> tree , Nodo<Item> *x, int k){
 
     if (k == 0)
         return x->getInfo();
     else{
-        return ;
+        return x->getInfo() + sumMinimum(tree,tree.successorTree(x),k-1);
     }
 
 };
@@ -39,11 +39,12 @@ int main(){
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
 
-    int k = 3;
+    int k = 0;
+    cout << endl << "• Inserire il numero di k nodi da sommare: " << endl;
+    cin >> k;
+    auto *min = tree.minimumTree(tree.getRoot());
 
-    int somma = sumMinimum(tree.successorTree(tree.minimumTree(tree.getRoot())),k);
-
-    cout << endl << "La somma delle foglie è: " << somma << endl;
+    cout << endl << "La somma delle foglie è: "<<  sumMinimum(tree,min,k-1) << endl;
 
 
 };
