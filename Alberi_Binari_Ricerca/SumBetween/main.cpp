@@ -12,9 +12,10 @@ Item sumBetween(Nodo<Item> *tree , int max, int min){
 
     if (tree == nullptr)
         return tree->getInfo();
-    else if (min < tree->getInfo() && tree->getInfo() < max){
+    
+    else (tree->getInfo() > min && tree->getInfo() < max)
         return sumBetween(tree->getLeft(),max,min) + sumBetween(tree->getRight(),max,min);
-    }
+
 };
 
 int main(){
