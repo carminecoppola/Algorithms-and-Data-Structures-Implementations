@@ -1,5 +1,5 @@
-/*  Progettare un algoritmo ricorsivo che dato un ABR sommi le k
-    chiavi più piccole.
+/*  Progettare un algoritmo ricorsivo che dato un ABR sommi le
+    chiavi comprese tra il valore m ed il valore M, con m<M
 */
 
 #include <iostream>
@@ -8,14 +8,13 @@
 using namespace std;
 
 template <class Item>
-Item sumMinimum(binarySearchTree<int> tree , Nodo<Item> *x, int k){
+Item sumBetween(binarySearchTree<int> tree , Nodo<Item> *x, int k){
 
     if (k == 0)
         return x->getInfo();
     else{
         return x->getInfo() + sumMinimum(tree,tree.successorTree(x),k-1);
     }
-
 };
 
 int main(){
@@ -39,12 +38,12 @@ int main(){
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
 
-    int k = 0;
-    cout << endl << "• Inserire il numero di k nodi da sommare: " << endl;
-    cin >> k;
-    auto *min = tree.minimumTree(tree.getRoot());
+    // int k = 0;
+    // cout << endl << "• Inserire il numero di k nodi da sommare: " << endl;
+    // cin >> k;
+    // auto *min = tree.minimumTree(tree.getRoot());
 
-    cout << endl << "La somma delle foglie è: "<<  sumMinimum(tree,min,k-1) << endl;
+    // //cout << endl << "La somma delle foglie è: "<<  sumMinimum(tree,min,k-1) << endl;
 
 
 };
