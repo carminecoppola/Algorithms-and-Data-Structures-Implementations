@@ -10,15 +10,16 @@ using namespace std;
 template <class Item>
 Item sumBetween(Nodo<Item> *tree , int max, int min){
 
-        if(tree == nullptr) return 0;
-            if (tree->getInfo() >= min && tree->getInfo() <= max){
-                return tree->getInfo() + sumBetween(tree->getLeft(),max,min) + sumBetween(tree->getRight(),max,min);
-            }
-            else if(tree->getInfo() < min ){ 
-                return sumBetween(tree->getRight(),max,min); 
-            }
-            else
-                return sumBetween(tree->getLeft(),max,min);
+        if(tree == nullptr) 
+            return 0;   //Controllo che sono una foglia
+        if (tree->getInfo() >= min && tree->getInfo() <= max){  //Se rispetta la condizione somma
+            return tree->getInfo() + sumBetween(tree->getLeft(),max,min) + sumBetween(tree->getRight(),max,min);
+        }
+        else if(tree->getInfo() < min ){  
+            return sumBetween(tree->getRight(),max,min); 
+        }
+        else
+            return sumBetween(tree->getLeft(),max,min);
 };
 
 int main(){
