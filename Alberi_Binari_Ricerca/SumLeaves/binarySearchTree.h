@@ -74,7 +74,7 @@ template<class Item> void binarySearchTree<Item>::insertTreeRicors(Item nodoNew,
         root = new Nodo<Item>(nodoNew);
     }
     //Caso Base
-    if (curr == nullptr)
+    else if (curr == nullptr)
         insert(nodoNew,prev,curr);   
     //Ricorsione SX
     else if(curr->getInfo() > nodoNew){
@@ -91,10 +91,7 @@ template<class Item> void binarySearchTree<Item>::insert(Item nodoNew, Nodo<Item
 
     curr = new Nodo<Item>(nodoNew);
     curr->setParent(prev);
-    if(prev == nullptr){
-        root = curr;
-    }
-    else if (curr->getInfo() > prev->getInfo()){
+    if (curr->getInfo() > prev->getInfo()){
         prev->setRight(curr);
     }
     else{
@@ -231,9 +228,9 @@ template<class Item> void binarySearchTree<Item>::preOrderVisit(Nodo<Item> *curr
 template <class Item> void binarySearchTree <Item>::inOrderVisit(Nodo<Item> *current){
     if (current != nullptr)
     {
-        preOrderVisit(current->getLeft());
+        inOrderVisit(current->getLeft());
         cout<<current->getInfo()<<" ";
-        preOrderVisit(current->getRight());
+        inOrderVisit(current->getRight());
     }
     
 }
@@ -241,8 +238,8 @@ template <class Item> void binarySearchTree <Item>::inOrderVisit(Nodo<Item> *cur
 template <class Item> void binarySearchTree <Item>::postOrderVisit(Nodo<Item> *current){
     if (current != nullptr)
     {
-        preOrderVisit(current->getLeft());
-        preOrderVisit(current->getRight());
+        postOrderVisit(current->getLeft());
+        postOrderVisit(current->getRight());
         cout<<current->getInfo()<<" ";
     }
     
