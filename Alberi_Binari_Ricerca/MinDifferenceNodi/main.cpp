@@ -1,62 +1,29 @@
-/*  Dato un ABR, trovare la coppia di nodi padre-figlio 
-    con la minima differenza tra le chiavi.
+/*  Dato un ABR, trovare la minima differenza tra le chiavi
+    di due nodi.
 */
 
 #include <iostream>
+#include<vector>
 #include "binarySearchTree.h"
 #include<limits.h>
 
 using namespace std;
 
 template<class Item>
-int differenza(Nodo<Item> *k){
+void arrayVisit(Nodo<Item> *current, vector<Item> *array){
 
-    if (!k || !k->getParent())
-        return UINT16_MAX;    //+infinito
-    else
-        return abs(k->getInfo() - k->getParent()->getInfo());     //ABS = Valore Assoluto
-}
-
-/* Questa funzione ci servirà a effettuare controlli tra la differenza trovata
-   a SX e quella trovata a DX. */
-template<class Item>
-Nodo<Item> *min(Nodo<Item> *A,Nodo<Item> *B,Nodo<Item> *C){
-
-    Nodo<Item> *min_nodo;
-
-    if (differenza(A) <= differenza(B))
-        min_nodo = A;
-    else
-        min_nodo = B;
-    
-    if (differenza(C) <= differenza(min_nodo))
-        min_nodo = C;
-
-    return min_nodo; 
-}
-
-
-/*  Questa funzione ci permetterà nel caso in cui non si è una foglia
-    di calcolarci la minima differenza prima a SX e poi a DX, e
-    richiameremo la funzione min() su questi due risultati.     */
-template<class Item>
-Nodo<Item> *min_diff(Nodo<Item> *n){
-
-    Nodo<Item> *nodo1;
-    Nodo<Item> *nodo2;
-
-    if (n == nullptr)       //Controllo se sono foglia
-        return n;       
-    else{
-        nodo1 = min_diff(n->getLeft());
-        nodo2 = min_diff(n->getRight());
+    if (current != nullptr){
+        arrayVisit(current->getLeft(),array);
+        cout<<array->push_back(current->getInfo())<<" ";    //Rimettiamo nell'array l'elemento attuale
+        arrayVisit(current->getRight(),array);
     }
-    return min(nodo1,nodo2,n);
+    
 }
 
 int main(){
 
     binarySearchTree<int> tree;
+    vector<int> array;
 
     tree.insert(15);
     tree.insert(12);
@@ -75,8 +42,11 @@ int main(){
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
 
-    int minimaDiff = min_diff(tree.getRoot())->getInfo();
-    cout << endl << "  -La minima differenza è tra "<< minimaDiff << " e suo padre " << min_diff(tree.getRoot())->getParent()->getInfo() << endl <<endl;
+    arrayVisit(tree.getRoot(),&array);
+    for (int i = 0; i < array.size(); i++)
+    {
+        cout << i << endl;
+    }
 
     return 0;
 }
