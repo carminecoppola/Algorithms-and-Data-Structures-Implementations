@@ -16,7 +16,20 @@ void arrayVisit(Nodo<Item> *current, vector<Item> *array){
         array->push_back(current->getInfo());    //Rimettiamo nell'array l'elemento attuale
         arrayVisit(current->getRight(),array);
     }
-    
+}
+
+template<class Item>
+Item differenza(vector<Item> array){
+
+    Item indice;
+    Item diff = abs(array.at(0) - array.at(1));
+    for (int i = 1; i < array.size()-1; i++)
+    {
+        if (abs(array.at(i) - array.at(i+1)) < diff){
+            indice = i;
+        }
+    } 
+    return indice;
 }
 
 int main(){
@@ -41,11 +54,9 @@ int main(){
     tree.inOrderVisit(tree.getRoot());
     cout<<endl;
 
-    arrayVisit(tree.getRoot(),&array);
-    for (int i = 0; i < array.size(); i++)
-    {
-        cout << array.at(i)<<" ";
-    }
-    cout<<endl;
+    int prova = differenza(array);
+
+    cout << "I nodi minimi sono " << array.at(prova) << " e " << array.at(prova+1) << endl; 
+
     return 0;
 }
