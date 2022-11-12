@@ -16,7 +16,7 @@ void arrayVisit(Nodo<Item> *current, vector<Item> *array){
         array->push_back(current->getInfo());    //Rimettiamo nell'array l'elemento attuale
         arrayVisit(current->getRight(),array);
     }
-}
+};
 
 template<class Item>
 Item differenza(vector<Item> array){
@@ -30,6 +30,18 @@ Item differenza(vector<Item> array){
         }
     } 
     return 0;
+};
+
+template<class Item>
+Item differenzaRic(vector<Item> array, int i, int diff){
+
+    int min = 0;
+    if (i == array.size()-1)
+        return min; 
+    if (abs(array.at(i) - array.at(i+1)) < diff)
+        min = i;
+
+    return differenzaRic(array,i+1,abs(array.at(i) - array.at(i+1)));
 }
 
 int main(){
@@ -55,9 +67,9 @@ int main(){
     cout<<endl;
 
     arrayVisit(tree.getRoot(),&array);
-    int prova = differenza(array);
 
-    cout << "I nodi minimi sono " << array.at(prova) << " e " << array.at(prova+1) << endl; 
+    int figlio = differenzaRic(array,0,UINT16_MAX);
+    cout << "I nodi minimi sono " << array.at(figlio) << " e " << array.at(figlio+1) << endl;
 
     return 0;
 }
