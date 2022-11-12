@@ -5,7 +5,6 @@
 #include <iostream>
 #include<vector>
 #include "binarySearchTree.h"
-#include<limits.h>
 
 using namespace std;
 
@@ -14,7 +13,7 @@ void arrayVisit(Nodo<Item> *current, vector<Item> *array){
 
     if (current != nullptr){
         arrayVisit(current->getLeft(),array);
-        cout<<array->push_back(current->getInfo())<<" ";    //Rimettiamo nell'array l'elemento attuale
+        array->push_back(current->getInfo());    //Rimettiamo nell'array l'elemento attuale
         arrayVisit(current->getRight(),array);
     }
     
@@ -45,8 +44,8 @@ int main(){
     arrayVisit(tree.getRoot(),&array);
     for (int i = 0; i < array.size(); i++)
     {
-        cout << i << endl;
+        cout << array.at(i)<<" ";
     }
-
+    cout<<endl;
     return 0;
 }
