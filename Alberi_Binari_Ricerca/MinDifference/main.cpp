@@ -30,8 +30,7 @@ Nodo<Item> *min(Nodo<Item> *A,Nodo<Item> *B,Nodo<Item> *C){
     if (differenza(C) <= differenza(min_nodo))
         min_nodo = C;
 
-    return min_nodo;
-    
+    return min_nodo; 
 }
 
 
@@ -48,8 +47,6 @@ Nodo<Item> *min_diff(Nodo<Item> *n){
         nodo2 = min_diff(n->getRight());
     }
     return min(nodo1,nodo2,n);
-
-
 }
 
 int main(){
