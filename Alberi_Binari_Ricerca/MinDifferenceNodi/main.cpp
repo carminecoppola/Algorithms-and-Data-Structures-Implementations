@@ -24,7 +24,7 @@ Item differenza(vector<Item> array){
     Item indice = 0;
     Item diff = abs(array.at(0) - array.at(1));
 
-    for (int i = 1; i < array.size()-2; i++){
+    for (int i = 1; i < array.size()-1; i++){
         if (abs(array.at(i) - array.at(i+1)) < diff){
             return i;
         }
@@ -37,13 +37,13 @@ int main(){
     binarySearchTree<int> tree;
     vector<int> array;
 
-    tree.insert(25);
-    tree.insert(14);
-    tree.insert(9);
+    tree.insert(15);
+    tree.insert(12);
+    tree.insert(16);
+    tree.insert(10);
     tree.insert(11);
-    tree.insert(5);
+    tree.insert(14);
     tree.insert(17);
-    tree.insert(20);
 
     cout << endl << "• Albero Pre-Order: " << endl;
     tree.preOrderVisit(tree.getRoot());
