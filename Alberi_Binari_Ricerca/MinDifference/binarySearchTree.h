@@ -42,6 +42,8 @@ class binarySearchTree{
         void insert(Item value);
         void deleteTree(Nodo<Item> * );
 
+        int differenza(Nodo<Item> * );
+
         void preOrderVisit(Nodo<Item> *current);
         void inOrderVisit(Nodo<Item> *current);
         void postOrderVisit(Nodo<Item> *current);
@@ -246,5 +248,6 @@ template <class Item> void binarySearchTree <Item>::postOrderVisit(Nodo<Item> *c
     }
     
 }
+
 
 #endif
