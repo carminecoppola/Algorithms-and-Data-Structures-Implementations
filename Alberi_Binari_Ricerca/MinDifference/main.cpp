@@ -17,6 +17,8 @@ int differenza(Nodo<Item> *k){
         return abs(k->getInfo() - k->getParent()->getInfo());     //ABS = Valore Assoluto
 }
 
+/* Questa funzione ci servirà a effettuare controlli tra la differenza trovata
+   a SX e quella trovata a DX. */
 template<class Item>
 Nodo<Item> *min(Nodo<Item> *A,Nodo<Item> *B,Nodo<Item> *C){
 
@@ -34,6 +36,9 @@ Nodo<Item> *min(Nodo<Item> *A,Nodo<Item> *B,Nodo<Item> *C){
 }
 
 
+/*  Questa funzione ci permetterà nel caso in cui non si è una foglia
+    di calcolarci la minima differenza prima a SX e poi a DX, e
+    richiameremo la funzione min() su questi due risultati.     */
 template<class Item>
 Nodo<Item> *min_diff(Nodo<Item> *n){
 
