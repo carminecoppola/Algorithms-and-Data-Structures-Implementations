@@ -76,8 +76,7 @@ int main(){
     cout<<endl;
 
     int minimaDiff = min_diff(tree.getRoot())->getInfo();
-    cout << endl << "  La minima differenza è " << minimaDiff << endl;
-    cout << endl << "  Il padre di "<< minimaDiff << " è " << min_diff(tree.getRoot())->getParent()->getInfo() << endl <<endl;
+    cout << endl << "  -La minima differenza è tra "<< minimaDiff << " e suo padre " << min_diff(tree.getRoot())->getParent()->getInfo() << endl <<endl;
 
     return 0;
 }
