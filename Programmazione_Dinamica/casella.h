@@ -6,21 +6,17 @@ enum class Direction{UP,LEFT,DIAG};
 ostream& operator <<(iostream& out,const Direction& d){
     switch (d)
     {
-    case Direction::UP:
-        out<<"U";
+        case Direction::UP:
+            out<<"U";
         break;
-    
-    case Direction::LEFT:
-        out<<"L";
+        case Direction::LEFT:
+            out<<"L";
         break;
-    
-    case Direction::DIAG:
-        out<<"D";
+        case Direction::DIAG:
+            out<<"D";
         break;
-
-
-    default:
-        break;
+        default:
+            break;
     }
     return out;
 }
@@ -44,7 +40,7 @@ class casella
         void setValue(int value){
             this->value = value;
         }
-        void setDIr(Direction dir){
+        void setDir(Direction dir){
             this->dir = dir;
         }
 };

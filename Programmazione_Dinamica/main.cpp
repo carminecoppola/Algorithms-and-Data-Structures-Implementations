@@ -31,14 +31,14 @@ int main(){
     for (j = 1; j < 7; j++)
     {
         matrix[i][j].setValue(j+1);
-        matrix[i][j].setDIr(Direction::LEFT);
+        matrix[i][j].setDir(Direction::LEFT);
     }
     //prima colonna
     j = 0;
     for (i = 1; i < 8; i++)
     {
         matrix[i][j].setValue(i);
-        matrix[i][j].setDIr(Direction::UP);
+        matrix[i][j].setDir(Direction::UP);
     }
     
     //Tutti i calcoli
@@ -63,7 +63,7 @@ int main(){
             }
 
             matrix[i][j].setValue(m);
-            matrix[i][j].setDIr(d);
+            matrix[i][j].setDir(d);
         }
         
     }
@@ -87,22 +87,22 @@ int main(){
         
        switch (matrix[i][j].getDir())
        {
-       case Direction::UP:
-            i--;
-            cout << "[Cancellazione]"<<endl;
-        break;
-        case Direction::LEFT:
-            j--;
-            cout << "[Inserimento]"<<endl;
-        break;
-        case Direction::DIAG:
-            i--;
-            j--;
-            cout << "[Sostituzione/Corrispondenza]"<<endl;
-        break;
-
-        default:
+            case Direction::UP:
+                i--;
+                cout << "[Cancellazione]"<<endl;
             break;
+            case Direction::LEFT:
+                j--;
+                cout << "[Inserimento]"<<endl;
+            break;
+            case Direction::DIAG:
+                i--;
+                j--;
+                cout << "[Sostituzione/Corrispondenza]"<<endl;
+            break;
+
+            default:
+                break;
        } 
     }
     
