@@ -41,6 +41,7 @@ int main(){
         matrix[i][j].setDIr(Direction::UP);
     }
     
+    //Tutti i calcoli
     for (i = 1; i < 8; i++)
     {
         for (j = 1; j < 7; j++)
@@ -67,6 +68,8 @@ int main(){
         
     }
     
+    //Stampa
+
     for (i = 0; i < 8; i++)
     {
         for (j = 0; j < 7; j++)
@@ -97,7 +100,7 @@ int main(){
             j--;
             cout << "[Sostituzione/Corrispondenza]"<<endl;
         break;
-        
+
         default:
             break;
        } 
