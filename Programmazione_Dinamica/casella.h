@@ -3,7 +3,7 @@ using namespace std;
 
 enum class Direction{UP,LEFT,DIAG};
 
-ostream& operator <<(iostream& out,const Direction& d){
+ostream& operator <<(ostream& out,const Direction& d){
     switch (d)
     {
         case Direction::UP:

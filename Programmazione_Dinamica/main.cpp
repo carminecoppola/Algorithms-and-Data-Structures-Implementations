@@ -28,15 +28,17 @@ int main(){
     //prima riga
     
     i = 0;
-    for (j = 1; j < 7; j++)
-    {
+    for (j = 1; j < 7; j++){
+
         matrix[i][j].setValue(j+1);
         matrix[i][j].setDir(Direction::LEFT);
     }
+
     //prima colonna
     j = 0;
-    for (i = 1; i < 8; i++)
-    {
+
+    for (i = 1; i < 8; i++){
+
         matrix[i][j].setValue(i);
         matrix[i][j].setDir(Direction::UP);
     }
@@ -65,16 +67,14 @@ int main(){
             matrix[i][j].setValue(m);
             matrix[i][j].setDir(d);
         }
-        
     }
     
     //Stampa
 
-    for (i = 0; i < 8; i++)
-    {
-        for (j = 0; j < 7; j++)
-        {
-            cout << matrix[i][j].getValue() << " ( " << matrix[i][j].getDir() << " ) " ;
+    for (i = 0; i < 8; i++){
+        for (j = 0; j < 7; j++){
+
+            cout << matrix[i][j].getValue() << " (" << matrix[i][j].getDir() << ") " ;
         }
         cout << endl;
     }
