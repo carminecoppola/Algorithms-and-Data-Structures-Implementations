@@ -5,6 +5,7 @@
 #include<string.h>
 #include<iomanip>
 #include"casella.h"
+
 using namespace std;
 
 int delta(char Si,char Tj){
@@ -44,7 +45,7 @@ int main(){
     {
         for (j = 1; j < 7; j++)
         {
-            int a = delta(S[i],T[j])+ matrix[i-1][j-1].getValue() ;
+            int a = delta(S[i-1],T[j-1])+ matrix[i-1][j-1].getValue() ;
             int b = 1 + matrix[i-1][j].getValue();
             int c = 1 + matrix[i][j-1].getValue();
 
@@ -70,7 +71,7 @@ int main(){
     {
         for (j = 0; j < 7; j++)
         {
-            cout << matrix[i][j].getValue() << " ( "<< matrix[i][j].getDir() << " ) ";
+            cout << matrix[i][j].getValue() << " ( " << matrix[i][j].getDir() << " ) " ;
         }
         cout << endl;
     }
