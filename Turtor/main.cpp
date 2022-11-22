@@ -76,7 +76,33 @@ int main(){
         cout << endl;
     }
     
+    i = 7; j = 6;
+    
 
+    while (i!= 0 || j!= 0)
+    {
+        
+       switch (matrix[i][j].getDir())
+       {
+       case Direction::UP:
+            i--;
+            cout << "[Cancellazione]"<<endl;
+        break;
+        case Direction::LEFT:
+            j--;
+            cout << "[Inserimento]"<<endl;
+        break;
+        case Direction::DIAG:
+            i--;
+            j--;
+            cout << "[Sostituzione/Corrispondenza]"<<endl;
+        break;
+        
+        default:
+            break;
+       } 
+    }
+    
 
   return 0;
 }
