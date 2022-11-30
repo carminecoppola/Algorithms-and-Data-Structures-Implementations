@@ -30,7 +30,7 @@ int main(){
     i = 0;
     for (j = 1; j < 7; j++){
 
-        matrix[i][j].setValue(j+1);
+        matrix[i][j].setValue(j);
         matrix[i][j].setDir(Direction::LEFT);
     }
 
