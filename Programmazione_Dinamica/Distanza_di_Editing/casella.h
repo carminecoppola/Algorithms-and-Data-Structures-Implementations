@@ -1,6 +1,3 @@
-#ifndef CASELLA_H
-#define CASELLA_H
-
 #include<iostream>
 using namespace std;
 
@@ -47,6 +44,3 @@ class casella
             this->dir = dir;
         }
 };
-
-
-#endif
