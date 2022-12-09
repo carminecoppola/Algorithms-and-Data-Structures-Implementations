@@ -23,23 +23,23 @@ int main(){
 
     int n,f;
     
-    cout<<"Quanti nodi vuoi inserire? "<<endl;
+    /*cout<<"Quanti nodi vuoi inserire? "<<endl;
     cin>>n;
     for (int i = 0; i < n; i++)
     {
         cout<<"Inserire valore "<<i+1<<" : "<<endl;
         cin>>f;
         tree.insert(f);
-    }
+    }*/
     
 
-    // tree.insert(13);
-    // tree.insert(12);
-    // tree.insert(16);
-    // tree.insert(10);
-    // tree.insert(11);
-    // tree.insert(14);
-    // tree.insert(17);
+    tree.insert(13);
+    tree.insert(12);
+    tree.insert(16);
+    tree.insert(10);
+    tree.insert(11);
+    tree.insert(14);
+    tree.insert(17);
 
     cout<<endl<<"• Albero Pre-Order: "<<endl;
     tree.preOrderVisit(tree.getRoot());
