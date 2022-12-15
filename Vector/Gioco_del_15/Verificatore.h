@@ -10,40 +10,48 @@ class Verificatore{
         std::ifstream myFile;
         std::vector<int> matrix;
 
-        void getMatrix(){
-            int value;
-            for(auto i = 0;i<15;i++){
-                myFile>>value;
-                matrix.push_back(value);
-            }
-        };
+        void getMatrix();
+
     public:
         //Costruttore
-        Verificatore(std::string nomeFile){
-            myFile.open(nomeFile);
-            this->getMatrix();
-        };
+        Verificatore(std::string nomeFile);
         //Distruttore
-        ~Verificatore(){
-            this->matrix.clear();
-            myFile.close();
-        };
+        ~Verificatore();
         //Controllo dei numeri presenti
-        bool check(){
-            std::vector<int>::iterator it;
-            auto i = 1;
-            auto result = true;
-            for (it = matrix.begin(); it!= matrix.end()&&result; it++,i++)
-            {
-                if (*it != i)
-                {
-                    result= false;
-                    //Stampa
-                } 
-            }
-            return result;
-            
-        }
+        bool check();
 };
+
+Verificatore::Verificatore(std::string nomeFile){
+     myFile.open(nomeFile);
+            this->getMatrix();
+}
+
+Verificatore::~Verificatore(){
+    this->matrix.clear();
+            myFile.close();
+}
+
+void Verificatore::getMatrix(){
+    int value;
+
+    for(auto i = 0;i<15;i++){
+        myFile>>value;
+        matrix.push_back(value);
+    }
+}
+
+bool Verificatore::check(){
+    std::vector<int>::iterator it;
+    auto i = 1;
+    auto result = true;
+
+    for (it = matrix.begin(); it!= matrix.end()&&result; it++,i++){
+        if (*it != i){
+            result= false;
+            //Stampa
+        } 
+    }
+    return result;
+}
 
 #endif //VERIFICATORE_H

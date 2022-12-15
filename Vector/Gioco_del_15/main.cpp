@@ -17,14 +17,15 @@
 
 #include "Verificatore.h"
 
+using namespace std;
 
 int main(){
 
     Verificatore ogg("File1.txt");
     Verificatore ogg_2("File2.txt");
 
-    std::cout<<std::boolalpha<<ogg.check();
-    std::cout<<std::boolalpha<<ogg_2.check();  
+    cout<<"1) Controllo primo file: "<<boolalpha<<ogg.check()<<endl;
+    cout<<"2) Controllo secondo file: "<<boolalpha<<ogg_2.check()<<endl;  
 
     return 0;
 
