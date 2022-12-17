@@ -49,7 +49,7 @@ int main(){
     cout<<"***Stampa array dopo insertion***"<<endl;
     printArray(arr, N);
     searchKMax(arr,N,k);
-    cout<<"Il 2 elemento massimo è:"<<k<<endl;
+    cout<<"Il 3 elemento massimo è:"<<k<<endl;
 
     return 0;
 }
