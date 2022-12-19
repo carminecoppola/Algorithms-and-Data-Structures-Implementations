@@ -23,7 +23,7 @@ void insertionSort(int arr[],int n){
         key = arr[j];
         i = j-1;
 
-        while (i >= 0 && arr[i] > key)
+        while (i >= 0 && arr[i] < key)
         {
             arr[i+1] = arr[i];
             i = i-1;
@@ -41,7 +41,7 @@ int main(){
 
     int arr[] = { 2, 5, 6, 4, 3 , 1};
     int N = sizeof(arr) / sizeof(arr[0]);
-    int k = 3;
+    int k = 2;
 
     cout<<endl<<"***Stampa array iniziale***"<<endl;
     printArray(arr,N);
@@ -49,7 +49,7 @@ int main(){
     cout<<"***Stampa array dopo insertion***"<<endl;
     printArray(arr, N);
     searchKMax(arr,N,k);
-    cout<<"Il 3 elemento massimo è:"<<k<<endl;
+    cout<<"Il 2 elemento massimo è:"<<arr[k]<<endl;
 
     return 0;
 }
