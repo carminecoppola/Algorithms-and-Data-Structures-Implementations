@@ -37,6 +37,7 @@ template <class Item> void Algoritmo <Item>::merge(vector<int>::iterator low ,ve
     }
 
     centro=size;
+    
     //Parte di DX
     for (jt = mediano; jt != high; jt++)
     {   
