@@ -1,3 +1,5 @@
+/* Riscrivere il quicksort utilizzando il contenitore vector*/
+
 #include <iostream>
 #include<vector>
 #include"algoritmo.h"
@@ -14,10 +16,10 @@ int main(){
         }
     cout<<endl;
 
-    //Chiamata alla funzione mergesort
+    //Chiamata alla funzione quicksort
     algoritmo<int>::quickSort(a.begin(),a.end()-1);
 
-    cout<<"Array ordinato dopo mergesort:"<<endl;
+    cout<<"Array ordinato dopo quicksort:"<<endl;
     for (auto i:a){
         cout<<i<<" ";
     }

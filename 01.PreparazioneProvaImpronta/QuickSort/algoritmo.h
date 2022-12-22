@@ -27,6 +27,7 @@ template<class T> void algoritmo<T>::swap(T &a,T &b){
     
 }
 
+//Partition Hoare
 template <class T> typename vector<T>::iterator algoritmo <T>::partition(typename vector<T>::iterator l,typename vector<T>::iterator r){
 
     typename vector<T>::iterator i; 
