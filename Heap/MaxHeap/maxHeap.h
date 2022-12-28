@@ -11,7 +11,7 @@ class maxHeap{
     private:
         vector<Item> albero;
         int size;
-        int parent(int i){
+           int parent(int i){
             int padre = (i+1)/2;
             return padre;
         };
