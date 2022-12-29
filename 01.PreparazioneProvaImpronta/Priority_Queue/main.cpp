@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include"priority_queue.h"
-#include"algoritmo.h"
+#include"maxHeap.h"
 
 using namespace std;
 int main(){
@@ -24,8 +24,9 @@ int main(){
     albero.printArray();
 
     cout<<endl<<"EXTRACTMAX:"<<endl<<endl;
-    cout<<" -Massimo: "<<albero.extractMax()<<endl;
-    cout<<" -Albero dopo l'extrazione:"<<endl<<endl;
+    cout<<" -Il Massimo è : "<<albero.maximum()<<endl;
+    cout<<" -ExtractMax:"<<albero.extractMax()<<endl;
+    cout<<endl<<"ALBERO DOPO EXTRACTMAX:"<<endl;
     albero.printArray();
 
     cout<<endl<<"INCREASEKEY:"<<endl<<endl;

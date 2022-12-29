@@ -2,13 +2,13 @@
 #define PRIORITY_QUEUE_H
 
 #include<iostream>
-#include"algoritmo.h"
+#include"maxHeap.h"
 #include<vector>
 
 using namespace std;
 
 template<class T>
-class priority_queue : public algoritmo<T>
+class priority_queue : public maxHeap<T>
 {
     private:
         
@@ -22,7 +22,7 @@ class priority_queue : public algoritmo<T>
 };
 
 //Costruttore
-template<class T> priority_queue<T>::priority_queue(vector<T> albero):algoritmo<T>(albero){}
+template<class T> priority_queue<T>::priority_queue(vector<T> albero):maxHeap<T>(albero){}
 
 //INSERTPQ
 template<class T> void priority_queue<T>::insertPQ(T nodo)
@@ -42,8 +42,14 @@ template<class T> T priority_queue<T>::extractMax()
     if (this->getHeapSize() == 0)
         return -1;
     
+    // T max = maximum();
+    // swap(this->tree.at(0) , this->tree.at(this->getHeapSize()-1));
+    // this->setHeapSize(this->getHeapSize()-1);
+    // this->maxHeapify(0);
+
     T max = maximum();
-    swap(this->tree.at(0) , this->tree.at(this->getHeapSize()-1));
+    int i = this->getHeapSize()-1;
+    this->swap(this->tree.at(0), this->tree.at(i));
     this->setHeapSize(this->getHeapSize()-1);
     this->maxHeapify(0);
 
