@@ -20,17 +20,19 @@ int main(){
     albero.insertPQ(108);
     albero.insertPQ(107);
 
-    cout<<endl<<"ALBERO INIZIALE:"<<endl;
-    albero.printArray();
+    albero.print();
 
-    cout<<endl<<"EXTRACTMAX:"<<endl<<endl;
+    /*Vediamo qual'è l'elemento massimo dell'array*/
     cout<<" -Il Massimo è : "<<albero.maximum()<<endl;
-    cout<<" -ExtractMax:"<<albero.extractMax()<<endl;
-    cout<<endl<<"ALBERO DOPO EXTRACTMAX:"<<endl;
-    albero.printArray();
 
-    cout<<endl<<"INCREASEKEY:"<<endl<<endl;
+    /*Facciamo l'estrazione del massimo elemento dell'array, 
+      cioè 110 che dovra scomparire */
+    cout<<endl<<" -ExtractMax:"<<albero.extractMax()<<endl;
+    cout<<endl<<"ALBERO DOPO EXTRACTMAX:";
+    albero.print();
+
+    /*Utilizziamo l'increase_key() per aumentare la priorirà di un elemento*/
+    cout<<endl<<"INCREASE-KEY:";
     albero.increaseKey(2, 120);
-    cout<<" -Albero dopo l'increase:"<<endl<<endl;
-    albero.printArray();
+    albero.print();
 }

@@ -19,6 +19,7 @@ class priority_queue : public maxHeap<T>
         T extractMax();
         void insertPQ(T nodo);
         void increaseKey(int i, T key);
+        void print();
 };
 
 //Costruttore
@@ -41,16 +42,11 @@ template<class T> T priority_queue<T>::extractMax()
 {
     if (this->getHeapSize() == 0)
         return -1;
-    
-    // T max = maximum();
-    // swap(this->tree.at(0) , this->tree.at(this->getHeapSize()-1));
-    // this->setHeapSize(this->getHeapSize()-1);
-    // this->maxHeapify(0);
 
     T max = maximum();
     int i = this->getHeapSize()-1;
     this->swap(this->tree.at(0), this->tree.at(i));
-    this->setHeapSize(this->getHeapSize()-1);
+    this->setHeapSize(this->getHeapSize() -1);
     this->maxHeapify(0);
 
     return max;
@@ -72,4 +68,12 @@ template<class T> void priority_queue<T>::increaseKey(int i, T key)
     }
 }
 
+
+template<class T> void priority_queue<T>::print()
+{
+    cout<<endl << "**Albero***" << endl;
+    for (int i = 0; i < this->getHeapSize(); i++) 
+        cout << this->getTree().at(i) <<" ";
+    cout<<endl<<endl;
+}
 #endif
