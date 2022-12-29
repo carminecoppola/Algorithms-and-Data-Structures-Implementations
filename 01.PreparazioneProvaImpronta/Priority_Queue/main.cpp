@@ -1,24 +1,35 @@
 #include <iostream>
 #include <vector>
 #include"priority_queue.h"
-#include"maxHeap.h"
+#include"algoritmo.h"
 
 using namespace std;
 int main(){
 
-    vector<int> tree = {25, 30, 20, 3, 2, 4};
+    vector<int> tree;
 
-    maxHeap<int> t = maxHeap<int>(tree);
-    cout<<endl<<"Albero: "<<endl;
-    t.printArray();
+    priority_queue<int> albero = priority_queue<int>(tree);
 
-    t.heapSort();
-    cout<<endl<<"Albero ordinato: "<<endl;
-    t.printArray();
 
-    t.insert(70);
-    t.heapSort();
-    cout<<endl<<"Albero ordinato dopo inserimento : "<<endl;
-    t.printArray();
+    albero.insertPQ(106);
+    albero.insertPQ(105);
+    albero.insertPQ(104);
+    albero.insertPQ(103);
+    albero.insertPQ(110);
+    albero.insertPQ(109);
+    albero.insertPQ(108);
+    albero.insertPQ(107);
 
+    cout<<endl<<"ALBERO INIZIALE:"<<endl;
+    albero.printArray();
+
+    cout<<endl<<"EXTRACTMAX:"<<endl<<endl;
+    cout<<" -Massimo: "<<albero.extractMax()<<endl;
+    cout<<" -Albero dopo l'extrazione:"<<endl<<endl;
+    albero.printArray();
+
+    cout<<endl<<"INCREASEKEY:"<<endl<<endl;
+    albero.increaseKey(2, 120);
+    cout<<" -Albero dopo l'increase:"<<endl<<endl;
+    albero.printArray();
 }

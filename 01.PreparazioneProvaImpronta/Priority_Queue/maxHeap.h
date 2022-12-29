@@ -68,7 +68,7 @@ template <class T> void maxHeap<T>::maxHeapify(int i)
 
     if (max != i){
         swap(tree.at(max) ,tree.at(i));
-        maxHeapify(i);
+        maxHeapify(max);
     }
 }
 
