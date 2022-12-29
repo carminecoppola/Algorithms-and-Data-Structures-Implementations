@@ -14,6 +14,7 @@ class maxHeap
         int right(int i){return (i*2)+2;}
 
         void buildMaxHeap();
+
     protected:
         vector<T> tree;
         int parent(int i){return (i-1)/2;}
@@ -24,6 +25,7 @@ class maxHeap
 
         void swap(T &a, T&b);
         void maxHeapify(int i);
+        
     public:
         maxHeap(vector<T> t);
         maxHeap();
@@ -60,8 +62,10 @@ template <class T> void maxHeap<T>::maxHeapify(int i)
 
     if (l < getHeapSize() && getTree().at(max) < getTree().at(l))
         max = l;
+        
     if (r < getHeapSize() && getTree().at(max) < getTree().at(r))
         max = r;
+
     if (max != i){
         swap(tree.at(max) ,tree.at(i));
         maxHeapify(i);
@@ -70,17 +74,18 @@ template <class T> void maxHeap<T>::maxHeapify(int i)
 
 template <class T> void maxHeap<T>::buildMaxHeap()
 {
-    setHeapSize((int)getTree().size());
+    setHeapSize((int) getTree().size());
     for (int i = (getHeapSize()/2)-1; i >= 0; i--)
         maxHeapify(i);
 }
 
 template <class T> void maxHeap<T>::insert(T nodo)
 {
-    setHeapSize(getHeapSize()+ 1);
+    setHeapSize(getHeapSize() + 1);
     tree.push_back(nodo);
 
     int i = getHeapSize()-1;
+    
     while (i > 0 && getTree().at(parent(i)) < nodo)
     {
         swap(tree.at(parent(i)), tree.at(i));
