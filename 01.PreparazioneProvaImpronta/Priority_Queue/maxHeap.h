@@ -74,7 +74,7 @@ template <class T> void maxHeap<T>::maxHeapify(int i)
 
 template <class T> void maxHeap<T>::buildMaxHeap()
 {
-    setHeapSize((int) getTree().size());
+    setHeapSize((int)getTree().size());
     for (int i = (getHeapSize()/2)-1; i >= 0; i--)
         maxHeapify(i);
 }
@@ -85,7 +85,6 @@ template <class T> void maxHeap<T>::insert(T nodo)
     tree.push_back(nodo);
 
     int i = getHeapSize()-1;
-    
     while (i > 0 && getTree().at(parent(i)) < nodo)
     {
         swap(tree.at(parent(i)), tree.at(i));
