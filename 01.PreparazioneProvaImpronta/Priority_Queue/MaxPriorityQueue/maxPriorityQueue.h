@@ -68,7 +68,7 @@ template<class T> void maxPriorityQueue<T>::increaseKey(int i, T key)
     }
 }
 
-
+//Print
 template<class T> void maxPriorityQueue<T>::print()
 {
     cout<<endl << "**Albero***" << endl;
