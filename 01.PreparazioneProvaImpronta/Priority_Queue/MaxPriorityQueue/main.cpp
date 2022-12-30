@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include"priority_queue.h"
+#include"maxPriorityQueue.h"
 #include"maxHeap.h"
 
 using namespace std;
@@ -8,7 +8,7 @@ int main(){
 
     vector<int> tree;
 
-    priority_queue<int> albero = priority_queue<int>(tree);
+    maxPriorityQueue<int> albero = maxPriorityQueue<int>(tree);
 
 
     albero.insertPQ(106);

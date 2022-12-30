@@ -1,5 +1,5 @@
-#ifndef PRIORITY_QUEUE_H
-#define PRIORITY_QUEUE_H
+#ifndef MAXPRIORITYQUEUE_H
+#define MAXPRIORITYQUEUE_H
 
 #include<iostream>
 #include"maxHeap.h"
@@ -8,12 +8,12 @@
 using namespace std;
 
 template<class T>
-class priority_queue : public maxHeap<T>
+class maxPriorityQueue : public maxHeap<T>
 {
     private:
         
     public:
-        priority_queue(vector<T> albero);
+        maxPriorityQueue(vector<T> albero);
 
         T maximum();
         T extractMax();
@@ -23,22 +23,22 @@ class priority_queue : public maxHeap<T>
 };
 
 //Costruttore
-template<class T> priority_queue<T>::priority_queue(vector<T> albero):maxHeap<T>(albero){}
+template<class T> maxPriorityQueue<T>::maxPriorityQueue(vector<T> albero):maxHeap<T>(albero){}
 
 //INSERTPQ
-template<class T> void priority_queue<T>::insertPQ(T nodo)
+template<class T> void maxPriorityQueue<T>::insertPQ(T nodo)
 {
     this->insert(nodo);
 }
 
 //MAXIMUM
-template<class T> T priority_queue <T>::maximum()
+template<class T> T maxPriorityQueue <T>::maximum()
 {
     return this->getTree().at(0);
 }
 
 //EXTRACT MAX
-template<class T> T priority_queue<T>::extractMax()
+template<class T> T maxPriorityQueue<T>::extractMax()
 {
     if (this->getHeapSize() == 0)
         return -1;
@@ -53,7 +53,7 @@ template<class T> T priority_queue<T>::extractMax()
 }
 
 //INCREASE KEY
-template<class T> void priority_queue<T>::increaseKey(int i, T key)
+template<class T> void maxPriorityQueue<T>::increaseKey(int i, T key)
 {
     if (key < this->getTree().at(i))
     {   
@@ -69,7 +69,7 @@ template<class T> void priority_queue<T>::increaseKey(int i, T key)
 }
 
 
-template<class T> void priority_queue<T>::print()
+template<class T> void maxPriorityQueue<T>::print()
 {
     cout<<endl << "**Albero***" << endl;
     for (int i = 0; i < this->getHeapSize(); i++) 
