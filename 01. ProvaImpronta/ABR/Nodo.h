@@ -14,7 +14,7 @@ class Nodo
         Nodo<T> *left;
         Nodo<T> *right;
 
-        T *info;
+        T info;
 
     public:
 
@@ -38,16 +38,16 @@ class Nodo
 template <class T> Nodo<T>::Nodo(T info)
 {
     this->info = info;
-    parent = nullptr;
     left = nullptr;
     right = nullptr;
+    parent = nullptr;
 }
 
 template <class T> Nodo<T>::~Nodo()
 {
-    delete parent;
     delete left;
     delete right;
+    delete parent;
     delete info;
 }
 

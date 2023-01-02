@@ -54,11 +54,11 @@ template<class T> void BinaryTree <T>::insertRicorsivo(T value,Nodo<T> *prev , N
     if (root = nullptr)
         root = new Nodo<T>(value);
     else if(curr = nullptr)
-        insertNodo(value,prev,curr);
+        insertNodo(value, prev, curr);
     else if(curr->getInfo() > value)
-        insertRicorsivo(value,curr,curr->getLeft());
+        insertRicorsivo(value, curr, curr->getLeft());
     else
-        insertRicorsivo(value,curr,curr->getRight());
+        insertRicorsivo(value, curr, curr->getRight());
     
 }
 
@@ -68,9 +68,42 @@ template<class T> void BinaryTree<T>::insertNodo(T value, Nodo<T> *prev, Nodo<T>
     curr = new Nodo<T>(value);
     curr->setParent(prev);  //Setto il padre che sarà l'elemento precedente
 
-    if(curr->getInfo() > prev->getInfo())   //Se il nodo corrente è maggiore di quello precedente lo metto DX
-        prev->setRight(curr);
+    if(curr->getInfo() < prev->getInfo())   //Se il nodo corrente è maggiore di quello precedente lo metto DX
+        prev->setLeft(curr);
     else
-        prev->setLeft(curr);        
+        prev->setRight(curr);        
 }
+
+
+
+//VISITE
+template<class T> void BinaryTree<T>::visitInOrder(Nodo<T> *x)
+{
+    if( x != nullptr){
+        visitInOrder(x->getLeft());
+        cout << x->getInfo() << " ";   //E la radice
+        visitInOrder(x->getRight());
+    }
+}
+
+template<class T> void BinaryTree<T>::visitPostOrder(Nodo<T> *x)
+{
+    if( x != nullptr){
+        visitPostOrder(x->getLeft());
+        visitPostOrder(x->getRight());
+        cout << x->getInfo() << " ";   //E la radice
+    }
+}
+
+template<class T> void BinaryTree<T>::visitPreOrder(Nodo<T> *x)
+{
+    if( x != nullptr){
+        cout << x->getInfo() << " ";   //E la radice
+        visitPreOrder(x->getLeft());
+        visitPreOrder(x->getRight());
+    }
+}
+
+
+
 #endif
