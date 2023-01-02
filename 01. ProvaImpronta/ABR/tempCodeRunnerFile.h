@@ -1,1 +1,0 @@
-        T getInfo(){return info;}

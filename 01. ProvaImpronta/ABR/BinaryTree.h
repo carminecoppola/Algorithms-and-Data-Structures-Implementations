@@ -13,7 +13,7 @@ class BinaryTree
     private:
         Nodo<T> *root;
 
-        void insertRicorsivo(T ,Nodo<T>* , Nodo<T>* );
+        void insertRicorsivo(T ,Nodo<T> * , Nodo<T> * );
         void insertNodo(T ,Nodo<T>* , Nodo<T>* );
 
         Nodo<T> *findSuccessor(Nodo<T> *);
@@ -51,12 +51,15 @@ template<class T> void BinaryTree<T>::insert(T value)
 //Insert Ricorsivo
 template<class T> void BinaryTree <T>::insertRicorsivo(T value,Nodo<T> *prev , Nodo<T> *curr)
 { 
-    if (root = nullptr)
-        root = new Nodo<T>(value);
-    else if(curr = nullptr)
+    if (root == nullptr)
+        root == new Nodo<T>(value);
+
+    else if(curr == nullptr)
         insertNodo(value, prev, curr);
+
     else if(curr->getInfo() > value)
         insertRicorsivo(value, curr, curr->getLeft());
+
     else
         insertRicorsivo(value, curr, curr->getRight());
     
@@ -74,7 +77,16 @@ template<class T> void BinaryTree<T>::insertNodo(T value, Nodo<T> *prev, Nodo<T>
         prev->setRight(curr);        
 }
 
-
+//TREE SEARCH
+template<class T> Nodo<T> *BinaryTree<T>::treeSearch(Nodo<T> *x, T key)
+{
+    if( x == nullptr || key == x->getInfo() )
+        return x;
+    else if( key < x->getInfo())
+        return treeSearch(x->getLeft(),key);
+    else
+        return treeSearch(x->getRight(),key);
+}
 
 //VISITE
 template<class T> void BinaryTree<T>::visitInOrder(Nodo<T> *x)

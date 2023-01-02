@@ -20,5 +20,8 @@ int main(){
     cout<<endl<<"• Albero In-Order: "<<endl;
     tree.visitInOrder(tree.getRoot());
 
+    cout<<endl<<"• Ricerca nell'albero "<<endl;
+    tree.treeSearch(tree.getRoot(),14);
+
     return 0;
 }
