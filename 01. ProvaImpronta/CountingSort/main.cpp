@@ -11,7 +11,7 @@ int main(){
 
     cout<<endl<<"Versione di Ferone"<<endl;
     for (auto i : A)
-     cout << i << " ";  
+        cout << i << " ";  
     cout << endl;
 
     vector <int> A1 = {2, 5, 3, 0, 2, 3, 0, 3};
@@ -20,7 +20,7 @@ int main(){
 
     cout<<endl<<"Versione Cormen"<<endl;
     for (auto i : B1)
-     cout << i << " ";  
+        cout << i << " ";  
     cout << endl;
 
     vector <int> B = {2, 5, 3, 0, 2, 3, 0, 3};
@@ -28,7 +28,7 @@ int main(){
 
     cout<<endl<<"Reverse Ferone"<<endl;
     for (auto i : B)
-     cout << i << " ";  
+        cout << i << " ";  
     cout << endl;
 
     return 0;
