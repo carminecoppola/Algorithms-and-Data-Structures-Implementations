@@ -20,11 +20,11 @@ class BinaryTree
         Nodo<T> *findPredecessor(Nodo<T> *);
         
     public:
-        BinaryTree(/* args */);
+        BinaryTree();
 
         Nodo<T> *getRoot(){return root;}
 
-        void insert(T);
+        void insert(T value);
         Nodo<T> *treeSearch(Nodo<T> *, T);
         Nodo<T> *getMinimum(Nodo<T> *);
         Nodo<T> *getMaximum(Nodo<T> *);
@@ -37,7 +37,7 @@ class BinaryTree
 };
 
 //Costruttore
-template<class T> BinaryTree <T>::BinaryTree(/* args */)
+template<class T> BinaryTree <T>::BinaryTree()
 {
     root = nullptr;
 }
