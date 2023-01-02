@@ -18,7 +18,7 @@ class Nodo
 
     public:
 
-        Nodo(T );
+        Nodo(T info);
         ~Nodo();
 
         //Metodi di set
