@@ -14,7 +14,7 @@ class BinaryTree
         Nodo<T> *root;
 
         void insertRicorsivo(T ,Nodo<T> * , Nodo<T> * );
-        void insertNodo(T ,Nodo<T>* , Nodo<T>* );
+        void insertNodo(T ,Nodo<T> * , Nodo<T> * );
 
         Nodo<T> *findSuccessor(Nodo<T> *);
         Nodo<T> *findPredecessor(Nodo<T> *);
@@ -25,15 +25,16 @@ class BinaryTree
         Nodo<T> *getRoot(){return root;}
 
         void insert(T value);
-        Nodo<T> *treeSearch(Nodo<T> *, T);
+        Nodo<T> *treeSearch(Nodo<T> *x, T key);
+
         Nodo<T> *getMinimum(Nodo<T> *);
         Nodo<T> *getMaximum(Nodo<T> *);
         Nodo<T> *successor(Nodo<T> *);
         Nodo<T> *predecessor(Nodo<T> *);
 
-        void visitInOrder(Nodo<T> *);
-        void visitPreOrder(Nodo<T> *);
-        void visitPostOrder(Nodo<T> *);
+        void visitInOrder(Nodo<T> *x);
+        void visitPreOrder(Nodo<T> *x);
+        void visitPostOrder(Nodo<T> *x);
 };
 
 //Costruttore
@@ -45,7 +46,7 @@ template<class T> BinaryTree <T>::BinaryTree()
 //Insert
 template<class T> void BinaryTree<T>::insert(T value)
 {
-    insertRicorsivo(value,nullptr,root);
+    insertRicorsivo(value, nullptr, root);
 }
 
 //Insert Ricorsivo
