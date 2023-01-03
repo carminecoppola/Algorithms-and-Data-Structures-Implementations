@@ -17,11 +17,10 @@ class Nodo
 
     public:
 
-        Nodo(T value);
+        Nodo(T info);
         ~Nodo();
 
         //Metodi di set
-        void setInfo(T i){info = i;}
         void setParent(Nodo<T> *p){parent = p;}
         void setLeft(Nodo<T> *l){left = l;}
         void setRight(Nodo<T> *r){right = r;}
@@ -35,9 +34,9 @@ class Nodo
 
 };
 
-template <class T> Nodo<T>::Nodo(T value)
+template <class T> Nodo<T>::Nodo(T info)
 {
-    info = value;
+    this->info = info;
     left = nullptr;
     right = nullptr;
     parent = nullptr;

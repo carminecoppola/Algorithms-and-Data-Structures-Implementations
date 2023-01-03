@@ -53,7 +53,7 @@ template<class T> void BinaryTree<T>::insert(T value)
 template<class T> void BinaryTree <T>::insertRicorsivo(T value,Nodo<T> *prev , Nodo<T> *curr)
 { 
     if (root == nullptr)
-        root == new Nodo<T>(value);
+        root = new Nodo<T>(value);
 
     else if(curr == nullptr)
         insertNodo(value, prev, curr);
@@ -63,12 +63,12 @@ template<class T> void BinaryTree <T>::insertRicorsivo(T value,Nodo<T> *prev , N
 
     else
         insertRicorsivo(value, curr, curr->getRight());
-    
 }
 
 //Insert Nodo
 template<class T> void BinaryTree<T>::insertNodo(T value, Nodo<T> *prev, Nodo<T> *curr)
 {
+    
     curr = new Nodo<T>(value);
     curr->setParent(prev);  //Setto il padre che sarà l'elemento precedente
 

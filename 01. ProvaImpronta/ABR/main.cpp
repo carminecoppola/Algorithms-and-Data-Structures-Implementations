@@ -19,6 +19,7 @@ int main(){
 
     cout<<endl<<"• Albero In-Order: "<<endl;
     tree.visitInOrder(tree.getRoot());
+    cout<<endl;
 
     //Calcolo la radice
     cout<<endl<<"Radice: "<< tree.getRoot()->getInfo()<<endl;
@@ -28,7 +29,7 @@ int main(){
     cout<<endl<<endl<<"L'elemento Massimo è: "<< tree.getMaximum(tree.getRoot())->getInfo()<<endl;
 
     //Nodo ricercato con TREESEARCH
-    Nodo<int> *nodo = tree.treeSearch(tree.getRoot(),12);
+    Nodo<int> *nodo = tree.treeSearch(tree.getRoot(),14);
 
     //Successore
     cout<<endl<<"Successore di " <<nodo->getInfo()<< " : " <<tree.successor(nodo)->getInfo()<<endl;
