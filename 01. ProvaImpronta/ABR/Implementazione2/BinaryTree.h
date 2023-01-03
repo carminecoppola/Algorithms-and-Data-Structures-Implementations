@@ -10,19 +10,21 @@ template<class T>
 class BinaryTree
 {
     private:
-        Nodo<T> *root;
+        nodo<T> *root;
 
-        void insertRic(T value,Nodo<T> *prev , Nodo<T> *curr);
-        void insertNodo(T, Nodo<T> * ,Nodo<T> * );
+        void insertRic(T value,nodo<T> *prev , nodo<T> *curr);
+        void insertNodo(T, nodo<T> * ,nodo<T> * );
 
-        Nodo<T> *findSuccessor();
-        Nodo<T> *findPredecessor();
+        nodo<T> *findSuccessor();
+        nodo<T> *findPredecessor();
     public:
         BinaryTree(/* args */);
 
-        Nodo<T> *getRoot(){return root;}
+        nodo<T> *getRoot(){return root;}
 
         void insert(T value);
+
+        void visitInOrder(nodo<T> *x);
 
 };
 
@@ -39,9 +41,37 @@ template <class T> void BinaryTree<T>::insert(T value)
 }
 
 //INSERT RIC
-template <class T> void BinaryTree<T>::insertRic(T value,Nodo<T> *prev , Nodo<T> *curr)
+template <class T> void BinaryTree<T>::insertRic(T value,nodo<T> *prev , nodo<T> *curr)
 {
     if(root == nullptr)
-        root = new Nodo<T>(value);
+        root = new nodo<T>(value);
+    else if(curr == nullptr)
+        insertNodo(value,prev,curr);
+    else if(curr->getInfo() > value)
+        insertRic(value,curr,curr->getLeft());
+    else
+        insertRic(value,curr,curr->getRight());
+}
+
+template<class T> void BinaryTree<T>::insertNodo(T value, nodo<T> *prev, nodo<T> *curr)
+{
+    curr = new nodo<T>(value);
+    curr->setParent(prev);
+
+    if(curr->getInfo() > prev->getInfo())
+        prev->setRight(curr);
+    else
+        prev->setLeft(curr);
+}
+
+
+//VISITE
+template<class T> void BinaryTree<T>::visitInOrder(nodo<T> *x)
+{
+    if( x != nullptr){
+        visitInOrder(x->getLeft());
+        cout << x->getInfo() << " ";   //E la radice
+        visitInOrder(x->getRight());
+    }
 }
 #endif

@@ -9,22 +9,22 @@ template<class T>
 class nodo
 {
     private:
-        Nodo<T> *parent;
-        Nodo<T> *left;
-        Nodo<T> *right;
+        nodo<T> *parent;
+        nodo<T> *left;
+        nodo<T> *right;
 
-        T * info;
+        T  info;
     public:
         nodo(T info);
         ~nodo();
 
-        void setParent(Nodo<T> *p){parent = p;}
-        void setLeft(Nodo<T> *l){left = l;}
-        void setRight(Nodo<T> *r){right = r;}
+        void setParent(nodo<T> *p){parent = p;}
+        void setLeft(nodo<T> *l){left = l;}
+        void setRight(nodo<T> *r){right = r;}
 
-        Nodo<T> *getParent(){return parent;}
-        Nodo<T> *getLeft(){return left;}
-        Nodo<T> *getRight(){return right;}
+        nodo<T> *getParent(){return parent;}
+        nodo<T> *getLeft(){return left;}
+        nodo<T> *getRight(){return right;}
         T getInfo(){return info;}
 };
 
