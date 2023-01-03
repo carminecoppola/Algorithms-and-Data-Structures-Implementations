@@ -108,7 +108,7 @@ template<class T> Nodo<T> * BinaryTree<T>::getMaximum(Nodo<T> *x)
     else if (x->getRight() == nullptr)
         return x;
     else
-        return getMaximumx(->getRight());
+        return getMaximum(x->getRight());
 }
 
 //SUCCESSOR

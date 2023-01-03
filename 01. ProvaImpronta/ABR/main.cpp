@@ -20,10 +20,20 @@ int main(){
     cout<<endl<<"• Albero In-Order: "<<endl;
     tree.visitInOrder(tree.getRoot());
 
-    cout<<endl<<"Radice: "<< tree.getRoot()<<endl;
+    //Calcolo la radice
+    cout<<endl<<"Radice: "<< tree.getRoot()->getInfo()<<endl;
+
+    //Massimo e minimo
+    cout<<endl<<endl<<"L'elemento mimimo è: "<< tree.getMinimum(tree.getRoot())->getInfo()<<endl;
+    cout<<endl<<endl<<"L'elemento Massimo è: "<< tree.getMaximum(tree.getRoot())->getInfo()<<endl;
 
     //Nodo ricercato con TREESEARCH
     Nodo<int> *nodo = tree.treeSearch(tree.getRoot(),12);
+
+    //Successore
+    cout<<endl<<"Successore di " <<nodo->getInfo()<< " : " <<tree.successor(nodo)->getInfo()<<endl;
+    //Predecessore
+    cout<<endl<<"Predecessore di " <<nodo->getInfo()<< " : " <<tree.predecessor(nodo)->getInfo()<<endl<<endl;
 
     return 0;
 }
