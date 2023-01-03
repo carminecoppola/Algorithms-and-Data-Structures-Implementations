@@ -89,6 +89,82 @@ template<class T> Nodo<T> *BinaryTree<T>::treeSearch(Nodo<T> *x, T key)
         return treeSearch(x->getRight(),key);
 }
 
+//MINIMO
+template<class T> Nodo<T> * BinaryTree<T>::getMinimum(Nodo<T> *x)
+{
+    if(root == nullptr)
+        return nullptr;
+    else if (x->getLeft() == nullptr)
+        return x;
+    else
+        return getMinimum(x->getLeft());
+}
+
+//MASSIMO
+template<class T> Nodo<T> * BinaryTree<T>::getMaximum(Nodo<T> *x)
+{
+    if(root == nullptr)
+        return nullptr;
+    else if (x->getRight() == nullptr)
+        return x;
+    else
+        return getMaximumx(->getRight());
+}
+
+//SUCCESSOR
+template<class T> Nodo<T> * BinaryTree<T>::successor(Nodo<T> *x)
+{
+    if(x == nullptr)
+        return nullptr;
+    else if(x->getRight() != nullptr)
+        return getMinimum(x->getRight());
+    else
+        return findSuccessor(x);
+}
+
+//FIND SUCCESSOR
+template<class T> Nodo<T> * BinaryTree<T>::findSuccessor(Nodo<T> *x)
+{
+    if(x == nullptr)
+        return nullptr;
+
+    Nodo<T> *y = x->getParent();
+
+    if(y == nullptr)
+        return nullptr;
+    else if(x == y->getLeft())
+        return y;
+    else
+        return findSuccessor(y);
+}
+
+//PREDECESSOR
+template<class T> Nodo<T> * BinaryTree<T>::predecessor(Nodo<T> *x)
+{
+    if(x == nullptr)
+        return nullptr;
+    else if(x->getLeft() != nullptr)
+        return getMaximum(x->getLeft());
+    else
+        return findPredecessor(x);
+}
+
+//FIND PREDECESSOR
+template<class T> Nodo<T> * BinaryTree<T>::findPredecessor(Nodo<T> *x)
+{
+    if(x == nullptr)
+        return nullptr;
+
+    Nodo<T> *y = x->getParent();
+
+    if(y == nullptr)
+        return nullptr;
+    else if(x == y->getRight())
+        return y;
+    else
+        return findPredecessor(y);
+}
+
 //VISITE
 template<class T> void BinaryTree<T>::visitInOrder(Nodo<T> *x)
 {
@@ -116,7 +192,5 @@ template<class T> void BinaryTree<T>::visitPreOrder(Nodo<T> *x)
         visitPreOrder(x->getRight());
     }
 }
-
-
 
 #endif
