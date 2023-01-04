@@ -22,5 +22,17 @@ int main(){
     //Calcolo la radice
     cout<<endl<<"Radice: "<< tree.getRoot()->getInfo()<<endl;
 
+    nodo<int> *n = tree.treeSearch(tree.getRoot(),12);
+
+    cout << endl <<"Questo è il nodo ricercato tramite la treeSearch(): " << n->getInfo() <<endl;
+
+    //MAX E MIN
+    cout << endl <<"Il mimimo dell'albero è: " << tree.getMinimum(tree.getRoot())->getInfo()<< endl; 
+    cout << endl <<"Il massimo dell'albero è: " << tree.getMaximum(tree.getRoot())->getInfo()<< endl; 
+
+    //SUCCESSORE E PREDECESSORE
+    cout << endl <<"Il predecessore del numero " << n->getInfo() << " è: " << tree.predecessor(n)->getInfo()<< endl;
+    cout << endl <<"Il successore del numero " << n->getInfo() << " è: " << tree.successor(n)->getInfo()<< endl;
+
     return 0;
 }
