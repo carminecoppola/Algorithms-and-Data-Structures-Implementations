@@ -34,5 +34,15 @@ int main(){
     cout << endl <<"Il predecessore del numero " << n->getInfo() << " è: " << tree.predecessor(n)->getInfo()<< endl;
     cout << endl <<"Il successore del numero " << n->getInfo() << " è: " << tree.successor(n)->getInfo()<< endl;
 
+    //Cancellazione
+    cout<<endl<<"Cancello il numero 11: ";
+    tree.treeDelete(tree.treeSearch(tree.getRoot(), 11));
+
+    cout<<endl<<"Stampo l'albero per vedere che sia effettivamente cancellato: ";
+    cout<<endl<<"• Albero In-Order: "<<endl;
+    tree.visitInOrder(tree.getRoot());
+    cout<<endl;
+
+
     return 0;
 }

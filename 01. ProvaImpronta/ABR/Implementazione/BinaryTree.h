@@ -32,6 +32,9 @@ class BinaryTree
         Nodo<T> *successor(Nodo<T> *);
         Nodo<T> *predecessor(Nodo<T> *);
 
+        void treeDelete(Nodo<T> *x);
+        void transplant(Nodo<T> *x, Nodo<T> *y );
+
         void visitInOrder(Nodo<T> *x);
         void visitPreOrder(Nodo<T> *x);
         void visitPostOrder(Nodo<T> *x);
@@ -163,6 +166,44 @@ template<class T> Nodo<T> *BinaryTree<T>::findPredecessor(Nodo<T> *x)
         return y;
     else
         return findPredecessor(y);
+}
+
+//DELETE
+template<class T> void BinaryTree<T>::treeDelete(Nodo<T> *x)
+{
+    if(x == nullptr)
+        x = nullptr;
+    if(x->getLeft() == nullptr)
+        transplant(x,x->getRight());
+    else if(x->getRight() == nullptr)
+        transplant(x,x->getLeft());
+
+    else
+    {
+        Nodo<T> *y = successor(x);
+        if(y->getParent() != x)
+        {
+            transplant(y,y->getRight());
+            y->setRight(x->getRight());
+            (y->getRight()->setParent(y));
+        }
+        transplant(x,y);
+        y->setLeft(x->getLeft());
+        (y->getLeft())->setParent(y);
+    }
+}
+//TRANSPLANT
+template<class T> void BinaryTree<T>::transplant(Nodo<T> *x, Nodo<T> *y)
+{
+   if(x->getParent() == nullptr)
+        root = y;
+    else if( x  == (x->getParent())->getLeft())
+        (x->getParent())->setLeft(y);
+    else
+        (x->getParent())->setRight(y);
+
+    if(y != nullptr)
+        y->setParent(x->getParent());
 }
 
 //VISITE

@@ -25,7 +25,7 @@ int main(){
     cout<<endl<<"Radice: "<< tree.getRoot()->getInfo()<<endl;
 
     //Massimo e minimo
-    cout<<endl<<endl<<"L'elemento mimimo è: "<< tree.getMinimum(tree.getRoot())->getInfo()<<endl;
+    cout<<endl<<endl<<"L'elemento mimimo è: "<< tree.getMinimum(tree.getRoot())->getInfo();
     cout<<endl<<endl<<"L'elemento Massimo è: "<< tree.getMaximum(tree.getRoot())->getInfo()<<endl;
 
     //Nodo ricercato con TREESEARCH
@@ -34,7 +34,16 @@ int main(){
     //Successore
     cout<<endl<<"Successore di " <<nodo->getInfo()<< " : " <<tree.successor(nodo)->getInfo()<<endl;
     //Predecessore
-    cout<<endl<<"Predecessore di " <<nodo->getInfo()<< " : " <<tree.predecessor(nodo)->getInfo()<<endl<<endl;
+    cout<<endl<<"Predecessore di " <<nodo->getInfo()<< " : " <<tree.predecessor(nodo)->getInfo()<<endl;
+
+    //Cancellazione
+    cout<<endl<<"Cancello il numero 11: ";
+    tree.treeDelete(tree.treeSearch(tree.getRoot(), 11));
+
+    cout<<endl<<"Stampo l'albero per vedere che sia effettivamente cancellato: ";
+    cout<<endl<<"• Albero In-Order: "<<endl;
+    tree.visitInOrder(tree.getRoot());
+    cout<<endl;
 
     return 0;
 }
