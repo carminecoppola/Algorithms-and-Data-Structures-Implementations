@@ -32,6 +32,11 @@ vector<int>fastestWay(vector<vector<int>> Aij, vector<vector<int>> tempoTrasferi
     catena1.push_back(entry.a + Aij[0][0]);
     catena2.push_back(entry.b + Aij[1][0]);
 
+
+    /*Il ciclo for deve partire da 1 in questo caso, 
+      poiché stai facendo riferimento all'elemento precedente
+      (j-1) nella prima iterazione del ciclo.*/
+      
     for (int j = 1; j < n; j++)
     {
         //Calcoliamo il tempo totale della prima catena
