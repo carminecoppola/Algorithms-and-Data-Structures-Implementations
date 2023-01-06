@@ -5,10 +5,34 @@
 */
 
 #include <iostream>
-
+#include<vector>
+#include"Catena.h"
 using namespace std;
 
 int main(){
 
+    vector<vector<int>> catena;
+    catena.push_back({7, 9, 3, 4, 8, 4});
+    catena.push_back({8, 5, 6, 4, 5, 7});
+
+    struct entry entry
+    {
+        2,4
+    };
+    struct exit exit
+    {
+        3,2
+    };
+    
+    vector<vector<int>> tempoTrasferimento;
+    tempoTrasferimento.push_back({2, 3, 1, 1, 4});
+    tempoTrasferimento.push_back({2, 1, 2, 2, 1});
+
+    vector<int> scelta = fastestWay(catena,tempoTrasferimento,entry,exit,6);
+
+    for(int i:scelta)           //otterremo 1 se proveniamo dalla stessa catena
+        cout<<i<<" ";           //2 dall'altra catena
+    cout<<endl;
+    
     return 0;
 }
