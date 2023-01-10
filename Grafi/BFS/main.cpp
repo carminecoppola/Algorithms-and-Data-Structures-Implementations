@@ -34,6 +34,11 @@ GrafoOrientato<string> grafo;
     queue<Vertice<string>*> queue;
     queue.push(&a);
     grafo.BFS(&a);
+    cout<<endl<<"BFS:"<<endl;
+    cout << grafo << endl;
+    
+    grafo.BFSRecursive(queue);
+    cout<<endl<<"BFS Ricorsiva:"<<endl;
     cout << grafo << endl;
 
 
