@@ -9,11 +9,35 @@ using namespace std;
 template<class T>
 class Nodo
 {
-private:
-    /* data */
-public:
-    Nodo(/* args */);
-    ~Nodo();
+    private:
+        Vertice<T> *vertice;
+        list<Vertice<T>*> listaAdiacenza;
+        
+    public:
+        Nodo(Vertice<T> *vertice){
+            this->vertice = vertice;
+        }
+
+        //Metodi di get
+        Vertice<T> *getVertice(){return vertice;}
+        list<Vertice<T>*> getList(){return listaAdiacenza;}
+        void append(Vertice<T> *);
+
+        //Overload dell'operatore
+        friend ostream &operator<<(ostream &out, const Nodo<T> &obj)
+        {
+            out<<*obj.vertice<<"-->";
+            for (auto i : obj.listaAdiacenza)
+                out<<*i<<"-->";
+            out<<"NULL";
+            return out;            
+        }
 };
+
+//Aggiungo i vertici alla lista di adiacenza di quel determinato nodo
+template<class T> void Nodo<T>::append(Vertice<T> *vertice)
+{
+    listaAdiacenza.push_back(vertice);
+}
 
 #endif
