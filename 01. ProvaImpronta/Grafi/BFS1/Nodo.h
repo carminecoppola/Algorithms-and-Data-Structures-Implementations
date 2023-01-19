@@ -27,7 +27,7 @@ class Nodo
         {
             out<<*obj.vertice<<"-->";
             for(auto i :obj.listaAdiacenza)
-                out<<*i<<"-->";
+                out<<*i<<"--> ";
             out<<"NULL";
             return out;
         }
