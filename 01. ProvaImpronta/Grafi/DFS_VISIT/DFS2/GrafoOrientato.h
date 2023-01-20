@@ -27,6 +27,13 @@ class GrafoOrientato
         void addArco(int i,Vertice<T> *vertice){grafo.at(i).append(vertice);}
         void DFS();
 
+        friend ostream &operator<<(ostream &out, GrafoOrientato<T> &obj)
+        {
+            for(auto i:obj.grafo)
+                out<<i<<endl;
+            return out;
+        }
+
 };
 
 template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *vertice)
