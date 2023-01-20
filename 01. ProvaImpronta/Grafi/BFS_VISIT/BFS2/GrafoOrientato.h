@@ -70,7 +70,7 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
         {
             if(v->getColor() == Color::WHITE)
             {
-                v->setColor(Color::WHITE);
+                v->setColor(Color::GRAY);
                 v->setPredecessore(u);
                 v->setDistanza(u->getDistanza()+1);
                 q.push(v);
