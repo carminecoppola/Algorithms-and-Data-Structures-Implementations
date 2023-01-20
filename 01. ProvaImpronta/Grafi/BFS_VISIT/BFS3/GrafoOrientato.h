@@ -46,7 +46,7 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 {
 
-    for(u:grafo)
+    for(auto u:grafo)
     {
         u.getVertice()->setColor(Color::WHITE);
         u.getVertice()->setPredecessore(nullptr);
@@ -74,7 +74,7 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
                 v->setColor(Color::GRAY);
                 v->setPredecessore(u);
                 v->setDistanza(u->getDistanza()+1);
-                q.push();
+                q.push(v);
             }
         }
 
