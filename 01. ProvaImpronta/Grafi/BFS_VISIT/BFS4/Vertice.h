@@ -54,6 +54,11 @@ class Vertice
             out<<"Valore: "<<obj.value << " Colore: "<<c;
             return out;
         }
+
+        friend bool operator == (Vertice<T> &a, const Vertice<T> &b)
+        {
+            return a.vale == b.value;
+        }
 };
 
 template <class T> Vertice<T>::Vertice(T value)
