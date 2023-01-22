@@ -1,3 +1,9 @@
+/*
+    • Utilizzando il paradigma della programmazione ad oggetti ed il linguaggio C++ 11, progettare ed
+    implementare, come classe, una struttura dati max-heap che consenta di ordinare, mediante algoritmo heapsort,
+    un insieme di valori numerici letti dal file heap.txt
+*/
+
 #include<iostream>
 #include<vector>
 #include<fstream>
