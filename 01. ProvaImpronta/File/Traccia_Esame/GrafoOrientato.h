@@ -64,6 +64,7 @@ template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1,Vertice<T> *v2)
 
 }
 
+//Questa funzione mi servirà per ritornare l'indirizzo del vertice
 template<class T> Vertice<T> * GrafoOrientato<T>::getIndirizzoVertice(T value)
 {
     for(auto nodo:grafo)
@@ -122,7 +123,7 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 
     u->setColor(Color::BLACK);
     u->setTempFine(++time);
-    q.push(u->getValue());
+    q.push(u->getValue());      //Ordinamento topologico
 }
 
 #endif
