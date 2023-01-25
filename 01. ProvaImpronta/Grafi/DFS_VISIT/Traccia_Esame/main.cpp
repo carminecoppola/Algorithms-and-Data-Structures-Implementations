@@ -12,35 +12,6 @@ using namespace std;
 
 int main(){
 
-    // GrafoOrientato<string> grafo;
-
-    // Vertice<string> a("A");
-    // Vertice<string> b("B");
-    // Vertice<string> c("C");
-    // Vertice<string> d("D");
-    // Vertice<string> e("E");
-    // Vertice<string> f("F");
-
-    // grafo.addNodo(Nodo<string>(&a));
-    // grafo.addNodo(Nodo<string>(&b));
-    // grafo.addNodo(Nodo<string>(&c));
-    // grafo.addNodo(Nodo<string>(&d));
-    // grafo.addNodo(Nodo<string>(&e));
-    // grafo.addNodo(Nodo<string>(&f));
-
-    // grafo.addArco(&a, &b);         // 0|A|--->|B|   |--->|E|   |--->NULL
-    // grafo.addArco(&a, &e);         // 1|B|--->|C|   |--->NULL
-    // grafo.addArco(&b, &c);         // 2|C|--->|D|   |--->|E|   |--->NULL
-    // grafo.addArco(&c, &d);         // 3|D|--->NULL
-    // grafo.addArco(&c, &e);         // 4|E|--->|F|   |--->NULL
-    // grafo.addArco(&d, &f);         // 5|F|--->NULL
-
-
-    // cout<<endl<<"DFS:"<<endl;
-    // grafo.DFS();
-    // cout<<grafo<<endl;
-
-
     ifstream file;
     string myFile = "GTR.txt";
     ofstream output;
