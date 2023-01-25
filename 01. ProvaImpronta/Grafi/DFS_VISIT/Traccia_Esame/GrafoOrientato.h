@@ -11,6 +11,7 @@
 #include<queue>
 #include<queue>
 
+
 using namespace std;
 
 template<class T>
@@ -18,35 +19,22 @@ class GrafoOrientato
 {
     private:
         vector<Nodo<T>> grafo;
-
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
 
         int time;
+        queue<T> q;
         void DFS_VISIT(Vertice<T> *u);
 
     public:
 
+        queue<T> getQueue(){return q;}
+        int searchVertice(Vertice<T> *v);
+        Vertice<T> *getIndirizzoVertice(T value);
+
         void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
-        void addArco(Vertice<T> *v1, Vertice<T> *v2){
-
-            int indice = searchVertice(v1);
-            grafo.at(indice).append(v2);
-
-        }
-
+        void addArco(Vertice<T> *v1, Vertice<T> *v2);
         void DFS();
 
-        int searchVertice(Vertice<T> *v);
-        Vertice<T> *getIndirizzoVertice(T value){
-
-            for(auto nodo:grafo)
-                {
-                    if(nodo.getVertice()->getValue() == value)
-                        return nodo.getVertice();
-                }
-
-                return nullptr;
-        }
 
         //Overload
         friend ostream& operator<<(ostream& out, GrafoOrientato<T> &obj)
@@ -69,6 +57,24 @@ template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *v)
     return -1;
 }
 
+template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1,Vertice<T> *v2)
+{
+    int indice = searchVertice(v1);
+    grafo.at(indice).append(v2);
+
+}
+
+template<class T> Vertice<T> * GrafoOrientato<T>::getIndirizzoVertice(T value)
+{
+    for(auto nodo:grafo)
+    {
+        if(nodo.getVertice()->getValue() == value)
+            return nodo.getVertice();
+    }
+
+    return nullptr;
+}
+
 template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *vertice)
 {
     for(auto i:grafo)
@@ -81,6 +87,7 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 
 template<class T> void GrafoOrientato<T>::DFS()
 {
+    
     for(auto u:grafo)
     {
         u.getVertice()->setColor(Color::WHITE);
@@ -115,7 +122,7 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 
     u->setColor(Color::BLACK);
     u->setTempFine(++time);
-
+    q.push(u->getValue());
 }
 
 #endif
