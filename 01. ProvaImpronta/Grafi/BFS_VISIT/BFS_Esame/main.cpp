@@ -47,11 +47,12 @@ int main(){
             //Essendoci due valori per ogni riga del file ci segnamo il numero del vertice e dell'arco
             lineIn>>vert;
             lineIn>>arco;
-            valoreSorgente = vert;
+            
 
             Vertice<int> *vertice1 = new Vertice<int> (vert);
             Vertice<int> *vertice2 = new Vertice<int> (arco);
 
+            valoreSorgente = vert;
             //Se il nodo non esiste lo aggiungo
             if(grafo.searchVertice(vertice1) == -1) 
                 grafo.addNodo(vertice1);
