@@ -26,7 +26,7 @@ class Vertice{
 
         //Metodi di set
         void setValue(T value){this->value = value;}
-        void setColor(Colore colore){this->colore = colore;}
+        void setColor(Color colore){this->colore = colore;}
         void setPredecessore(Vertice<T> *predecessore){this->predecessore = predecessore;}
         void setDistanza(int distanza){this->distanza = distanza;}
 
@@ -42,13 +42,13 @@ class Vertice{
             string c;
             switch(obj.colore)
             {
-                case: Color::WHITE:
+                case Color::WHITE:
                     c = "WHITE";
                     break;
-                case: Color::GRAY:
+                case Color::GRAY:
                     c = "GRAY";
                     break;
-                case: Color::BLACK:
+                case Color::BLACK:
                     c = "BLACK";
                     break;
                 default:
