@@ -40,7 +40,7 @@ class Vertice
         int getTempoFine(){return tempoFine;}
 
         //Overload
-        friend ostream& operator<<(ostream &out, const Vertice<T> &obj)
+        friend ostream& operator<<(ostream& out, const Vertice<T> &obj)
         {
             string c;
             switch(obj.colore)
@@ -57,7 +57,7 @@ class Vertice
                 default:
                     break;
             }
-            out<<"Valore: " <<obj.value <<" Colore: "<<c;
+            out<<"Valore: "<<obj.value <<" Colore: "<<c;
             return out;
         }
 };
