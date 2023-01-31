@@ -10,6 +10,8 @@
 #include<queue>
 #include<stack>
 #include<list>
+#include<fstream>
+#include<sstream>
 
 using namespace std;
 
@@ -23,9 +25,12 @@ class GrafoOrientato
         queue<T> q;
 
     public:
+        GrafoOrientato();
+
         queue<T> getQueue(){return q;}
         int searchVertice(Vertice<T> *v);
         Vertice<T> *getIndirizzoVertice(T value);
+        
 
         void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
         void addArco(Vertice<T> *v1,Vertice<T> *v2);
@@ -40,6 +45,19 @@ class GrafoOrientato
         }
 
 };
+
+//Costruttore
+template<class T> GrafoOrientato<T>::GrafoOrientato()
+{
+    // ifstream file;                   //Grazie ad ifstram creiamo il file di lettura
+    // string myFile = "GTR.txt";
+    // string line; 
+
+    // //Qui apriamo i file
+    // file.open(myFile);
+
+}
+
 
 template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *v)
 {
@@ -90,6 +108,10 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 
 template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 {
+    ofstream output;
+
+    output.open("Output.txt");
+
     for(auto u:grafo)
     {
         u.getVertice()->setColor(Color::WHITE);
@@ -97,7 +119,7 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
         u.getVertice()->setDistanza(UINT16_MAX);
     }
 
-    sorgente->setColor(Color::WHITE);
+    sorgente->setColor(Color::GRAY);
     sorgente->setPredecessore(nullptr);
     sorgente->setDistanza(0);
 
@@ -122,8 +144,22 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
             }
         }
 
-       u->setColor(Color::BLACK); 
+       u->setColor(Color::BLACK);
+
+       output << u->getValue() <<endl; 
+
+
     } 
+
+    cout<< "Vertici NON raggiungibili" <<endl;
+    for(auto i:grafo)
+    {
+        if(i.getVertice()->getDistanza() == UINT16_MAX)
+        cout<< *(i.getVertice())<<endl;
+    }
+    output.close();
 }
+
+
 
 #endif

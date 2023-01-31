@@ -13,7 +13,8 @@
 			"unordered_map": "cpp",
 			"vector": "cpp",
 			"ostream": "cpp",
-			"new": "cpp"
+			"new": "cpp",
+			"iosfwd": "cpp"
 		}
 	}
 }

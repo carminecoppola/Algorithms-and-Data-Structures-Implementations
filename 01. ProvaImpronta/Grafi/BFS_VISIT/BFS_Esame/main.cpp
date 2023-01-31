@@ -16,8 +16,6 @@ int main(){
 
     ifstream file;                   //Grazie ad ifstram creiamo il file di lettura
     string myFile = "GTR.txt";
-    ofstream output;                //Grazie ad ofstream creiamo il file di scrittura
-    string fileOut = "Output.txt";
     string line;                   //Questa ci servirà per la funzione getline()
     int vert,arco,valoreSorgente;                     
     int i = 0;
@@ -26,8 +24,6 @@ int main(){
 
     //Qui apriamo i file
     file.open(myFile);
-    output.open(fileOut);
-
    
     
     while(getline(file,line)) //Finche ci sono cose scritte sulla linea  
@@ -79,14 +75,6 @@ int main(){
     //Per scrivere sul file di output
     auto u = grafo.getQueue();
 
-    //Finchè la coda non è vuota
-    while(!u.empty())
-    {
-        output << u.front() << endl; 
-        u.pop();
-    }
-
-    output.close(); //Chiudiamo il file di scrittura
     
-    return 0;
+     return 0;
 }
