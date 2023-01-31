@@ -71,10 +71,6 @@ int main(){
     cout<<"Grafo con BFS:"<<endl;
     grafo.BFS(sorgente);
     cout<<grafo<<endl;
-
-    //Per scrivere sul file di output
-    auto u = grafo.getQueue();
-
     
      return 0;
 }

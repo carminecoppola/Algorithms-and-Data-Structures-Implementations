@@ -25,7 +25,6 @@ class GrafoOrientato
         queue<T> q;
 
     public:
-        GrafoOrientato();
 
         queue<T> getQueue(){return q;}
         int searchVertice(Vertice<T> *v);
@@ -45,18 +44,6 @@ class GrafoOrientato
         }
 
 };
-
-//Costruttore
-template<class T> GrafoOrientato<T>::GrafoOrientato()
-{
-    // ifstream file;                   //Grazie ad ifstram creiamo il file di lettura
-    // string myFile = "GTR.txt";
-    // string line; 
-
-    // //Qui apriamo i file
-    // file.open(myFile);
-
-}
 
 
 template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *v)
@@ -108,8 +95,8 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 
 template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 {
+    //Per scrivere sul file di output ci creiamo il file e lo apriamo nella BFS
     ofstream output;
-
     output.open("Output.txt");
 
     for(auto u:grafo)
@@ -146,12 +133,15 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 
        u->setColor(Color::BLACK);
 
-       output << u->getValue() <<endl; 
+       output << u->getValue() <<endl;  //Stampiamo sul file di output
 
 
     } 
 
-    cout<< "Vertici NON raggiungibili" <<endl;
+    /*Dato che la BFS non riesce per forza a visitare tutti i nodi 
+    ci stampiamo anche quali sono i vertici non raggiungibili nella visita. */
+
+    cout <<endl<< "-Questi sono i Vertici NON raggiungibili: " <<endl;
     for(auto i:grafo)
     {
         if(i.getVertice()->getDistanza() == UINT16_MAX)
