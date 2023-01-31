@@ -39,7 +39,6 @@ class GrafoOrientato
         //Overload
         friend ostream& operator<<(ostream& out, GrafoOrientato<T> &obj)
         {
-
             for(auto i:obj.grafo)
                 out<<i<<endl;
             return out;

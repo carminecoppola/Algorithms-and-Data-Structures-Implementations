@@ -12,14 +12,14 @@ class Nodo
 {
     private:
         Vertice<T> *vertice;
-        list<Nodo<T>*> listaAdj;
+        list<Vertice<T>*> listaAdj;
 
     public:
         Nodo(Vertice<T> *vertice){this->vertice = vertice;}
         
         //Metodi di get
         Vertice<T> *getVertice(){return vertice;}
-        list<Nodo<T>*> getListaAdj(){return listaAdj;}
+        list<Vertice<T>*> getLista(){return listaAdj;}
 
         /*Il metodo append() aggiunge un nuovo vertice alla lista di vertici 
           adiacenti (listAdj) di un nodo. La lista di vertici adiacenti 
