@@ -35,7 +35,7 @@ class Vertice
         //Metodi di get
         T getValue(){return value;}
         Color getColor(){return colore;}
-        Vertice<T> * getPredecessore(){return predecessore;}
+        Vertice<T> *getPredecessore(){return predecessore;}
         int getTempoInizio(){return tempoInizio;}
         int getTempoFine(){return tempoFine;}
 
