@@ -26,7 +26,7 @@ class Vertice
         Vertice(T value);
 
         //Metodi di set
-        void setValue(T value){this->value = value};
+        void setValue(T value){this->value = value;}
         void setColor(Color colore){this->colore = colore;}
         void setPredecessore(Vertice<T> *predecessore){this->predecessore = predecessore;}
         void setTempoInizio(int tempoInizio){this->tempoInizio = tempoInizio;}
