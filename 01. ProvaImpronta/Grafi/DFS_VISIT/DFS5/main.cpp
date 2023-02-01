@@ -17,7 +17,7 @@ int main(){
     string myFile = "GTR.txt";
     string line;
 
-    int i,num_vertici,num_archi,vertice,arco;
+    int i = 0,num_vertici,num_archi,vertice,arco;
 
     file.open(myFile);
 

@@ -31,7 +31,7 @@ class Nodo
         //Overload
         friend ostream& operator<<(ostream& out, const Nodo<T> &obj)
         {
-            out<<obj.vertice<<"-->";
+            out<<*obj.vertice<<"-->";
             for(auto i:obj.listaAdj)
                 out<<*i<<"-->";
             out<<"NULL";
