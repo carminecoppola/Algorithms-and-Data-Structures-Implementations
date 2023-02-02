@@ -1,5 +1,6 @@
 #ifndef VERTICE_H
 #define VERTICE_H
+
 #include<iostream>
 #include<limits>
 #include<string>
