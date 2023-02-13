@@ -125,6 +125,8 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
         }
 
         u->setColore(Color::BLACK);
+        output << u->getValue() <<endl;  //Stampiamo sul file di output
+
     }
 
     /*Dato che la BFS non riesce per forza a visitare tutti i nodi 
