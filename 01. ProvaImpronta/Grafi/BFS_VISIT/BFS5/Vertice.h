@@ -31,10 +31,10 @@ class Vertice
         void setDistanza(int distanza){this->distanza = distanza;}
 
         //Metodi di get
-        T setValue(){return value;}
-        Color setColore(){return colore;}
-        Vertice<T> *setPredecessore(){return predecessore;}
-        int setDistanza(){return distanza;}
+        T getValue(){return value;}
+        Color getColore(){return colore;}
+        Vertice<T> *getPredecessore(){return predecessore;}
+        int getDistanza(){return distanza;}
 
         //Overload
         friend ostream& operator<<(ostream& out, const Vertice<T> &obj)

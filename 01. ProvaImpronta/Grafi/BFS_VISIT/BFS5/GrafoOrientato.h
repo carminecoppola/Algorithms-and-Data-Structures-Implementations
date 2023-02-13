@@ -29,10 +29,10 @@ class GrafoOrientato
         
         queue<T> getCoda(){return coda;}
         int searchVertice(Vertice<T> *v);
-        Vertice<T> getIndirizzoVertice(T value);
+        Vertice<T> *getIndirizzoVertice(T value);
 
-        void addNodo(Nodo<T> *nodo){grafo.push_back(nodo);}
-        void addArco(Vertice<T> v1, Vertice<T> v2);
+        void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
+        void addArco(Vertice<T> *v1, Vertice<T> *v2);
         void BFS(Vertice<T> *sorgente);
 
         //Overload
@@ -57,7 +57,7 @@ template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *v)
 }
 
 //GetIndirizzoVertice
-template<class T> Vertice<T> GrafoOrientato<T>::getIndirizzoVertice(T value)
+template<class T> Vertice<T> *GrafoOrientato<T>::getIndirizzoVertice(T value)
 {
     for(auto i:grafo)
     {
@@ -79,7 +79,7 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 }
 
 //AddArco
-template<class T> void GrafoOrientato<T>::addArco(Vertice<T> v1, Vertice<T> v2)
+template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1, Vertice<T> *v2)
 {
     int indice = searchVertice(v1);
     grafo.at(indice).append(v2);
@@ -103,7 +103,7 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
     sorgente->setPredecessore(nullptr);
     sorgente->setDistanza(0);
 
-    queue<Vertice<T>> coda;
+    queue<Vertice<T>*> coda;
     coda.push(sorgente);
 
     while(!coda.empty())
