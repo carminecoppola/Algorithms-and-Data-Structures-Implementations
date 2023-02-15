@@ -19,7 +19,7 @@ int main(){
 
     file.open(myFile);
 
-    int i, num_vert = 0, num_archi = 0;
+    int i = 0, num_vert = 0, num_archi = 0;
     int vert, arco;
 
     while (getline(file,line))
@@ -30,6 +30,7 @@ int main(){
         {
             lineIn >> num_vert;
             lineIn >> num_archi;
+            i++;
         }
 
         else
@@ -51,18 +52,11 @@ int main(){
     
     file.close();
 
-    // ofstream fileOut;
-    // string file2 = "Output.txt";
-
-    // fileOut.open(file2);
-
     cout<<"Grafo: "<<endl;
     cout<<grafo<<endl;
     grafo.DFS();
     cout<<"Grafo dopo DFS: "<<endl;
     cout<<grafo<<endl;
-
-    //fileOut.close();
 
     return 0;
 }

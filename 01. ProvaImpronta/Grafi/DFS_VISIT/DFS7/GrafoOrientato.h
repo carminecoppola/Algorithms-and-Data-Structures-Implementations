@@ -130,10 +130,12 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T>* u)
 
 
     coda.push(u->getValue());
-    for(auto i:grafo)
+    
+    queue<int> coda_locale = coda;
+    while (!coda_locale.empty())
     {
-        fileOut<<i.getVertice()->getValue()<<endl;
-
+        fileOut << coda_locale.front() <<endl;
+        coda_locale.pop();
     }
     fileOut.close();
 }
