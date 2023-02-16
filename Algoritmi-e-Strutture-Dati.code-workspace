@@ -14,7 +14,8 @@
 			"vector": "cpp",
 			"ostream": "cpp",
 			"new": "cpp",
-			"iosfwd": "cpp"
+			"iosfwd": "cpp",
+			"queue": "cpp"
 		}
 	}
 }

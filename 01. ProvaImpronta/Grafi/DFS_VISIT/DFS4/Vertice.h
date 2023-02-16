@@ -2,13 +2,12 @@
 #define VERTICE_H
 
 #include<iostream>
-#include<string>
 #include<limits>
+#include<string>
 
 using namespace std;
 
-enum class Color
-{
+enum class Color{
     WHITE,GRAY,BLACK
 };
 
@@ -19,31 +18,30 @@ class Vertice
         T value;
         Color colore;
         Vertice<T> *predecessore;
-        int tempInizio;
-        int tempFine;
-
+        int tempoInizio;
+        int tempoFine;
     public:
-
         Vertice(T value);
 
-        //Metodi di set
+        //Set
         void setValue(T value){this->value = value;}
-        void setColor(Color colore){this->colore = colore;}
+        void setColore(Color colore){this->colore = colore;}
         void setPredecessore(Vertice<T> *predecessore){this->predecessore = predecessore;}
-        void setTempInizio(int tempInizio){this->tempInizio = tempInizio;}
-        void setTempFine(int tempFine){this->tempFine = tempFine;}
+        void setTempoInizio(int tempoInizio){this->tempoInizio = tempoInizio;}
+        void setTempoFine(int tempoFine){this->tempoFine = tempoFine;}
 
-        //Metodi di get
+        //Get
         T getValue(){return value;}
-        Color getColor(){return colore;}
-        Vertice<T> *getPredecessore(){return predecessore;}
-        int getTempInizio(){return tempInizio;}
-        int getTempFine(){return tempFine;}
+        Color getColore(){return colore;}
+        Vertice<T> * getPredecessore(){return predecessore;}
+        int getTempoInizio(){return tempoInizio;}
+        int getTempoFine(){return tempoFine;}
 
-        friend ostream& operator<<(ostream &out, const Vertice<T> &obj)
+        //Overload
+        friend ostream& operator<<(ostream& out, const Vertice<T>& obj)
         {
             string c;
-            switch(obj.colore)
+            switch (obj.colore)
             {
                 case Color::WHITE:
                     c = "WHITE";
@@ -57,9 +55,10 @@ class Vertice
                 default:
                     break;
             }
-            out<<"Valore: "<<obj.value << " Colore: "<<c;
+            out<<"Valore: "<<obj.value <<" Colore: "<<c;
             return out;
         }
+        
 };
 
 template<class T> Vertice<T>::Vertice(T value)
@@ -67,8 +66,11 @@ template<class T> Vertice<T>::Vertice(T value)
     this->value = value;
     colore = Color::WHITE;
     predecessore = nullptr;
-    tempInizio = 0;
-    tempFine = 0;
+    tempoInizio = 0;
+    tempoFine = 0;
 }
+
+
+
 
 #endif

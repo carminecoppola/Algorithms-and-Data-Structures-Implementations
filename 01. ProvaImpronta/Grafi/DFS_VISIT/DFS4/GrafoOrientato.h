@@ -1,14 +1,15 @@
 #ifndef GRAFOORIENTATO_H
 #define GRAFOORIENTATO_H
 
+#include"Vertice.h"
+#include"Nodo.h"
+
 #include<iostream>
 #include<limits>
 #include<list>
-#include<stack>
 #include<queue>
-
-#include"Vertice.h"
-#include"Nodo.h"
+#include<stack>
+#include<vector>
 
 using namespace std;
 
@@ -18,14 +19,17 @@ class GrafoOrientato
     private:
         vector<Nodo<T>> grafo;
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
+
         int time;
-        void DFS_VISIT(Vertice<T> *u);
-
+        void DFS_VISIT(Vertice<T> u);
+        queue<T> coda;
     public:
+        
+        int searchVertice(Vertice<T> *vertice);
+        Vertice<T> *getIndirizzoVertice(T value);
 
-        void addNodi(Nodo<T> nodo){grafo.push_back(nodo);}
-        void addArco(int i, Vertice<T> *vertice){grafo.at(i).append(vertice);}
-
+        void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
+        void addArco(Vertice<T> *v1, Vertice<T> *v2);
         void DFS();
 
         friend ostream& operator<<(ostream& out, GrafoOrientato<T> &obj)
@@ -34,50 +38,31 @@ class GrafoOrientato
                 out<<i<<endl;
             return out;
         }
+        
 };
 
-template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *vertice)
+template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *vertice)
 {
-    for (auto i:grafo)
+    for(int i = 0; i < grafo.size(); i++)
     {
-        if(i.getVertice() == vertice)
-            return i.getList();
+        if(this->grafo.getVertice() == vertice)
+            return i;
     }
-    return grafo.at(0).getList();
+    return -1;
 }
 
-template<class T> void GrafoOrientato<T>::DFS()
+template<class T> Vertice<T> * GrafoOrientato<T>::getIndirizzoVertice(T value)
 {
-    for(auto u:grafo)
+    for(auto i:grafo)
     {
-        u.getVertice()->setColor(Color::WHITE);
-        u.getVertice()->setPredecessore(nullptr);
-        time = 0;
+        if(i.getVertice()->getValue() == value)
+            return i;
     }
-
-    for(auto u:grafo)
-    {
-        if(u.getVertice()->getColor() == Color::WHITE)
-            DFS_VISIT(u.getVertice());
-    }
+    return nullptr;
 }
 
-template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
-{
-    u->setColor(Color::GRAY);
-    u->setTempInizio(u->getTempInizio()+1);
 
-    list<Vertice<T>*> adj = getListAdj(u); 
-    for(auto v:adj)
-    {
-        if(v->getColor() == Color::WHITE)
-        {
-            v->setPredecessore(u);
-            DFS_VISIT(v);
-        }
-    }
-    u->setColor(Color::BLACK);
-    u->setTempFine(u->getTempFine()+1);
-}
+
+
 
 #endif

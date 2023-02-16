@@ -1,9 +1,9 @@
 #ifndef NODO_H
 #define NODO_H
 
+#include"Vertice.h"
 #include<iostream>
 #include<list>
-#include"Vertice.h"
 
 using namespace std;
 
@@ -12,25 +12,25 @@ class Nodo
 {
     private:
         Vertice<T> *vertice;
-        list<Vertice<T>*> listAdj;
+        list<Nodo<T>*> listaAdj;
 
     public:
         Nodo(Vertice<T> *vertice){this->vertice = vertice;}
 
-        //Metodi di get
+        //GET
         Vertice<T> *getVertice(){return vertice;}
-        list<Vertice<T>*> getList(){return listAdj;}
-        void append(Vertice<T> *vertice){listAdj.push_back(vertice);};
-
-        friend ostream& operator<<(ostream& out, const Nodo<T> &obj)
+        list<Nodo<T>*> getLista(){return listaAdj;}
+        void append(Vertice<T> *vertice){listaAdj.push_back(vertice);}
+        
+        //Overload
+        friend ostream& operator<<(ostream& out, const Nodo<T>&obj)
         {
-            out<<*obj.vertice<<"-->";
-            for(auto i:obj.listAdj)
+            out<<obj.vertice<<"-->";
+            for(auto i:obj.listaAdj)
                 out<<*i<<"-->";
             out<<"NULL";
             return out;
         }
-
 };
 
 #endif
