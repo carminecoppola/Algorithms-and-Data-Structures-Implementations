@@ -52,8 +52,8 @@ int main()
 
     cout<<"Grafo: "<<endl;
     cout<<grafo<<endl;
-    grafo.DFS();
     cout<<"Grafo dopo DFS: "<<endl;
+    grafo.DFS();
     cout<<grafo<<endl;
 
 

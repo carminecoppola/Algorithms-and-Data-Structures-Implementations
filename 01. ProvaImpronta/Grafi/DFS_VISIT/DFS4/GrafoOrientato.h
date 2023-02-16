@@ -23,7 +23,7 @@ class GrafoOrientato
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
 
         int time;
-        void DFS_VISIT(Vertice<T> *u);
+        int DFS_VISIT(Vertice<T> *u);
         queue<T> coda;
     public:
         
@@ -33,7 +33,7 @@ class GrafoOrientato
 
         void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
         void addArco(Vertice<T> *v1, Vertice<T> *v2);
-        void DFS();
+        int DFS();
 
         friend ostream& operator<<(ostream& out, GrafoOrientato<T> &obj)
         {
@@ -81,8 +81,10 @@ template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1, Vertice<T> *v2
     grafo.at(indice).append(v2);
 }
 
-template<class T> void GrafoOrientato<T>::DFS()
+template<class T> int GrafoOrientato<T>::DFS()
 {
+    int num_c = 0;
+
     for(auto u:grafo)
     {
         u.getVertice()->setColore(Color::WHITE);
@@ -93,16 +95,21 @@ template<class T> void GrafoOrientato<T>::DFS()
     for(auto u:grafo)
     {
         if(u.getVertice()->getColore() == Color::WHITE)
-            DFS_VISIT(u.getVertice());
+            num_c += DFS_VISIT(u.getVertice());              
     }
+    cout<<"Numero cicli: " <<num_c <<endl;
+    return num_c;
 }
 
-template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
+template<class T> int GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 {
+    int num_ciclo = 0;
+
     ofstream fileOut;
     string file2 = "Output.txt";
 
     fileOut.open(file2);
+
 
     u->setColore(Color::GRAY);
     u->setTempoInizio(time++);
@@ -111,10 +118,12 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 
     for(auto v:adj)
     {
+        if(v->getColore() == Color::GRAY)
+            num_ciclo++;
         if(v->getColore() == Color::WHITE)
         {
             v->setPredecessore(u);
-            DFS_VISIT(v);
+            num_ciclo += DFS_VISIT(v);
         }
     }
 
@@ -132,8 +141,8 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
         coda_locale.pop();
     }
     fileOut.close();
-    
 
+    return num_ciclo;
 }
 
 #endif
