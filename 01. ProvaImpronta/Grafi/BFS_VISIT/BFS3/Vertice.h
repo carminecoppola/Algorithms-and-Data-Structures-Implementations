@@ -7,62 +7,55 @@
 
 using namespace std;
 
-enum class Color
-{
+enum class Color{
     WHITE,GRAY,BLACK
 };
 
 template<class T>
 class Vertice
 {
-
     private:
         T value;
         Color colore;
         Vertice<T> *predecessore;
-        int distanza;        
-
+        int distanza;
     public:
-
         Vertice(T value);
 
-        //Metodi di set
+        //Metodi di Set
         void setValue(T value){this->value = value;}
-        void setColor(Color colore){this->colore = colore;}
+        void setColore(Color colore){this->colore = colore;}
         void setPredecessore(Vertice<T> *predecessore){this->predecessore = predecessore;}
         void setDistanza(int distanza){this->distanza = distanza;}
 
-        //Metodi di get
+        //Get
         T getValue(){return value;}
-        Color getColor(){return colore;}
-        Vertice<T> *getPredecessor(){return predecessore;}
+        Color getColore(){return colore;}
+        Vertice<T> *getPredecessore(){return predecessore;}
         int getDistanza(){return distanza;}
 
-        friend ostream& operator<<(ostream& out, const Vertice<T>& obj)
+        //Overload
+        friend ostream& operator<<(ostream& out, const Vertice<T> &obj)
         {
             string c;
-            switch(obj.colore)
+
+            switch (obj.colore)
             {
                 case Color::WHITE:
-                    c = "White";
+                    c ="WHITE";
                     break;
                 case Color::GRAY:
-                    c = "Gray";
+                    c ="GRAY";
                     break;
                 case Color::BLACK:
-                    c = "Black";
+                    c ="BLACK";
+                    break;
+                default:
                     break;
             }
-
-            out<<"Valore: "<<obj.value<<" Color:"<<c;
+            out<<"Valore: "<<obj.value <<" Colore: "<<c;
             return out;
         }
-
-        friend bool operator == (Vertice<T> &a, const Vertice<T> &b)
-        {
-            return a.vale == b.value;
-        }
-
 };
 
 template<class T> Vertice<T>::Vertice(T value)
@@ -72,6 +65,5 @@ template<class T> Vertice<T>::Vertice(T value)
     predecessore = nullptr;
     distanza = UINT16_MAX;
 }
-
 
 #endif
