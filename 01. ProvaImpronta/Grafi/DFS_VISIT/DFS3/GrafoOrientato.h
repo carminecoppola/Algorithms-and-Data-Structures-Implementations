@@ -1,14 +1,17 @@
 #ifndef GRAFOORIENTATO_H
 #define GRAFOORIENTATO_H
 
-#include<iostream>
-#include<limits>
-#include<queue>
-#include<list>
-#include<stack>
-
-#include"Nodo.h"
 #include"Vertice.h"
+#include"Nodo.h"
+
+#include<iostream>
+#include<list>
+#include<limits>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<fstream>
+#include<sstream>
 
 using namespace std;
 
@@ -16,46 +19,78 @@ template<class T>
 class GrafoOrientato
 {
     private:
-        vector<Nodo<T>> grafo;
+        vector<Vertice<T>> grafo;
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
 
+        int DFS_VISIT(Vertice<T> *u);
         int time;
-        void DFS_VISIT(Vertice<T> *u);
+        queue<T> coda;
 
     public:
+        
+        queue<T> getCoda(){return coda;}
+        int searchVertice(Vertice<T> *v);
+        Vertice<T> *getIndirizzoVertice(T value);
 
-        void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
-        void addArco(int i, Vertice<T> *vertice){grafo.at(i).append(vertice);}
+        void addNodo(Vertice<T> *vert){grafo.push_back(vert);}
+        void addArco(Vertice<T> *v1 , Vertice<T> *v2);
 
-        void DFS();
+        int DFS();
 
-        friend ostream& operator<<(ostream &out, const GrafoOrientato<T> &obj)
+        friend ostream& operator<<(ostream& out, GrafoOrientato<T>& obj)
         {
             for(auto i:obj.grafo)
-                out<<i<<endl;
+                out<<*i<<endl;
             return out;
         }
 };
+
+template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *v)
+{
+    for (int i = 0; i < grafo.size(); i++)
+    {
+        if(this->grafo.at(i).getVertice()->getValue() == v->getValue())
+            return i;
+    }
+    return -1;
+}
+
+template<class T> Vertice<T>* GrafoOrientato<T>::getIndirizzoVertice(T value)
+{
+    for(auto i:grafo)
+    {
+        if(i.getVertice()->getValue() == value)
+            return i;
+    }
+    return nullptr;
+}
+
+template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1 , Vertice<T> *v2)
+{
+    int ind = searchVertice(v1);
+
+    grafo.at(ind).append(v2);
+}
 
 template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *vertice)
 {
     for(auto i:grafo)
     {
-        if(i.getVertice() == vertice)
-            return i.getListAdj();
+        if(grafo.at(i).getVertice() == vertice)
+            return i.getLista();
     }
-
-    return grafo.at(0).getListAdj();
+    return grafo.at(0).getLista();
 }
 
-template<class T> void GrafoOrientato<T>::DFS()
+template<class T> int GrafoOrientato<T>::DFS()
 {
+
     for(auto u:grafo)
     {
-        u.getVertice()->setColor(Color::WHITE);
+        u.getVertice()->setColore(Color::WHITE);
         u.getVertice()->setPredecessore(nullptr);
-        time = 0;
     }
+    time = 0;
 
     for(auto u:grafo)
     {
@@ -64,25 +99,27 @@ template<class T> void GrafoOrientato<T>::DFS()
     }
 }
 
-template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
+template<class T> int GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 {
-    u->setColor(Color::GRAY);
-    u->setTempInizio(time++);
+
+    u->setColore(Color::GRAY);
+    u->setTempoInizio(time++);
 
     list<Vertice<T>*> adj = getListAdj(u);
-    
+
     for(auto v:adj)
     {
-        if(v->getColore() == Color::WHITE)
+        if(v.getVertice()->getColor() == Color::WHITE)
         {
             v->setPredecessore(u);
             DFS_VISIT(v);
         }
     }
-    u->setColor(Color::BLACK);
-    u->setTempFine(time++);
 
+    u->setColore(Color::BLACK);
+    u->setTempoFine(time++);
+
+    coda.pop(u->getValue());
 }
-
 
 #endif

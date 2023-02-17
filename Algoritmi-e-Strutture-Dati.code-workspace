@@ -15,7 +15,8 @@
 			"ostream": "cpp",
 			"new": "cpp",
 			"iosfwd": "cpp",
-			"queue": "cpp"
+			"queue": "cpp",
+			"list": "cpp"
 		}
 	}
 }
