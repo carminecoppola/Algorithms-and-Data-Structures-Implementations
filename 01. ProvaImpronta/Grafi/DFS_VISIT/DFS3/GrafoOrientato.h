@@ -19,7 +19,7 @@ template<class T>
 class GrafoOrientato
 {
     private:
-        vector<Vertice<T>> grafo;
+        vector<Nodo<T>> grafo;
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
 
         int DFS_VISIT(Vertice<T> *u);
@@ -32,15 +32,15 @@ class GrafoOrientato
         int searchVertice(Vertice<T> *v);
         Vertice<T> *getIndirizzoVertice(T value);
 
-        void addNodo(Vertice<T> *vert){grafo.push_back(vert);}
+        void addNodo(Nodo<T> nodo){grafo.push_back(nodo);}
         void addArco(Vertice<T> *v1 , Vertice<T> *v2);
 
-        int DFS();
+        void DFS();
 
         friend ostream& operator<<(ostream& out, GrafoOrientato<T>& obj)
         {
             for(auto i:obj.grafo)
-                out<<*i<<endl;
+                out<<i<<endl;
             return out;
         }
 };
@@ -60,7 +60,7 @@ template<class T> Vertice<T>* GrafoOrientato<T>::getIndirizzoVertice(T value)
     for(auto i:grafo)
     {
         if(i.getVertice()->getValue() == value)
-            return i;
+            return i.getVertice();
     }
     return nullptr;
 }
@@ -76,14 +76,15 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 {
     for(auto i:grafo)
     {
-        if(grafo.at(i).getVertice() == vertice)
+        if(i.getVertice() == vertice)
             return i.getLista();
     }
     return grafo.at(0).getLista();
 }
 
-template<class T> int GrafoOrientato<T>::DFS()
+template<class T> void GrafoOrientato<T>::DFS()
 {
+    int cont_c = 0;
 
     for(auto u:grafo)
     {
@@ -95,12 +96,21 @@ template<class T> int GrafoOrientato<T>::DFS()
     for(auto u:grafo)
     {
         if(u.getVertice()->getColore() == Color::WHITE)
-            DFS_VISIT(u.getVertice());
+            cont_c += DFS_VISIT(u.getVertice());
     }
+
+    cout<<"Numero Cicli: " <<cont_c << endl;;
+
 }
 
 template<class T> int GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 {
+    int cont_cicli = 0;
+
+    ofstream fileOut;
+    string file2 = "Output.txt";
+
+    fileOut.open(file2);
 
     u->setColore(Color::GRAY);
     u->setTempoInizio(time++);
@@ -109,17 +119,32 @@ template<class T> int GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 
     for(auto v:adj)
     {
-        if(v.getVertice()->getColor() == Color::WHITE)
+        if(v->getColore() == Color::GRAY)
+            cont_cicli++;
+
+        if(v->getColore() == Color::WHITE)
         {
             v->setPredecessore(u);
-            DFS_VISIT(v);
+            cont_cicli += DFS_VISIT(v);
+
         }
     }
 
     u->setColore(Color::BLACK);
     u->setTempoFine(time++);
 
-    coda.pop(u->getValue());
+    coda.push(u->getValue());
+    queue<T> coda_locale = coda;
+
+    while(!coda_locale.empty())
+    {
+        fileOut << coda_locale.front() <<endl;
+        coda_locale.pop();
+    }
+
+    fileOut.close();
+
+    return cont_cicli;
 }
 
 #endif
