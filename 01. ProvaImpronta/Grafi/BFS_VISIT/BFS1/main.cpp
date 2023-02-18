@@ -1,44 +1,67 @@
-#include<iostream>
-#include<string>
-#include<queue>
-
 #include"Vertice.h"
 #include"Nodo.h"
 #include"GrafoOrientato.h"
 
-using namespace std;
+#include<iostream>
+#include<limits>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<list>
+#include<sstream>
+#include<fstream>
 
-int main(){
+int main()
+{
+    GrafoOrientato<int> grafo;
 
-    GrafoOrientato<string> grafo;
+    ifstream file;
+    string myFile = "GTR.txt";
 
-    Vertice<string> a("A");
-    Vertice<string> b("B");
-    Vertice<string> c("C");
-    Vertice<string> d("D");
-    Vertice<string> e("E");
-    Vertice<string> f("F");
+    file.open(myFile);
 
-    grafo.addNodo(Nodo<string>(&a));
-    grafo.addNodo(Nodo<string>(&b));
-    grafo.addNodo(Nodo<string>(&c));
-    grafo.addNodo(Nodo<string>(&d));
-    grafo.addNodo(Nodo<string>(&e));
-    grafo.addNodo(Nodo<string>(&f));
+    string line;
 
+    int i = 0, num_v = 0, num_a = 0;
+    int vertice, arco;
+    int sorgente = 0;
 
-    grafo.addArco(0,&b);
-    grafo.addArco(0,&e);
-    grafo.addArco(1,&c);
-    grafo.addArco(2,&d);
-    grafo.addArco(2,&e);
-    grafo.addArco(4,&f);
+    while (getline(file,line))
+    {
+        stringstream lineIn(line);
 
-    queue<Vertice<string>*> queue;
-    queue.push(&a);
-    grafo.BFS(&a);
-    cout<<endl<<"BFS:"<<endl;
-    cout << grafo << endl;
+        if(i == 0)
+        {
+            lineIn >> num_v;
+            lineIn >> num_a;
+            i++;
+        }
+        else
+        {
+            lineIn >> vertice;
+            lineIn >> arco;
+
+            sorgente = vertice;
+
+            Vertice<int> *v1 = new Vertice<int>(vertice);
+            Vertice<int> *v2 = new Vertice<int>(arco);
+
+            if(grafo.searchVertice(v1) == -1)
+                grafo.addNodo(v1);
+            if(grafo.searchVertice(v2) == -1)
+                grafo.addNodo(v2);
+            grafo.addArco(grafo.getIndirizzoVertice(vertice), grafo.getIndirizzoVertice(arco));
+            
+        }
+    }
+    
+    file.close();
+
+    Vertice<int> *vert_sorgent = new Vertice<int>(sorgente);
+
+    cout<<"Grafo: "<< endl << grafo <<endl;
+    grafo.BFS(vert_sorgent);
+    cout<<"BFS: "<< endl << grafo <<endl;
 
 
     return 0;
