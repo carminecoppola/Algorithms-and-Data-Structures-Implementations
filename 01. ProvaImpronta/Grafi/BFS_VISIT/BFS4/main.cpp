@@ -1,42 +1,66 @@
-#include <iostream>
-#include <string>
-#include <queue>
-#include "Nodo.h"
-#include "GrafoOrientato.h"
-#include "Vertice.h"
+#include"Vertice.h"
+#include"Nodo.h"
+#include"GrafoOrientato.h"
+
+#include<iostream>
+#include<stack>
+#include<vector>
+#include<string>
+#include<queue>
+#include<list>
+#include<limits>
+#include<fstream>
+#include<sstream>
 
 using namespace std;
 
-int main(){
+int main()
+{
+    GrafoOrientato<int> grafo;
 
-    GrafoOrientato<string> grafo;
+    ifstream file;
+    string myFile = "GTR.txt";
+    file.open(myFile);
 
-    Vertice<string> a("A");
-    Vertice<string> b("B");
-    Vertice<string> c("C");
-    Vertice<string> d("D");
-    Vertice<string> e("E");
-    Vertice<string> f("F");
+    string line;
 
-    grafo.addNodo(Nodo<string>(&a));
-    grafo.addNodo(Nodo<string>(&b));
-    grafo.addNodo(Nodo<string>(&c));
-    grafo.addNodo(Nodo<string>(&d));
-    grafo.addNodo(Nodo<string>(&e));
-    grafo.addNodo(Nodo<string>(&f));
+    int i = 0,num_v = 0, num_a = 0;
+    int vertice = 0, arco = 0, vertice_sorgente = 0;
 
-    grafo.addArco(0, &b);         // 0|A|--->|B|   |--->|E|   |--->NULL
-    grafo.addArco(0, &e);         // 1|B|--->|C|   |--->NULL
-    grafo.addArco(1, &c);         // 2|C|--->|D|   |--->|E|   |--->NULL
-    grafo.addArco(2, &d);         // 3|D|--->NULL
-    grafo.addArco(2, &e);         // 4|E|--->|F|   |--->NULL
-    grafo.addArco(4, &f);         // 5|F|--->NULL
+    while (getline(file,line))
+    {
+        stringstream lineIn(line);
 
-    queue<Vertice<string>*> queue;
-    queue.push(&a);
-    grafo.BFS(&a);
-    cout<<endl<<"BFS:"<<endl;
-    cout << grafo << endl;
+        if(i == 0)
+        {
+            lineIn >> num_v;
+            lineIn >> num_a;
+            i++;
+        }
+        else
+        {
+            lineIn >> vertice;
+            lineIn >> arco;
+
+            vertice_sorgente = vertice;
+
+            Vertice<int> *v1 = new Vertice<int>(vertice);
+            Vertice<int> *v2 = new Vertice<int>(arco);
+
+            if(grafo.searchVertice(v1) == -1)
+                grafo.addNodo(v1);
+            if(grafo.searchVertice(v2) == -1)
+                grafo.addNodo(v2);
+            grafo.addArco(grafo.getIndirizzoVertice(vertice),grafo.getIndirizzoVertice(arco));
+            
+        }
+    }
+
+    Vertice<int> *sorgente = new Vertice<int>(vertice_sorgente);
+    
+    cout<<"Grafo: "<<endl<<grafo<<endl;
+    grafo.BFS(sorgente);
+    cout<<"BFS: "<<endl<<grafo<<endl;
 
     return 0;
 }
