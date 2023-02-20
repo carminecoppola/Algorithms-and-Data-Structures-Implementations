@@ -53,7 +53,7 @@ int main(){
     file.close();
 
     Vertice<int> *sorgente = new Vertice<int>(valoreSorgente);
-
+    
     cout<<"Grafo:"<<endl;
     cout<<grafo<<endl;
     cout<<"Grafo dopo BFS:"<<endl;

@@ -24,7 +24,7 @@ class Nodo
         void append(Vertice<T> *vertice){listaAdj.push_back(vertice);}
 
         //Overload
-        friend ostream& operator<<(ostream& out, const Nodo<T>& obj)
+        friend ostream& operator<<(ostream& out, const Nodo<T>&obj)
         {
             out<<*obj.vertice<<"-->";
             for(auto i:obj.listaAdj)

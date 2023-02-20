@@ -34,7 +34,7 @@ class GrafoOrientato
         void BFS(Vertice<T> *sorgente);
 
         //Overload
-        friend ostream& operator<<(ostream& out, GrafoOrientato<T>& obj)
+        friend ostream& operator<<(ostream& out, GrafoOrientato<T>&obj)
         {
             for(auto i:obj.grafo)
                 out<<i<<endl;
@@ -67,7 +67,7 @@ template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1, Vertice<T> *v2
 {
     int indice = searchVertice(v1);
 
-    grafo.at(indice).append(v1);
+    grafo.at(indice).append(v2);
 }
 
 template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *vertice)
@@ -83,9 +83,8 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
 template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 {
     ofstream fileOut;
-    string file2 ="Output.txt";
-
-    fileOut.open(file2);
+    
+    fileOut.open("Output.txt");
 
     for(auto u:grafo)
     {
@@ -110,19 +109,20 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 
         for(auto v:adj)
         {
-            if(v->getColore() == Color::WHITE)
+            if (v->getColore() == Color::WHITE)
             {
                 v->setColore(Color::GRAY);
                 v->setPredecessore(u);
                 v->setDistanza(v->getDistanza() + 1);
                 coda.push(v);
-            }   
+            }
         }
 
         u->setColore(Color::BLACK);
 
         fileOut << u->getValue() <<endl;
     }
+
     fileOut.close();
 }
 

@@ -35,26 +35,24 @@ class Vertice
         int getDistanza(){return distanza;}
 
         //Overload
-        friend ostream& operator<<(ostream& out, const Vertice<T>& obj)
+        friend ostream& operator<<(ostream& out, const Vertice<T>&obj)
         {
             string c;
-
             switch (obj.colore)
             {
-                case Color::WHITE:
-                    c = "WHITE";
-                    break;
-                case Color::GRAY:
-                    c = "GRAY";
-                    break;
-                case Color::BLACK:
-                    c = "BLACK";
-                    break;
-                
-                default:
-                    break;
+            case Color::WHITE:
+                c = "WHITE";
+                break;
+            case Color::GRAY:
+                c = "GRAY";
+                break;
+            case Color::BLACK:
+                c = "BLACK";
+                break;
+            
+            default:
+                break;
             }
-
             out<<"Valore: "<<obj.value <<" Colore: "<<c;
             return out;
         }

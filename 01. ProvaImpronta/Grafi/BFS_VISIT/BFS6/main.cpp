@@ -1,6 +1,6 @@
-#include"GrafoOrientato.h"
 #include"Vertice.h"
 #include"Nodo.h"
+#include"GrafoOrientato.h"
 
 #include<iostream>
 #include<stack>
@@ -26,7 +26,7 @@ int main()
     string line;
 
     int i = 0, num_v = 0, num_a = 0;
-    int vertice_sorgente ,vertice , arco;
+    int vertice_sorgente = 0 ,vertice = 0, arco = 0;
 
     while (getline(file,line))
     {
@@ -44,6 +44,7 @@ int main()
             lineIn >> arco;
 
             vertice_sorgente = vertice;
+            
 
             Vertice<int> *v1 = new Vertice<int>(vertice);
             Vertice<int> *v2 = new Vertice<int>(arco);
@@ -61,7 +62,8 @@ int main()
 
     Vertice<int> *sorgente = new Vertice<int>(vertice_sorgente);
 
-    cout<<"Grafo: "<<endl<<grafo<<endl;
+    cout<<"Grafo:" <<endl;
+    cout<<grafo<<endl;
     cout<<"BFS: "<<endl;
     grafo.BFS(sorgente);
     cout<<grafo<<endl;
