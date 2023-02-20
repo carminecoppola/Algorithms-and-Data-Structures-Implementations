@@ -101,25 +101,27 @@ template<class T> void GrafoOrientato<T>::DFS()
 
 template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 {
-    ofstream fileOut;
-    string file2 = "Output.txt";
+   ofstream fileOut;
+   string file2 = "Output.txt";
 
-    fileOut.open(file2);
+   fileOut.open(file2);
 
-    u->setColore(Color::GRAY);
-    u->setTempoInizio(time++);
+   u->setColore(Color::GRAY);
+   u->setTempoInizio(time++);
 
-    list<Vertice<T>*> adj = getListAdj(u);
+   list<Vertice<T>*> adj = getListAdj(u);
 
-    for(auto v:adj)
-    {
+   for(auto v:adj)
+   {
         if(v->getColore() == Color::WHITE)
         {
             v->setPredecessore(u);
             DFS_VISIT(v);
         }
-    }
+   }
+    
     u->setColore(Color::BLACK);
+    u->setTempoFine(time++);
 
     coda.push(u->getValue());
 
@@ -127,13 +129,12 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
 
     while (!coda_locale.empty())
     {
-        fileOut<< coda_locale.front() <<endl;
+        fileOut << coda_locale.front() <<endl;
         coda_locale.pop();
     }
 
     fileOut.close();
     
-
 }
 
 
