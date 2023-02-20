@@ -5,12 +5,12 @@
 #include"Nodo.h"
 
 #include<iostream>
-#include<stack>
+#include<vector>
 #include<string>
 #include<queue>
-#include<vector>
 #include<list>
 #include<limits>
+#include<stack>
 #include<fstream>
 #include<sstream>
 
@@ -24,7 +24,7 @@ class GrafoOrientato
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
 
     public:
-    
+        
         int searchVertice(Vertice<T> *vertice);
         Vertice<T> *getIndirizzoVertice(T value);
 
@@ -33,7 +33,6 @@ class GrafoOrientato
 
         void BFS(Vertice<T> *sorgente);
 
-        //Overload
         friend ostream& operator<<(ostream& out, GrafoOrientato<T>&obj)
         {
             for(auto i:obj.grafo)
@@ -43,6 +42,7 @@ class GrafoOrientato
 
 };
 
+//SearchVertice
 template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *vertice)
 {
     for (int i = 0; i < grafo.size(); i++)
@@ -53,9 +53,10 @@ template<class T> int GrafoOrientato<T>::searchVertice(Vertice<T> *vertice)
     return -1;
 }
 
-template<class T> Vertice<T> * GrafoOrientato<T>::getIndirizzoVertice(T value)
+//GetIndirizzoVertice
+template<class T> Vertice<T>* GrafoOrientato<T>::getIndirizzoVertice(T value)
 {
-    for (auto i : grafo)
+    for(auto i:grafo)
     {
         if(i.getVertice()->getValue() == value)
             return i.getVertice();
@@ -63,13 +64,7 @@ template<class T> Vertice<T> * GrafoOrientato<T>::getIndirizzoVertice(T value)
     return nullptr;
 }
 
-template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1, Vertice<T> *v2)
-{
-    int indice = searchVertice(v1);
-
-    grafo.at(indice).append(v2);
-}
-
+//GetListaAdj
 template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *vertice)
 {
     for(auto i:grafo)
@@ -80,6 +75,15 @@ template<class T> list<Vertice<T>*> GrafoOrientato<T>::getListAdj(Vertice<T> *ve
     return grafo.at(0).getLista();
 }
 
+//AddArco
+template<class T> void GrafoOrientato<T>::addArco(Vertice<T> *v1, Vertice<T> *v2)
+{
+    int indice = searchVertice(v1);
+
+    grafo.at(indice).append(v2);
+}
+
+//BFS
 template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
 {
     ofstream fileOut;
@@ -97,32 +101,31 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
     sorgente->setPredecessore(nullptr);
     sorgente->setDistanza(0);
 
-    queue<Vertice<T>*> q;
-    q.push(sorgente);
+    queue<Vertice<T>*> coda;
+    coda.push(sorgente);
 
-    while(!q.empty())
-    {   
-        auto u = q.front();
-        q.pop();
+    while (!coda.empty())
+    {
+        auto u = coda.front();
+        coda.pop();
 
         list<Vertice<T>*> adj = getListAdj(u);
 
         for(auto v:adj)
         {
-            if (v->getColore() == Color::WHITE)
+            if(v->getColore() == Color::WHITE)
             {
                 v->setColore(Color::GRAY);
                 v->setPredecessore(u);
                 v->setDistanza(v->getDistanza() + 1);
-                q.push(v);
+                coda.push(v);
             }
         }
-
         u->setColore(Color::BLACK);
 
-        fileOut << u->getValue() <<endl;
+        fileOut<< u->getValue()<<endl;
     }
-
+    
     fileOut.close();
 }
 
