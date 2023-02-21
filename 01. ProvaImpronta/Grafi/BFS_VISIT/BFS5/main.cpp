@@ -51,13 +51,11 @@ int main(){
     
 
     file.close();
-
-    Vertice<int> *sorgente = new Vertice<int>(valoreSorgente);
     
     cout<<"Grafo:"<<endl;
     cout<<grafo<<endl;
     cout<<"Grafo dopo BFS:"<<endl;
-    grafo.BFS(sorgente);
+    grafo.BFS(grafo.getIndirizzoVertice(valoreSorgente));
     cout<<grafo<<endl;
 
     return 0;
