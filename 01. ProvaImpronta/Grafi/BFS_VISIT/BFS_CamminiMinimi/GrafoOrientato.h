@@ -13,6 +13,7 @@
 #include<stack>
 #include<fstream>
 #include<sstream>
+#define K 2
 
 using namespace std;
 
@@ -24,7 +25,7 @@ class GrafoOrientato
         list<Vertice<T>*> getListAdj(Vertice<T> *vertice);
 
     public:
-        
+
         int searchVertice(Vertice<T> *vertice);
         Vertice<T> *getIndirizzoVertice(T value);
 
@@ -109,23 +110,29 @@ template<class T> void GrafoOrientato<T>::BFS(Vertice<T> *sorgente)
         auto u = coda.front();
         coda.pop();
 
-        list<Vertice<T>*> adj = getListAdj(u);
+        if(u->getDistanza() > K)
+            break;
+        else{
 
-        for(auto v:adj)
-        {
-            if(v->getColore() == Color::WHITE)
+            list<Vertice<T>*> adj = getListAdj(u);
+
+            for(auto v:adj)
             {
-                v->setColore(Color::GRAY);
-                v->setPredecessore(u);
-                v->setDistanza(v->getDistanza() + 1);
-                coda.push(v);
+                if(v->getColore() == Color::WHITE)
+                {
+                    v->setColore(Color::GRAY);
+                    v->setPredecessore(u);
+                    v->setDistanza(u->getDistanza() + 1);
+                    coda.push(v);
+                }
             }
-        }
-        u->setColore(Color::BLACK);
 
-        fileOut<< u->getValue()<<endl;
+            u->setColore(Color::BLACK);
+
+            fileOut<<"Il valore: "<<u->getValue()<< " ha distanza = " << u->getDistanza()<<endl;
+        }
     }
-    
+
     fileOut.close();
 }
 

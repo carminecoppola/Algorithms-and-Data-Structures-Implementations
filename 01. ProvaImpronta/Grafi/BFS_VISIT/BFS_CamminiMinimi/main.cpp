@@ -58,11 +58,9 @@ int main()
     
     file.close();
 
-    Vertice<int> *sorgente = new Vertice<int>(vertice_sorgente);
-
-    cout<<"Grafo: "<<grafo<<endl;
-    grafo.BFS(sorgente);
-    cout<<"BFS: "<<grafo<<endl;
+    cout<<"Grafo: "<<endl<<grafo<<endl;
+    grafo.BFS(grafo.getIndirizzoVertice(vertice_sorgente));
+    cout<<endl<<"BFS: "<<endl<<grafo<<endl;
 
     return 0;
 }

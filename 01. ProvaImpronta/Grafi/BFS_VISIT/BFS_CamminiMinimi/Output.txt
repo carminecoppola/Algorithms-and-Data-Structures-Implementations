@@ -1,0 +1,5 @@
+Il valore: 2 ha distanza = 0
+Il valore: 1 ha distanza = 1
+Il valore: 0 ha distanza = 1
+Il valore: 6 ha distanza = 1
+Il valore: 3 ha distanza = 2
