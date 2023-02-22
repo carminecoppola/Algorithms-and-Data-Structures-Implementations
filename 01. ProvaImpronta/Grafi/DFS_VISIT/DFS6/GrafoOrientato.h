@@ -10,6 +10,8 @@
 #include<stack>
 #include<limits>
 #include<vector>
+#include<fstream>
+#include<sstream>
 
 using namespace std;
 
@@ -102,10 +104,13 @@ template<class T> void GrafoOrientato<T>::DFS()
             DFS_VISIT(u.getVertice());
     }
 }
-
 //DFS_VISIT
-template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
+template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T>* u)
 {
+    ofstream fileOut;
+    string file2 = "Output.txt";
+    fileOut.open(file2);
+
     u->setColore(Color::GRAY);
     u->setTempoInizio(time++);
 
@@ -115,16 +120,37 @@ template<class T> void GrafoOrientato<T>::DFS_VISIT(Vertice<T> *u)
     {
         if(v->getColore() == Color::WHITE)
         {
+            // Albero (tree) edge
             v->setPredecessore(u);
             DFS_VISIT(v);
         }
+        else if(v->getColore() == Color::GRAY)
+        {
+            // Back edge
+            // L'arco (u,v) forma un ciclo
+            fileOut << "Back Edge: (" << u->getValue() << ", " << v->getValue() << ")" << endl;
+        }
+        else
+        {
+            // Forward edge o cross edge
+            // L'arco (u,v) è un forward edge se u->getTempoInizio() < v->getTempoInizio()
+            // L'arco (u,v) è un cross edge se u->getTempoInizio() > v->getTempoInizio()
+            fileOut << "Forward/Cross Edge: (" << u->getValue() << ", " << v->getValue() << ")" << endl;
+        }
     }
-
     u->setColore(Color::BLACK);
     u->setTempoFine(time++);
-    
-    //Ordinamento Topologico
+
     coda.push(u->getValue());
+    
+    queue<int> coda_locale = coda;
+    while (!coda_locale.empty())
+    {
+        fileOut << coda_locale.front() <<endl;
+        coda_locale.pop();
+    }
+
+    fileOut.close();
 }
 
 
