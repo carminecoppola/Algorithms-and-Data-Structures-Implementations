@@ -1,0 +1,14 @@
+Vertice: 8
+Vertice: 5
+Vertice: 3
+Vertice: 2
+Vertice: 13
+Vertice: 12
+Vertice: 9
+Vertice: 7
+Vertice: 11
+Vertice: 10
+Vertice: 6
+Vertice: 1
+Vertice: 0
+Vertice: 4
