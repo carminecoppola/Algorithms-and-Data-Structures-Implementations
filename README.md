@@ -20,7 +20,7 @@ The repository includes the following implementations:
 
 To use the implementations in this repository, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repository.git`
+1. Clone the repository: `git clone https://github.com/carminecoppola/Algorithms-and-Data-Structures-Implementations.git`
 2. Navigate to the desired implementation directory.
 3. Compile the source code using a C++ compiler.
 4. Run the executable file generated after compilation.
